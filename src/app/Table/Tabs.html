@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>index</title>
+    @@include('../inc/head.inc')
+  </head>
+  <body>
+ 	@@include('../inc/nav.inc')
+		<h6>Bootstrap Demo</h6>
+		<h5>演示：
+		<br>1.搜索
+		<br>2.多选项卡表格切换+搜索
+		<br>3.数据对象传递(列表页->详情页)
+		</h5>
+		<!-- form 筛选条件-->
+		<form class="row j_filter" id="j_filter_1">
+		  <div class="col-sm-12">  
+		    <div class="panel panel-default">
+		      <div class="panel-body form-inline">
+					  <div class="form-group"><label>标题1：</label><input type="text" name="name" class="form-control" placeholder=""/></div>
+				  
+					  <div class="form-group"><label>描述1：</label><input type="text" name="title" class="form-control" placeholder=""/></div>
+					  
+					  <div class="form-group"><label>状态1：</label>
+	                <select class="form-control" name="isvalid">
+	                   <option value="0">请选择</option>
+	                   <option value="0">禁用</option>
+	                   <option value="1">启用</option>
+	               </select>
+	          </div>
+					  
+					  <div class="form-group"><label>提交时间1：</label>
+					  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_2_date1" name="startSubmitTime" onclick="WdatePicker({ minDate:'#F{$dp.$D(\'filter_2_date2\',{d:-31});}',maxDate:'#F{$dp.$D(\'filter_2_date2\',{d:0});}'})" />
+					  -
+					  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_2_date2" name="endSubmitTime" onclick="WdatePicker({minDate:'#F{$dp.$D(\'filter_2_date1\',{d:0});}',maxDate:'#F{$dp.$D(\'filter_2_date1\',{d:31});}'})" />
+					  </div>
+					  <div class="form-group"><button type="button" onclick='fun_search()' class="btn btn-primary btn-sm">查询</button></div>
+				  </div>			  
+			  </div>
+		  </div>
+		</form>
+		<form class="row j_filter none" id="j_filter_2">
+		  <div class="col-sm-12">  
+		    <div class="panel panel-default">
+		        <div class="panel-body form-inline">
+					  <div class="form-group"><label>标题2：</label><input type="text" name="name" class="form-control" placeholder=""/></div>
+				  
+					  <div class="form-group"><label>描述2：</label><input type="text" name="title" class="form-control" placeholder=""/></div>
+					  
+					  <div class="form-group"><label>状态2：</label>
+	                <select class="form-control" name="isvalid">
+	                   <option value="0">请选择</option>
+	                   <option value="0">禁用</option>
+	                   <option value="1">启用</option>
+	               </select>
+	          </div>
+					  
+					  <div class="form-group"><label>提交时间2：</label>
+					  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_2_date1" name="startSubmitTime" onclick="WdatePicker({ minDate:'#F{$dp.$D(\'filter_2_date2\',{d:-31});}',maxDate:'#F{$dp.$D(\'filter_2_date2\',{d:0});}'})" />
+					  -
+					  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_2_date2" name="endSubmitTime" onclick="WdatePicker({minDate:'#F{$dp.$D(\'filter_2_date1\',{d:0});}',maxDate:'#F{$dp.$D(\'filter_2_date1\',{d:31});}'})" />
+					  </div>
+					  <div class="form-group"><label>审核时间2：</label>
+						  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_2_date1_ex" name="startExamineTime" onclick="WdatePicker({ minDate:'#F{$dp.$D(\'filter_2_date2_ex\',{d:-31});}',maxDate:'#F{$dp.$D(\'filter_2_date2_ex\',{d:0});}'})" />
+						  -
+						  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_2_date2_ex" name="endExamineTime" onclick="WdatePicker({minDate:'#F{$dp.$D(\'filter_2_date1_ex\',{d:0});}',maxDate:'#F{$dp.$D(\'filter_2_date1_ex\',{d:31});}'})" />
+					  </div>
+					  <div class="form-group"><button type="button" onclick='fun_search()' class="btn btn-primary btn-sm">查询</button></div>
+				  </div>			  
+			  </div>
+		  </div>
+		</form>
+	
+		<!-- 选项卡 --> 
+		<div class="row"> 
+		    <div class="col-lg-12">
+		        <div class="panel panel-default">
+		            <div class="panel-body">
+		                <ul class="nav nav-tabs" id="j_tab">
+		                    <li class="active"><a href="#p1" data-toggle="tab">分类1<h6 class="text-danger">[待审核]</h6></a>
+		                    </li>
+		                    <li><a href="#p2" data-toggle="tab">分类2<h6 class="text-success">[已审核]</h6></a>
+		                    </li>
+		                </ul>
+		                 <div class="tab-content">
+		                     <!-- 分类1待审核 -->
+		                     <div id="p1" class="tab-pane fade in active">
+		                     	<br>
+				  	        		  <div class="table-responsive">
+					                     <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1">
+					                      <thead>
+					                          <tr>
+					                           <th>序号</th>
+					                           <th style="min-width: 80px;">操作</th>
+					                          <th>标题</th>
+					                          <th>描述</th>
+					                          <th>状态</th>
+					                          <th>提交时间</th>
+					                          </tr>
+					                      </thead>
+					                      <tbody>
+				                      		<!-- 节点遍历 -->
+																<tr v-for="item in items">
+																	<td>{{item.vueIndex}}</td>
+																	<td>
+																		<button type="button" class="btn btn-warning btn-xs">无</button>
+																		<button type="button" class="btn btn-primary btn-xs" v-on:click="detail(item,$event)">打开</button>
+																	</td>
+																	<td>{{ item.name }}</td>
+																	<td>{{ item.title }}</td>
+																	<td>{{ false | switch_1 }}</td>
+																	<td>{{ false | table_1_timefomart}}</td>
+																</tr>
+															</tbody>
+					                  </table>
+			                    </div>
+			                    <ul id="vue-pager1" class="pagination pull-right"></ul>
+		                     </div>
+		                     <!-- 分类2已审核 -->
+		                     <div id="p2" class="tab-pane fade">
+		                     	<br>
+			                      <div class="table-responsive">
+				                     <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table2">
+				                      <thead>
+				                          <tr>
+				                            <th>序号</th>
+				                            <th>操作</th>
+					                          <th>标题</th>
+					                          <th>描述</th>
+					                          <th>状态</th>
+					                          <th>提交时间</th>
+				                          </tr>
+				                      </thead>
+				                      <tbody>
+			                      		<!-- 节点遍历 -->
+															<tr v-for="item in items">
+																<td>{{item.vueIndex}}</td>
+																<td> 
+																</td>
+																<td>{{ item.name }}</td>
+																<td>{{ item.title }}</td>
+																<td>{{ false | switch_1 }}</td>
+																<td>{{ false | table_2_timefomart}}</td>
+															</tr>
+														</tbody>
+				                  </table>
+			                    </div>
+			                    <ul id="vue-pager2" class="pagination pull-right"></ul>
+		                     </div>
+		                     
+		                </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+		<div class="modal fade" id="modal_table1_detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+			    <form id="form_user_info"  method="post">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">1.传递对象各个字段信息；2.通过ajax展示一个子列表</h4>
+			      </div>
+				      <div class="modal-body">
+				      		  <div id="vue-table1-info">
+				      		  <div class="form-group">标题：{{item.name}}</div>
+				      		  <div class="form-group">描述：{{item.title}}</div>
+				      		  </div> 
+				      		  <div class="table-responsive">
+					                     <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
+					                      <thead>
+					                          <tr>
+				                           <th>序号</th>
+				                           <th>操作</th>
+				                           <th>标题</th>
+				                           <th>描述</th>
+				                           <th>状态</th>
+				                           <th>时间</th>
+					                          </tr>
+					                      </thead>
+					                      <tbody>
+				                      		<!-- 节点遍历 -->
+																<tr v-for="item in items">
+																	<td>{{item.vueIndex}}</td>
+																	<td>
+																		<button type="button" class="btn btn-warning btn-xs">无</button>
+																	</td>
+																	<td>{{ item.name }}</td>
+																	<td>{{ item.title }}</td>
+																	<td>{{ false | switch_1 }}</td>
+																	<td>{{ false | table_1_timefomart}}</td>
+																</tr>
+															</tbody>
+					                  </table>
+				                    </div>
+				                    <ul id="vue-table1-pager3" class="pagination pull-right"></ul>
+							<p class="text-center">提交后将不能进行修改</p>
+				      </div>
+			      <div class="modal-footer"> 
+			        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			        <button type="submit" class="btn btn-primary">提交</button>
+			      </div>
+			    </form>
+		    </div>
+		  </div>
+		</div>
+	@@include('../inc/foot.inc')
+<script type="text/javascript">
+function getLocalTime(tm) {
+	if("" == tm || undefined == tm){
+		return "";
+	}
+    var now=new Date(tm);
+    var year=now.getFullYear();     
+    var month=now.getMonth()+1;     
+    var date=now.getDate();     
+    var hour=now.getHours();     
+    var minute=now.getMinutes();     
+    var second=now.getSeconds();     
+    return year+"-"+month+"-"+date+"  "+hour+":"+minute+":"+second;
+}  
+var page = {
+	table1:null,url1:JZ.AjaxUrl.DemoPageData,//'/mock/DemoPageData.json?'+Math.random(),
+	table2:null,url2:JZ.AjaxUrl.DemoPageData,//'/mock/DemoPageData.json?'+Math.random(),
+	table1_table1:null,table1_url1:JZ.AjaxUrl.DemoPageData
+}; 
+//切换选项卡
+$('#j_tab li').click(function(){
+	var _index = $('#j_tab li').index($(this))+1;
+	$('#j_filter_'+_index).show().siblings('.j_filter').hide();
+	if(page['table'+_index]==null){
+		fun_search(_index);
+	}
+}).eq(0).click();
+//搜索
+function fun_search(index){
+	var _index = (index !=undefined)?index:$('#j_tab li').index($('#j_tab li.active'))+1;
+	//拼接请求参数
+	var params = '&'+$('#j_filter_'+_index).serialize();
+	//设置特殊参数
+	switch(_index){ 
+		case 1:
+			params += '&changeMethod=0&isReceivables=0';
+			break;
+		case 2:
+			params += '&changeMethod=0&isReceivables=1-2-4';
+			break;
+	}
+	//如果表格未初始化
+	if(page['table'+_index]==null){
+		window['init_table_'+index](page['url'+_index] + params);
+		return;
+	}else{
+		//修改表格请求地址
+		page['table'+_index].setUrl(page['url'+_index] + params);
+		//重新加载数据
+		page['table'+_index].reload();	
+	}
+} 
+
+function init_table_1(url){
+	page.table1 = JZ.Table({
+		url:url,
+		el_data:'#vue-table1',
+		el_pager:'#vue-pager1',
+		//limit:10,//每页条数
+		//page:true//是否分页
+		filter:function(){//TODO:添加自定义逻辑
+			Vue.filter('switch_1', function () {
+				if(this.item.isvalid%2==0)
+					return '禁用';
+				return '启用';
+			});
+			Vue.filter('table_1_timefomart', function () {
+				return getLocalTime(this.item.recorddate);
+			});},
+		methods:{
+		  detail:function(item,event){
+			$('#modal_table1_detail').modal('show');
+			//1.加载主表信息
+			vm_table1_detail.item = item;
+			
+			//2.加载子表信息
+			var params = '&id='+item.id;
+			var url = page.table1_url1 + params;
+			if(page.table1_table1 == null){
+				page.table1_table1 = JZ.Table({
+					url:url,
+					el_data:'#vue-table1-table1',
+					el_pager:'#vue-table1-pager1',
+					limit:5, 
+					filter:function(){},
+					methods:{}
+				});
+			}else{
+				page.table1_table1.setUrl(url);
+				page.table1_table1.reload();	
+			}
+		  }
+		}
+	});
+	//初始化弹窗详细信息
+	vm_table1_detail = new Vue({
+		el: '#vue-table1-info',
+		data: {
+			item:{}
+		}
+	});
+}
+function init_table_2(url){
+	page.table2 = JZ.Table({
+		url:url,
+		el_data:'#vue-table2',
+		el_pager:'#vue-pager2',
+		//limit:10,//每页条数
+		//page:true//是否分页
+		filter:function(){//TODO:添加自定义逻辑
+			Vue.filter('table_2_timefomart', function () {
+				return getLocalTime(this.item.recorddate);
+			});
+		},
+		methods:{}
+		});
+}
+</script>
+  </body>
+</html>

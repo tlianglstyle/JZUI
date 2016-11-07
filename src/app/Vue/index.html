@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>index</title>
+    @@include('../inc/head.inc')
+  </head>
+  <body>
+ 	@@include('../inc/nav.inc')
+		<h6>Bootstrap Demo</h6>
+		<div class="row">
+		  <div class="col-sm-12">  
+		  	<div class="panel panel-default">
+		        <div class="panel-heading"><b>Table</b>
+		        <button type="button" class="btn btn-primary btn-xs" onclick='vm.tables.table1.refresh()'>刷新 </button>  
+		        </div>
+		        <div class="panel-body">
+		        	<div class="table-responsive">
+		        	 <table width="100%" class="table table-striped table-bordered table-hover">
+	                     <thead>
+	                         <tr>
+	                          <th>序号</th>
+	                          <th>操作</th>
+	                          <th>客户姓名</th>
+	                          <th>联系方式</th>
+	                          <th>用户状态</th>
+	                          <th>提交时间</th>
+	                         </tr>
+	                     </thead>
+	                     <tbody>
+	                    <!-- 节点遍历 -->
+											<tr v-for="item in UserList1">
+												<td>{{item.vueIndex}}</td>
+												<td>
+													<button type="button" class="btn btn-primary btn-xs" v-on:click="edit(item,$event)">修改</button>
+													<button type="button" class="btn btn-warning btn-xs" v-on:click="del(item,$event)">删除</button>
+												</td>
+												<td>{{ item.username }}</td>
+												<td>{{ item.cellphone }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.createTime.hours }}:{{ item.createTime.minutes }}:{{ item.createTime.seconds }}</td>
+											</tr>
+										</tbody>
+	                 </table>
+	                 </div>
+					</div>		  
+			  </div>
+		    <div class="panel panel-default">
+		        <div class="panel-heading"><b>Table Pager</b>
+		        </div>
+		        <div class="panel-body">
+		        	<div class="table-responsive">
+		        	 <table width="100%" class="table table-striped table-bordered table-hover" >
+	                     <thead>
+	                         <tr>
+	                          <th>序号</th>
+	                          <th>操作</th>
+	                          <th>客户姓名</th>
+	                          <th>联系方式</th>
+	                          <th>用户状态</th>
+	                          <th>提交时间</th>
+	                         </tr>
+	                     </thead>
+	                     <tbody>
+	                    <!-- 节点遍历 -->
+											<tr v-for="item in UserList2">
+												<td>{{item.vueIndex}}</td>
+												<td>
+													<button type="button" class="btn btn-primary btn-xs" v-on:click="edit(item,$event)">修改</button>
+													<button type="button" class="btn btn-warning btn-xs" v-on:click="del(item,$event)">删除</button>
+												</td>
+												<td>{{ item.username }}</td>
+												<td>{{ item.cellphone }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.createTime.hours }}:{{ item.createTime.minutes }}:{{ item.createTime.seconds }}</td>
+											</tr>
+										</tbody>
+	                 </table>
+	                 </div>
+                <ul id="vue-pager2" class="pagination pull-right">
+                </ul>
+					</div>		  
+			  </div>
+		    <div class="panel panel-default">
+		        <div class="panel-heading"><b>Table Select</b>
+		        </div>
+		        <div class="panel-body">
+		        	<div class="table-responsive">
+		        	 <table width="100%" class="table table-striped table-bordered table-hover">
+	                     <thead>
+	                         <tr>
+	                          <th><input type="checkbox"  v-model="UserList3_CheckAll" />({{UserList3_CheckCount}})</th>
+	                          <th>序号</th>
+	                          <th>操作</th>
+	                          <th>客户姓名</th>
+	                          <th>联系方式</th>
+	                          <th>用户状态</th>
+	                          <th>提交时间</th>
+	                         </tr>
+	                     </thead>
+	                     <tbody>
+	                    <!-- 节点遍历 -->
+											<tr v-for="item in UserList3">
+												<td><input type="checkbox" :value="item.userId" v-model="UserList3Selects" /></td>
+												<td>{{item.vueIndex}}</td>
+												<td>
+													<button type="button" class="btn btn-primary btn-xs" v-on:click="edit(item,$event)">修改</button>
+													<button type="button" class="btn btn-warning btn-xs" v-on:click="del(item,$event)">删除</button>
+												</td>
+												<td>{{ item.username }}</td>
+												<td>{{ item.cellphone }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.createTime.hours }}:{{ item.createTime.minutes }}:{{ item.createTime.seconds }}</td>
+											</tr>
+										</tbody>
+	                 </table>
+	              </div>
+					</div>		  
+			  </div>
+		    <div class="panel panel-default">
+		        <div class="panel-heading"><b>Table Select Pager</b>
+		        <button type="button" class="btn btn-primary btn-xs" onclick='vm.tables.table4.reload()'>重新载入(返回第一页)</button>
+		        <button type="button" class="btn btn-primary btn-xs" onclick='vm.tables.table4.refresh()'>刷新 </button> 
+		        <button type="button" class="btn btn-primary btn-xs" onclick="javascript:alert('主键列表:'+vm.UserList4Selects.join(','))">我选中了哪几行？ </button>
+		        
+		        </div>
+		        <div class="panel-body">
+		        	<div class="table-responsive">
+		        	 <table width="100%" class="table table-striped table-bordered table-hover">
+	                     <thead>
+	                         <tr>
+	                          <th><input type="checkbox"  v-model="UserList4_CheckAll" />({{UserList4_CheckCount}})</th>
+	                          <th>序号</th>
+	                          <th>操作</th>
+	                          <th>客户姓名</th>
+	                          <th>联系方式</th>
+	                          <th>用户状态</th>
+	                          <th>提交时间</th>
+	                         </tr>
+	                     </thead>
+	                     <tbody>
+	                    <!-- 节点遍历 -->
+											<tr v-for="item in UserList4">
+												<td><input type="checkbox" :value="item.userId" v-model="UserList4Selects" /></td>
+												<td>{{item.vueIndex}}</td>
+												<td>
+													<button type="button" class="btn btn-primary btn-xs" v-on:click="edit(item,$event)">修改</button>
+													<button type="button" class="btn btn-warning btn-xs" v-on:click="del(item,$event)">删除</button>
+												</td>
+												<td>{{ item.username }}</td>
+												<td>{{ item.cellphone }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.createTime.hours }}:{{ item.createTime.minutes }}:{{ item.createTime.seconds }}</td>
+											</tr>
+										</tbody>
+	                 </table>
+	                 </div>
+                <ul id="vue-pager4" class="pagination pull-right">
+                </ul>
+					</div>		  
+			  </div>
+		  </div>
+		</div>
+
+@@include('../inc/foot.inc')
+<script>
+
+vm = new JZ.Vue({
+	tables:{//初始化表格
+		table1:{
+			data:'UserList1',
+			url:'/mock/data.json?'+Math.random(),
+		},
+		table2:{
+			data:'UserList2',
+			url:'/mock/data.json?'+Math.random(),
+			el_pager:'#vue-pager2',
+			limit:5	
+		},
+		table3:{
+			data:'UserList3',
+			url:'/mock/data.json?'+Math.random(),
+			dataCheckes:'UserList3Selects',
+			key:'userId',
+			limit:5	
+		},
+		table4:{
+			data:'UserList4',				//(必需)数据集合标识
+			url:'/mock/data.json?'+Math.random(),				//(必需)数据接口地址
+			dataCheckes:'UserList4Selects',	//(多选功能必需的参数)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
+			key:'userId',					//(多选功能必需的参数)数据表中的主键列名(或唯一标识列)
+			el_pager:'#vue-pager4',			//(分页功能必需的参数)分页容器
+			limit:5						//(分页功能可选的参数)每页条数,默认10
+		}
+	},
+	data: {},
+	filter:function(){//添加 Vue Filter
+		Vue.filter('switch_1', function () {
+			if(this.item.userId%2==0)
+				return '偶数';
+			return '奇数';
+		});
+	},
+	methods:{
+	  //TODO:添加可调用的事件
+	  edit:function(item,event){//item:数据对象
+		    var _this = $(event.target);//点击的dom对象 
+		    alert('我要编辑；当前行主键:'+item.userId);
+	  },
+	  del:function(item,event){ 
+		    alert('我要删除');
+		    vm.tables.table2.reload();
+	  }
+	}
+});
+	</script>
+  </body>
+</html>
