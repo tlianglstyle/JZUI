@@ -1,4 +1,4 @@
 JZUI
 =======
 
-[JZUI] at tliangl.com
+[JZUI] at jzjz.com
