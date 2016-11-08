@@ -1,8 +1,8 @@
 var Config = require('./Config');
 var Array = require('./Array');
 var Ajax = require('./Ajax');
-var Table = require('./Table');
 var Form = require('./Form');
+var Table = require('./Table');
 var VueInit = require('./VueInit');
 var _JZ = window.JZ;
 var _J = window.J;
@@ -28,3 +28,7 @@ JZ.noConflict = function(){
 	return JZ;
 };
 Array.Load();
+
+
+//-------------极装专用分割线-------------------------
+require('./JZHACK').Load(JZ);

@@ -39,30 +39,29 @@ exports.Ajax = function(opts){
 		  jsonp: settings.jsonp,
 		  data : settings.data,
 		  success : function(data){
-	   			console.log(data); 
 		  	if(settings.loading)
 			  $('.ajax-load').remove();
-			  delete requestQueue[opts.url]; 
-			  if(!settings.responseData){
+			delete requestQueue[opts.url]; 
+			if(!settings.responseData){
 				  settings.success(data);
 				  return;
-			  }
-			  if(data){
-			  		if(Config.Production && !settings.jsonp){
-						data = eval('('+data+')');
-					}
-					if(data.rs==1){
-						settings.success(data.data);
-					}else{
-						if(settings.error) settings.error(data.data);
-						else
-							console.log('服务器数据错误,请联系客服!');
-					}
-				}else{
-					if(settings.error) settings.error();
-					else 
-						console.log('无数据,请联系客服!');
+			}
+			if(data){
+				if(typeof data =="string"){
+					data = eval('('+data+')');
 				}
+				if(data.rs==1){
+					settings.success(data.data);
+				}else{
+					if(settings.error) settings.error(data.data);
+					else
+						console.log('服务器数据错误,请联系客服!');
+				}
+			}else{
+				if(settings.error) settings.error();
+				else 
+					console.log('无数据,请联系客服!');
+			}
 		  },
 		  error:function(){
 			  if(settings.loading)
