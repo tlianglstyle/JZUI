@@ -18,6 +18,8 @@ var gulp = require('gulp'),
     base64 = require('gulp-css-base64'),
     webpack = require('webpack'),
     webpackConfig = require('./webpack.config.js'),
+    fs = require('fs'),
+    gulp_ejs= require('gulp-ejs'),
     connect = require('gulp-connect');
 
 var host = {
@@ -25,12 +27,34 @@ var host = {
     port: 3000,
     html: 'dist//app/Vue/index.html'
 };
+ 
 
 //mac chrome: "Google chrome", 
 var browser = os.platform() === 'linux' ? 'Google chrome' : (
   os.platform() === 'darwin' ? 'Google chrome' : (
   os.platform() === 'win32' ? 'chrome' : 'firefox'));
 var pkg = require('./package.json');
+
+
+gulp.task('ejs', function (done) {
+	var Config = require('./src/js/app/common/Config');
+	var data = {
+		   ctx_src:'../../../src',
+		   ctx_dist:'../../../dist',
+		   ctx_modules: Config.node_modules?'../../../node_modules':'../../../node_modules_local'
+		};
+	 gulp.src(['./src/app/incSource/head.inc'])  
+        .pipe(gulp_ejs(data)) 
+        .pipe(gulp.dest('./src/app/inc'));//生成到新目录，然后再用新文件fileinclude
+});
+
+//编译ejs
+gulp.task('ejs2', function (done) {
+    var head = fs.readFileSync('./src/app/inc/head.inc','utf8');
+	var data = {name:'test'};
+	ejs.render(head,data);
+});
+
 
 //将图片拷贝到目标目录
 gulp.task('copy:images', function (done) {
@@ -65,7 +89,7 @@ gulp.task('md5:css', ['sprite'], function (done) {
 });
 
 //用于在html文件中直接include文件
-gulp.task('fileinclude', function (done) {
+gulp.task('fileinclude', function (done) { 
     gulp.src(['src/app/*/*.html'])
         .pipe(fileinclude({
           prefix: '@@',
@@ -100,7 +124,7 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('watch', function (done) {
-    gulp.watch('src/**/*', ['copy:images', 'fileinclude', 'lessmin', 'build-js'])
+    gulp.watch('src/**/*', ['copy:images','ejs', 'fileinclude', 'lessmin', 'build-js'])
         .on('end', done);
 });
 
@@ -154,5 +178,5 @@ gulp.task("webpack", function(callback) {
 gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open']);
 
 //开发
-gulp.task('dev', ['connect', 'copy:images', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
-gulp.task('start', ['connect', 'watch', 'open']);
+gulp.task('dev', ['connect', 'ejs','copy:images', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
+gulp.task('start', ['connect', 'ejs','watch', 'open']);

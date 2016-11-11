@@ -86,5 +86,5 @@ exports.Ajax = function(opts){
 		//ajaxOpts.jsonpCallback = "jsonpCallbackQianggouCustom", 
 	  	ajaxOpts.dataType = "jsonp";
 	  }
-	var ajax=$.ajax(ajaxOpts);  
+	  var ajax=$.ajax(ajaxOpts);
 }
