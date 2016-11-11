@@ -79,4 +79,8 @@ exports.Load =function(){
 		}
 		return this;
 	};
+	String.prototype.randomUrl = function(delArr) {
+		return this+(this.indexOf('?')>0?'&':'?')+'randomUrl='+Math.random();
+		
+	};
 }

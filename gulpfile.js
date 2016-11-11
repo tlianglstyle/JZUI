@@ -55,7 +55,6 @@ gulp.task('ejs2', function (done) {
 	ejs.render(head,data);
 });
 
-
 //将图片拷贝到目标目录
 gulp.task('copy:images', function (done) {
     gulp.src(['src/images/**/*']).pipe(gulp.dest('dist/images')).on('end', done);

@@ -15,7 +15,8 @@ exports.Table = function(opts){
 			pageNum:1,
 			page:true, 
 			filter:function(){},
-			methods:{}
+			methods:{},
+			callback:function(){}
 	};
 	$.extend(settings,opts);
 	settings.page = settings.el_pager!='';
@@ -94,12 +95,14 @@ exports.Table = function(opts){
 	   			console.log(data);
 	   			if(data.length==0){
     	   	    	_object.vm[settings.data]=[];
+    				settings.callback(data);
     	   	    	if(_object.page && !_object.loadPage) _object.clearPage();
 	   			}else{
     	   	    	for(var i=0;i<data.length;i++){
     	   	    		data[i].vueIndex=(i+1)+_object.limit*(_object.pageNum-1);	
     	   	    	}
     	   	    	_object.vm[settings.data]=data;
+    				settings.callback(data);
 		   	    	if(_object.page && !_object.loadPage) _object.initPage();
 	   			}
 			},
