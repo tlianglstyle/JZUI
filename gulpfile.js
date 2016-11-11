@@ -41,7 +41,7 @@ gulp.task('ejs', function (done) {
 	var data = {
 		   ctx_src:'../../../src',
 		   ctx_dist:'../../../dist',
-		   ctx_modules: Config.node_modules?'../../../node_modules':'../../../node_modules_local'
+		   ctx_modules: Config.node_modules?'../../../node_modules':'../../../src/local_modules'
 		};
 	 gulp.src(['./src/app/incSource/head.inc'])  
         .pipe(gulp_ejs(data)) 
