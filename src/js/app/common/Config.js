@@ -1,5 +1,5 @@
 var ENV = 'dev';
-exports.node_modules = 1;  
+exports.node_modules = 0;   
 exports.ENV = ENV;
 exports.Dev = ( ENV == 'dev' );
 exports.Production = ( ENV == 'production' );
