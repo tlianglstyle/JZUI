@@ -53,15 +53,34 @@ exports.Load =function(){
 	    });
 	};
 	//获得对象数组中指定键集的集合
-	//传入一个包含多个键的数组
-	Array.prototype.getByKeys = function(keyName,keyArr) {
-		var newArr = [];
-		for(var i=0;i<this.length;i++){
-			if(keyArr.indexOf(this[i][keyName])>=0){ 
-				newArr.push(this[i]);
+	//传入一个包含多个键的数组 
+	//orderByKeys:按照keyArr排序
+	//callback:对象操作
+	Array.prototype.getByKeys = function(keyName,keyArr,orderByKeys,callback) {
+		if(orderByKeys !=undefined){
+			var newArr = [];
+			for(var i=0;i<keyArr.length;i++){
+				for(var j=0;j<this.length;j++){
+					if(this[j][keyName]==keyArr[i] && this[j]['ArrayPush']==undefined){
+						if(callback!=undefined){
+							newArr.push(callback(this[j],newArr));	
+						}else{
+							newArr.push(this[j]);	
+						}
+						this[j]['ArrayPush']=1;
+					}
+				}
 			}
+			return newArr;
+		}else{
+			var newArr = [];
+			for(var i=0;i<this.length;i++){
+				if(keyArr.indexOf(this[i][keyName])>=0){ 
+					newArr.push(this[i]);
+				}
+			}
+			return newArr;
 		}
-		return newArr;
 	};
 	//删除对象数组中的多个值
 	//传入一个包含多个键的数组

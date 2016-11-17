@@ -18,7 +18,7 @@
 <link href="../../../src/css/common/sb-admin-2.css" rel="stylesheet">
 
 <!-- Fonts -->
-<link href="../../../src/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../src/local_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,6 +39,8 @@
 <script src="../../../src/js/lib/tools/validate/validate-methods.js"></script>
 <script src="../../../src/js/lib/sb-admin-2.js"></script> 
 <script src="../../../src/js/lib/tools/WdatePicker/WdatePicker.js"></script>
+<link href="../../../src/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
+<script src="../../../src/js/utils/prettify/prettify.min.js"></script>
 <style>  
 
 	body{margin:0px;font-size:12px;}
@@ -59,12 +61,40 @@
 	.m5{margin:10px 5px;}
 	label.form-require-error{color: #F42D2D;line-height: 2;}
 	
-	table.table-bordered thead th, table.table-bordered thead td{    white-space: nowrap;}
+	table.table-bordered thead th, table.table-bordered thead td{white-space: nowrap;}
+	
 	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
 	{padding:8px 5px;}
 	.panel-body{padding:10px;}
 	.pagination li{display:block;    box-sizing: initial;}
-	[v-for],[v-if]{opacity:0} 
+	[v-for],[v-if]{opacity:0}
+	.rc-handle-container{position:relative;} 
+	.rc-handle{position:absolute;width:7px;cursor:ew-resize;*cursor:pointer;margin-left:-3px;}
+	
+	table.table-bordered tbody th, table.table-bordered tbody td{position:relative;
+	}
+	table.table-bordered tbody th, table.table-bordered tbody td div.rc-div{
+		
+	}
+	table.table-bordered tbody th, table.table-bordered tbody td div.rc-cells{
+		opacity: 1;
+		white-space: nowrap;
+	    width: calc( 100% - 10px) ;
+	    display: block;
+	    position: absolute;
+	    overflow: hidden;
+	    top: 8px;
+	    left: 5px;
+	}
+	.table-resizable tbody{
+		opacity:0;
+	} 
+	.table-resizable tbody tr:not(:nth-child(1)){
+		opacity:0;
+	}
+	.table th[sort]{cursor:pointer;}
+	.table th[sort]:hover{background-color: #f9f9f9;}
+	.table th[sort] .glyphicon-sort{opacity:0;}
 </style>
 <script>var Ctx = ctx = '';</script> 
 <script src="../../../dist/js/app/common/common.js"></script>
@@ -562,6 +592,12 @@
   </div>
 </div>
 	</div>
+<script>
+  window.onload = function () {
+        $('pre').addClass('prettyprint lang-java');
+        prettyPrint();
+    }
+</script>
 	<script>
 		//------------------------------全局模式调用-无Vue声明----------------------------------
 //获得初始化数据
@@ -574,7 +610,6 @@ Vue.filter('switch_1', function () {//这是一个获得下拉框文字列表的
 		}
 	}
 }); 
-//var JZJZ = JZ.noConflict();
 var table1 = JZ.TableConfig({
 			data:'UserList',				//(必需)数据集合标识
 			url:'/mock/data.json',				//(必需)数据接口地址
@@ -660,35 +695,7 @@ function add(){
 	$('#modal_edit').modal('show');
 }
 
-//----------------------------------其他插件参考代码----------------------------------
-//1.表格单例模式调用
-function t1(){
-	var table1 = JZ.Table({
-		url:'/mock/data.json',
-		el_data:'#vue-table1',
-		el_pager:'#vue-pager1',
-		//limit:10,//每页条数
-		//page:true//是否分页
-		filter:function(){//TODO:添加自定义逻辑
-			Vue.filter('switch_1', function () {
-				if(this.item.userId%2==0)
-					return '偶数';
-				return '奇数';
-			});
-		},
-		methods:{
-		  //TODO:添加可调用的事件
-		  check:function(item,event){//item:数据对象
-			    var _this = $(event.target);//点击的dom对象 
-			    alert('我要审核；当前行主键:'+item.userId);
-		  },
-		  detail:function(item,event){ 
-			    alert('我要查看详情');
-		  }
-		}
-	});
-}
-	
+
 	</script>
   </body>
 </html>

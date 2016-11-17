@@ -498,7 +498,6 @@ Vue.filter('switch_1', function () {//这是一个获得下拉框文字列表的
 		}
 	}
 }); 
-//var JZJZ = JZ.noConflict();
 var table1 = JZ.TableConfig({
 			data:'UserList',				//(必需)数据集合标识
 			url:'/mock/data.json',				//(必需)数据接口地址
@@ -584,35 +583,7 @@ function add(){
 	$('#modal_edit').modal('show');
 }
 
-//----------------------------------其他插件参考代码----------------------------------
-//1.表格单例模式调用
-function t1(){
-	var table1 = JZ.Table({
-		url:'/mock/data.json',
-		el_data:'#vue-table1',
-		el_pager:'#vue-pager1',
-		//limit:10,//每页条数
-		//page:true//是否分页
-		filter:function(){//TODO:添加自定义逻辑
-			Vue.filter('switch_1', function () {
-				if(this.item.userId%2==0)
-					return '偶数';
-				return '奇数';
-			});
-		},
-		methods:{
-		  //TODO:添加可调用的事件
-		  check:function(item,event){//item:数据对象
-			    var _this = $(event.target);//点击的dom对象 
-			    alert('我要审核；当前行主键:'+item.userId);
-		  },
-		  detail:function(item,event){ 
-			    alert('我要查看详情');
-		  }
-		}
-	});
-}
-	
+
 	</script>
   </body>
 </html>

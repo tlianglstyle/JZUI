@@ -20,7 +20,13 @@ var TableGolbal = function(opts){
 			page:true		//(分页)(不需)是否分页
 	};
 	$.extend(settings,opts);
-	settings.page = settings.el_pager!='';
+	if(settings.page){
+		if(settings.el_pager!=''){
+			settings.page = true;
+		}else{
+			settings.page = false;
+		}
+	}
 	var obj = new Object();
 	obj.vm = settings.vm;
 	obj.url = settings.url;
@@ -47,7 +53,7 @@ var TableGolbal = function(opts){
 		    	_object.requestData();
 			}
 		});
-	};
+	}; 
 	obj.clearPage = function(){
 		$(settings.el_pager).html('');
 	};
@@ -63,9 +69,10 @@ var TableGolbal = function(opts){
 	obj.refresh = function(){ obj.requestData(); };
 	obj.requestData = function(){ 
 		var _object = obj;
+		console.log(_object.page);
+		console.log(opts.limit);
 		if(!_object.page){
-			//等于默认值时，，说明不限数量，则返回最大数量
-			if(_object.limit == 10) _object.limit = 9999;
+			if(opts.limit == undefined) _object.limit = 9999;
 		}
 		var splits = (_object.url.indexOf('?')>0?'&':'?'); 
 		var url= _object.url + splits + 'pageNum='+_object.pageNum+'&pageSize='+_object.limit; 
@@ -116,7 +123,7 @@ var TableConfig = function(opts){
 			relative:true,	//(可选)是否设置请求相对父路径
 			dataSource:'',	//(可选)表格的数据源集合标识,默认值为(pageInfo.resultList)
 			el_pager:'',	//(分页)(必需)分页容器
-			limit:10,		//(分页)(可选)每页条数
+			limit:undefined,//(分页)(可选)每页条数
 			page:true		//(分页)(不需)是否分页
 	};
 	$.extend(settings,opts);

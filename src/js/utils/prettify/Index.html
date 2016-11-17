@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prettify</title>
+    <link href="prettify.min.css" rel="stylesheet">
+    <script src="prettify.min.js"></script>
+    <style>
+        pre.prettyprint
+        {
+            border: 2px dashed #888;
+            background: #ddd;
+        }
+    </style>
+    <script>
+        window.onload = function ()
+        {
+            // Load Prettify
+            prettyPrint();
+        }
+    </script>
+</head>
+<body>
+<pre class="prettyprint lang-java">
+    // 异步方式
+    // 结果以事件回调方式返回
+    Command command = new Command("/system/bin/ping",
+            "-c", "4", "-s", "100",
+            "www.baidu.com");
+    Command.command(command, new Command.CommandListener() {
+        @Override
+        public void onCompleted(String str) {
+            Log.i(TAG, "onCompleted：\n" + str);
+        }
+        @Override
+        public void onCancel() {
+            Log.i(TAG, "onCancel");
+        }
+        @Override
+        public void onError() {
+            Log.i(TAG, "onError");
+        }
+    });
+</pre>
+</body>
+</html>

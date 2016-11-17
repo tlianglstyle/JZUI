@@ -129,8 +129,7 @@ vm = new JZ.Vue({
 	tables:{
 		table1:{ 
 	    data:'UserList',				//(必需)数据集合标识
-			url:JZ.AjaxUrl.DemoPageData, 
-	    //url:'/mock/DemoPageData.json?'+Math.random(),//(必需)数据接口地址
+			url:JZ.AjaxUrl.DemoPageData, //(必需)数据接口地址
 	    dataCheckes:'UserListSelects',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
 	    dataCheckFilter:function(item){	//(多选)(可选)判断是否允许选中
 	    	if(item.id%2!=0)	//设置条件选中
@@ -191,7 +190,6 @@ function removeRow(){
 	vm.UserListSelects2=[];
 }
 function search(){
-	//table1.setUrl('/mock/DemoPageData.json?'+Math.random());
 	table1.setUrl(JZ.AjaxUrl.DemoPageData);
 	table1.reload();
 }

@@ -18,7 +18,7 @@
 <link href="../../../src/css/common/sb-admin-2.css" rel="stylesheet">
 
 <!-- Fonts -->
-<link href="../../../src/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../../src/local_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,6 +39,8 @@
 <script src="../../../src/js/lib/tools/validate/validate-methods.js"></script>
 <script src="../../../src/js/lib/sb-admin-2.js"></script> 
 <script src="../../../src/js/lib/tools/WdatePicker/WdatePicker.js"></script>
+<link href="../../../src/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
+<script src="../../../src/js/utils/prettify/prettify.min.js"></script>
 <style>  
 
 	body{margin:0px;font-size:12px;}
@@ -59,12 +61,40 @@
 	.m5{margin:10px 5px;}
 	label.form-require-error{color: #F42D2D;line-height: 2;}
 	
-	table.table-bordered thead th, table.table-bordered thead td{    white-space: nowrap;}
+	table.table-bordered thead th, table.table-bordered thead td{white-space: nowrap;}
+	
 	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
 	{padding:8px 5px;}
 	.panel-body{padding:10px;}
 	.pagination li{display:block;    box-sizing: initial;}
-	[v-for],[v-if]{opacity:0} 
+	[v-for],[v-if]{opacity:0}
+	.rc-handle-container{position:relative;} 
+	.rc-handle{position:absolute;width:7px;cursor:ew-resize;*cursor:pointer;margin-left:-3px;}
+	
+	table.table-bordered tbody th, table.table-bordered tbody td{position:relative;
+	}
+	table.table-bordered tbody th, table.table-bordered tbody td div.rc-div{
+		
+	}
+	table.table-bordered tbody th, table.table-bordered tbody td div.rc-cells{
+		opacity: 1;
+		white-space: nowrap;
+	    width: calc( 100% - 10px) ;
+	    display: block;
+	    position: absolute;
+	    overflow: hidden;
+	    top: 8px;
+	    left: 5px;
+	}
+	.table-resizable tbody{
+		opacity:0;
+	} 
+	.table-resizable tbody tr:not(:nth-child(1)){
+		opacity:0;
+	}
+	.table th[sort]{cursor:pointer;}
+	.table th[sort]:hover{background-color: #f9f9f9;}
+	.table th[sort] .glyphicon-sort{opacity:0;}
 </style>
 <script>var Ctx = ctx = '';</script> 
 <script src="../../../dist/js/app/common/common.js"></script>
@@ -201,12 +231,17 @@
 	
 	</div>
 <script>
+  window.onload = function () {
+        $('pre').addClass('prettyprint lang-java');
+        prettyPrint();
+    }
+</script>
+<script>
 vm = new JZ.Vue({
 	tables:{
 		table1:{ 
 	    data:'UserList',				//(必需)数据集合标识
-			url:JZ.AjaxUrl.DemoPageData, 
-	    //url:'/mock/DemoPageData.json?'+Math.random(),//(必需)数据接口地址
+			url:JZ.AjaxUrl.DemoPageData, //(必需)数据接口地址
 	    dataCheckes:'UserListSelects',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
 	    dataCheckFilter:function(item){	//(多选)(可选)判断是否允许选中
 	    	if(item.id%2!=0)	//设置条件选中
@@ -267,7 +302,6 @@ function removeRow(){
 	vm.UserListSelects2=[];
 }
 function search(){
-	//table1.setUrl('/mock/DemoPageData.json?'+Math.random());
 	table1.setUrl(JZ.AjaxUrl.DemoPageData);
 	table1.reload();
 }

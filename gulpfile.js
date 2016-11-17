@@ -44,8 +44,9 @@ gulp.task('ejs', function (done) {
 		   ctx_modules: Config.node_modules?'../../../node_modules':'../../../src/local_modules'
 		};
 	 gulp.src(['./src/app/incSource/head.inc'])  
-        .pipe(gulp_ejs(data)) 
-        .pipe(gulp.dest('./src/app/inc'));//生成到新目录，然后再用新文件fileinclude
+        .pipe(gulp_ejs(data))  
+        .pipe(gulp.dest('./src/app/inc'))
+        .on('end', done);//生成到新目录，然后再用新文件fileinclude
 });
 
 //编译ejs
