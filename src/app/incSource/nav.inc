@@ -5,7 +5,9 @@
 	<li><a href="../Table/Search.html">JZ.Vue TableSearch</a></li>
 	<li><a href="../Table/Tabs.html">JZ.Vue TableTabs</a></li>
 	<li><a href="../Form/index.html">JZ.Form</a></li>
-    <!--<li><a href="/dist/app/home/index.html">Bootstrap</a></li>-->
+    <!--<li><a href="/dist/app/home/index.html">Bootstrap</a></li>--> 
+    <li style="float:right"><a target="_blank" href="https://github.com/tlianglstyle/JZUI">Github</a></li> 
 </ul>
 <div id="page-wrapper">
-
+ 
+ 

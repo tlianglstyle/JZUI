@@ -26,6 +26,14 @@ exports.Load =function(){
 		}
 		return this;
 	};
+	//删除普通数组中的多个值
+	//传入一个包含多个值的数组
+	Array.prototype.removeByValues = function(delArr) {
+		for (var a in delArr){
+			this.removeByValue(delArr[a]);
+		}
+		return this;
+	};
 	//判断数组是否包含另一个数组的所有元素
 	Array.prototype.isContains = function(newArr) {
 		var a = this;
@@ -90,14 +98,7 @@ exports.Load =function(){
 		}
 		return this;
 	};
-	//删除普通数组中的多个值
-	//传入一个包含多个值的数组
-	Array.prototype.removeByValues = function(delArr) {
-		for (var a in delArr){
-			this.removeByValue(delArr[a]);
-		}
-		return this;
-	};
+	
 	String.prototype.urlRandom = function() {
 		return this+(this.indexOf('?')>0?'&':'?')+'randomUrl='+Math.random();
 	};

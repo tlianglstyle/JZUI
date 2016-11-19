@@ -9,6 +9,7 @@ var _J = window.J;
 var JZ = new Object();
 window.JZ = JZ;
 window.J = JZ;
+window.vm = null;
 JZ.vm = null;
 JZ.Ajax = Ajax.Ajax;  
 JZ.Form = Form.Form;
@@ -18,7 +19,7 @@ JZ.TableConfig = VueInit.TableConfig;
 JZ.Vue = VueInit.VueInit;  
 JZ.Config = Config;
 JZ.AjaxUrl = Config.AjaxUrl;
-JZ.noConflict = function(){
+JZ.noConflict = function(){ 
 	if(window.J == JZ){
 		window.J = _J;
 	}

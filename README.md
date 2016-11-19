@@ -20,28 +20,36 @@ The modules are individual files in the "src/js/common/" directory.
 
 <table>
 <thead><tr>
-  <th>module</th> <th>default</th> <th>description</th>
+  <th>module</th> <th>default</th><th>description</th><th>code</th><th>intro</th>
 </tr></thead>
 <tbody>
   <tr>
-    <th><a href="dist/app/Table/Table.html">Table</a></th>
+    <th>Table</th>
     <td>✔</td>
     <td>Single table settings</td>
+	<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/Table.js">...</a></th>
+	<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Table/Table.html">...</a></th>
   </tr>
   <tr>
-    <th><a href="dist/app/Vue/index.html">Vue Global</a></th>
+    <th>Vue</th>
     <td>✔</td>
     <td>Global Vue Config By document.body</td>
+	<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/VueInit.js">...</a></th>
+	<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html">...</a></th>
   </tr>
   <tr>
-    <th><a href="dist/app/Vue/index.html">Form</a></th>
+    <th>Form</th>
     <td>✔</td>
     <td>Contains FormData and validate from a form</td>
+	<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/Form.js">...</a></th>
+	<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Form/index.html">...</a></th>
   </tr>
   <tr>
-    <th><a href="dist/app/Vue/index.html">others</a></th>
+    <th>others</th>
     <td></td>
     <td>Other components of example</td>
+    <th></th>
+    <th></th>
   </tr>
 </tbody>
 </table>
@@ -49,34 +57,6 @@ The modules are individual files in the "src/js/common/" directory.
 #site
 demo：<http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html>
 
-
-```
-
-#文件结构
->src 
->>api  
->>common  
->>>iconfont  
->>>images  
->>>common.css  
->>>common.js  
-
->>component  
->>config  
->>>base.config.js  
->>>http_code.config.js  
->>>router.config.js 
->>>webpack.base.config.js  
->>>webpack.build.config.js  
->>>webpack.dev.config.js  
-
->>service  
->>views  
->>gulpfiles.js  
->>index.html  
->>main.js  
-
->package.json  
 
 [JZUI](http://www.jzjz.com) at jzjz.com
 [demo][example](http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html) 

@@ -22,7 +22,9 @@ exports.Table = function(opts){
 			page:true, 
 			filter:function(){},
 			methods:{},
-			callback:function(){} 
+			callback:function(){},
+			onRequestData:function(){},
+			onRenderData:function(){}
 	};
 	$.extend(settings,opts);
 	var resizable = null;
@@ -149,7 +151,7 @@ exports.Table = function(opts){
 	};
 	obj.setUrl= function(url){settings.url=url};
 	obj.data;
-	obj.Sourcedata;
+	obj.sourceData;
 	obj.reload = function(){ 
 		var _object = obj;
 		_object.pageNum = 1;
@@ -204,6 +206,7 @@ exports.Table = function(opts){
 		});
 	};
 	obj.renderData = function(data){
+		settings.onRenderData();
 		var _object = obj;
 		console.log(JSON.parse(JSON.stringify(data)));
 		console.log(settings); 

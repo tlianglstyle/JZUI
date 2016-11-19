@@ -27,7 +27,7 @@ module.exports = {
     cache: true,
     devtool: "source-map",
     //entry: getEntry(),
-    entry: {'app/common/common':srcDir+'/js/app/common/common.js'}, 
+    entry: {'app/JZ/JZ':srcDir+'/js/app/JZ/JZ.js'}, 
     output: {
         path: path.join(__dirname, "dist/"),//输出目录 
         publicPath: "dist/",//引用资源地址根目录

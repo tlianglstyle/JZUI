@@ -29,7 +29,7 @@
 <script src="<%=ctx_src%>/js/lib/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="<%=ctx_src%>/js/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <script src="<%=ctx_src%>/js/lib/datatables-responsive/js/dataTables.responsive.js" type="text/javascript"></script>
-<script src="<%=ctx_src%>/js/lib/tools/validate/jquery.validate.min.js"></script>
+<script src="<%=ctx_src%>/js/lib/tools/validate/jquery.validate.min.js"></script> 
 <script src="<%=ctx_src%>/js/lib/tools/validate/additional-methods.js"></script>
 <script src="<%=ctx_src%>/js/lib/tools/validate/messages_zh.js"></script>
 <script src="<%=ctx_src%>/js/lib/tools/validate/validate-methods.js"></script>
@@ -93,4 +93,4 @@
 	.table th[sort] .glyphicon-sort{opacity:0;}
 </style>
 <script>var Ctx = ctx = '';</script> 
-<script src="<%=ctx_dist%>/js/app/common/common.js"></script>
+<script src="<%=ctx_dist%>/js/app/JZ/JZ.js"></script>

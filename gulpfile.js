@@ -36,8 +36,9 @@ var browser = os.platform() === 'linux' ? 'Google chrome' : (
 var pkg = require('./package.json');
 
 
+//编译ejs
 gulp.task('ejs', function (done) {
-	var Config = require('./src/js/app/common/Config');
+	var Config = require('./src/js/app/JZ/Config');
 	var data = {
 		   ctx_src:'../../../src',
 		   ctx_dist:'../../../dist',
@@ -49,7 +50,6 @@ gulp.task('ejs', function (done) {
         .on('end', done);//生成到新目录，然后再用新文件fileinclude
 });
 
-//编译ejs
 gulp.task('ejs2', function (done) {
     var head = fs.readFileSync('./src/app/inc/head.inc','utf8');
 	var data = {name:'test'};
