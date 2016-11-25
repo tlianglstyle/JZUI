@@ -10,7 +10,7 @@
 		<div class="row">
 		  <div class="col-sm-12">  
 		  	<div class="panel panel-default">
-		        <div class="panel-heading"><b>Table</b>
+		        <div class="panel-heading"><b>表格</b>
 		        <button type="button" class="btn btn-primary btn-xs" onclick='vm.tables.table1.refresh()'>刷新 </button>  
 		        </div>
 		        <div class="panel-body">
@@ -45,7 +45,7 @@
 					</div>		  
 			  </div>
 		    <div class="panel panel-default">
-		        <div class="panel-heading"><b>Table Pager</b>
+		        <div class="panel-heading"><b>分页</b>
 		        </div>
 		        <div class="panel-body">
 		        	<div class="table-responsive">
@@ -81,7 +81,7 @@
 					</div>		  
 			  </div>
 		    <div class="panel panel-default">
-		        <div class="panel-heading"><b>Table Select</b>
+		        <div class="panel-heading"><b>多选</b>
 		        	<button type="button" class="btn btn-primary btn-xs" onclick='vm.tables.table3.refresh()'>刷新 </button> 
 		        </div>
 		        <div class="panel-body">
@@ -118,7 +118,7 @@
 					</div>		  
 			  </div>
 		    <div class="panel panel-default">
-		        <div class="panel-heading"><b>Table Select Pager</b>
+		        <div class="panel-heading"><b>多选，分页</b>
 		        <button type="button" class="btn btn-primary btn-xs" onclick='vm.tables.table4.reload()'>重新载入(返回第一页)</button>
 		        <button type="button" class="btn btn-primary btn-xs" onclick='vm.tables.table4.refresh()'>刷新 </button> 
 		        <button type="button" class="btn btn-primary btn-xs" onclick="javascript:alert('主键列表:'+vm.UserList4Selects.join(','))">我选中了哪几行？ </button>
@@ -159,11 +159,150 @@
                 </ul>
 					</div>		  
 			  </div>
+			  <div class="panel panel-default">
+		        <div class="panel-heading"><b>可拖拽列</b>
+		        </div>
+		        <div class="panel-body">
+			        <div class="table-responsive">
+			        	<table width="100%" class="table table-striped table-bordered table-hover" id="vue-table3">
+	                    <thead>
+	                         <tr>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                         </tr>
+	                     </thead>
+	                     <tbody>
+											<tr v-for="item in UserList5">
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>				
+											</tr>
+										</tbody>
+		              </table>
+		         </div>
+		          <ul id="vue-pager5" class="pagination pull-right"></ul>
+					</div>		  
+			  </div>
 		  </div>
 		</div>
 
 @@include('../inc/foot.inc')
-<script>
+<script pre>
 
 vm = new JZ.Vue({ 
 	tables:{//初始化表格
@@ -192,6 +331,14 @@ vm = new JZ.Vue({
 			key:'id',					//(多选功能必需的参数)数据表中的主键列名(或唯一标识列)
 			el_pager:'#vue-pager4',			//(分页功能必需的参数)分页容器
 			limit:5						//(分页功能可选的参数)每页条数,默认10
+		},
+		table5:{
+			data:'UserList5',
+			url:JZ.AjaxUrl.DemoPageData.urlRandom(),
+			el_pager:'#vue-pager5',
+			limit:5,
+			resizable:true,//可拖拽列 
+			singleLine:true,//禁止内容换行	
 		}
 	},
 	data: {},

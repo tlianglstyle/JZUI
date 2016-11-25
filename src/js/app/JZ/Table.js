@@ -17,8 +17,8 @@ exports.Table = function(opts){
 			dataSource:'',
 			el_data:'',
 			el_pager:'',
-			limit:10,
 			pageNum:1,
+			limit:10,
 			page:true, 
 			filter:function(){},
 			methods:{},
@@ -32,10 +32,13 @@ exports.Table = function(opts){
 		resizable = TableResizable.Load();
 	}
 	if(settings.singleLine){
-		var cells = $(settings.el_data).find('[v-for]').find('td');
-		for(var i = 0; i<cells.length;i++){
-			cells.eq(i).html('<div class="rc-div">'+cells.eq(i).html()+'</div>');
+		var setModuleContent = function (cells){
+			for(var i = 0; i<cells.length;i++){
+				cells.eq(i).html('<div class="rc-div">'+cells.eq(i).html()+'</div>');
+			}
 		}
+		setModuleContent($(settings.el_data).find('[v-for]').find('td'));
+		setModuleContent($(settings.el_data).find('thead th'));
 	}
 	if(settings.page){
 		if(settings.el_pager!=''){
@@ -44,9 +47,9 @@ exports.Table = function(opts){
 			settings.page = false;
 		}
 	}
-	var obj = new Object();
+	var obj = new Object(); 
 	obj.vm;
-	obj.pageNum = 1;
+	obj.pageNum = settings.pageNum;
 	obj.limit = settings.limit;
 	obj.total = 0;
 	obj.page = settings.page;
@@ -133,7 +136,6 @@ exports.Table = function(opts){
 	};
 	obj.initPage = function(){
 		var _object = obj;
-		_object.loadPage=true;
 		Pages.Load({ 
 			control: settings.el_pager, 
 			pageid: _object.pageNum,
@@ -141,8 +143,10 @@ exports.Table = function(opts){
 			pagesize: _object.limit, 
 			sumrows: _object.total, 
 			fun: function (index) {
-				_object.pageNum = index;
-		    	_object.requestData();
+				if(_object.loadPage){
+					_object.pageNum = index;
+			    	_object.requestData();
+				}
 			}
 		});
 	};
@@ -152,7 +156,7 @@ exports.Table = function(opts){
 	obj.setUrl= function(url){settings.url=url};
 	obj.data;
 	obj.sourceData;
-	obj.reload = function(){ 
+	obj.reload = function(pageNum){
 		var _object = obj;
 		_object.pageNum = 1;
 		//reload通常伴随着请求更改，此处作分页重绘
@@ -186,16 +190,16 @@ exports.Table = function(opts){
 	   			}
 	   			
 	   			if(data.length==0){
+    	   	    	if(_object.page && !_object.loadPage) _object.clearPage();
     	   	    	_object.renderData([]);
     				settings.callback(data);
-    	   	    	if(_object.page && !_object.loadPage) _object.clearPage();
 	   			}else{
     	   	    	for(var i=0;i<data.length;i++){
     	   	    		data[i].vueIndex=(i+1)+_object.limit*(_object.pageNum-1);	
     	   	    	}
+		   	    	if(_object.page && !_object.loadPage) _object.initPage();
     	   	    	_object.renderData(data);
     				settings.callback(data);
-		   	    	if(_object.page && !_object.loadPage) _object.initPage();
 	   			}
 	   			obj.data = data;
 	   			obj.sourceData = JSON.parse(JSON.stringify(data));
@@ -208,24 +212,30 @@ exports.Table = function(opts){
 	obj.renderData = function(data){
 		settings.onRenderData();
 		var _object = obj;
-		console.log(JSON.parse(JSON.stringify(data)));
-		console.log(settings); 
 		_object.vm[settings.data] = data;
 		setTimeout(function(){ 
 			if(settings.singleLine){
 				$(settings.el_data).removeClass('table-resizable');
-				if(!_object.loadPage){
+				if(!_object.loadPage){ 
 					var ths = $(settings.el_data).find('thead th');
-					for(var i=0;i<ths.length;i++){ths.eq(i).css({width:ths.eq(i).width()});} 
+					for(var i=0;i<ths.length;i++){
+						var thWidth = ths.eq(i).width();
+						ths.eq(i).css({width:thWidth});
+						var _div = ths.eq(i).find('.rc-div');
+						if(!_div.hasClass('rc-cells')){ 
+							_div.addClass('rc-cells').after('<div class="rc-td" style="width1:'+_div.width()+'px;opacity:0;">'+_div.text()+'</div>');
+						}
+					}
 					
-				}
-				var divs = $(settings.el_data).find('.rc-div'); 
+				} 
+				var divs = $(settings.el_data).find('tbody td .rc-div'); 
 				for(var i=0;i<divs.length;i++){divs.eq(i).addClass('rc-cells').after('&nbsp;');} 
 			}
 			if(settings.resizable){
 				$(settings.el_data).resizableColumns();
 			}
-		},0); 
+			_object.loadPage=true;//TODO:注意loadPage变量赋值与取值问题
+		},10); 
 	};
 	obj.init();
 	return obj;

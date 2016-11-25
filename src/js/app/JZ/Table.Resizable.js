@@ -66,7 +66,6 @@ exports.Load = function(global){
 
       return this.$table.find('tr th').each(function(_, el) {
         var id;
-
         if ($(el).attr('data-noresize') == null) {
           id = _this.tableId + '-' + $(el).data('resizable-column-id');
           if (_this.options.store != null) {
@@ -78,7 +77,7 @@ exports.Load = function(global){
 
     ResizableColumns.prototype.restoreColumnWidths = function() {
       var _this = this;
-
+		console.log(1);
       return this.$table.find('tr th').each(function(_, el) {
         var id, width;
 
@@ -109,6 +108,10 @@ exports.Load = function(global){
         if (_this.options.rigidSizing && ((parseInt($rightColumn[0].style.width) < $rightColumn.width()) && (newRightColumnWidth < $rightColumn.width())) || ((parseInt($leftColumn[0].style.width) < $leftColumn.width()) && (newLeftColumnWidth < $leftColumn.width()))) {
           return;
         }  
+        
+      	var width = newLeftColumnWidth;
+		console.log(width);
+        $leftColumn.find('.rc-td').css({width:width});
         $leftColumn.width(newLeftColumnWidth);
         $rightColumn.width(newRightColumnWidth);
         return _this.syncHandleWidths();

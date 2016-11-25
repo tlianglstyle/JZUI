@@ -36,23 +36,15 @@
 			     </div>
 					</div>
 					<div class="col-sm-6 col-xs-12">
-<pre>
+<script pre>
+//表格(无分页)
 var table1 = JZ.Table({
 	data:'UserList1',
 	url:JZ.AjaxUrl.DemoPageData.urlRandom(),
 	el_data:'#vue-table1',
 	limit:5,//数据行数，不传则为所有
 });
-</pre>
-				<script>
-				//表格(无分页)
-				var table1 = JZ.Table({
-					data:'UserList1',
-					url:JZ.AjaxUrl.DemoPageData.urlRandom(),
-					el_data:'#vue-table1',
-					limit:5,//数据行数，不传则为所有
-				});
-				</script>
+</script>
 					</div>
 				</div>
 			</div>		  
@@ -96,8 +88,9 @@ var table1 = JZ.Table({
 			        <ul id="vue-pager2" class="pagination pull-right"></ul>
 				  </div>
 					<div class="col-sm-6 col-xs-12">
-<pre>
-var table5 = JZ.Table({
+
+<script pre>
+var table2 = JZ.Table({
 	data:'UserList2',
 	url:JZ.AjaxUrl.DemoPageData.urlRandom(), 
 	el_data:'#vue-table2',
@@ -119,31 +112,7 @@ var table5 = JZ.Table({
 	  }
 	}
 });
-</pre>
-					<script>
-					var table2 = JZ.Table({
-						data:'UserList2',
-						url:JZ.AjaxUrl.DemoPageData.urlRandom(), 
-						el_data:'#vue-table2',
-						el_pager:'#vue-pager2',
-						limit:5,//每页条数
-						filter:function(){//添加 Vue Filter
-							Vue.filter('switch_1', function () {
-								if(this.item.isvalid==0) return '禁用';
-								return '启用';
-							});
-						},
-						methods:{
-						  del:function(item,event){//item:数据对象
-							    var _this = $(event.target);//点击的dom对象 
-							    alert('我要删除；当前行主键:'+item.id);
-						  },
-						  detail:function(item,event){ 
-							    alert('我要查看详情');
-						  }
-						}
-					});
-					</script>
+</script>
 					</div> 
 				</div>
 			</div>		  
@@ -162,6 +131,61 @@ var table5 = JZ.Table({
 	                          <th>浏览</th>
 	                          <th>状态</th>
 	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
+	                          <th>序号</th>  
+	                          <th>标题</th>
+	                          <th>浏览</th>
+	                          <th>状态</th>
+	                          <th>提交时间</th>
 	                         </tr>
 	                     </thead>
 	                     <tbody>
@@ -170,15 +194,70 @@ var table5 = JZ.Table({
 												<td>{{ item.name }}</td>
 												<td>{{ item.clicks }}</td>
 												<td>{{ false | switch_1}}</td>
-												<td>{{ item.recorddate }}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>		
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>			
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>				
 											</tr>
 										</tbody>
 		              </table>
-		            <ul id="vue-pager3" class="pagination pull-right"></ul>
-		          </div>
+		         </div>
+		          <ul id="vue-pager3" class="pagination pull-right"></ul>
 						</div>
 						<div class="col-sm-6 col-xs-12">
-<pre>
+<script pre>
 //表格(可拖拽列)
 var table3 = JZ.Table({
 	data:'UserList3',
@@ -186,22 +265,12 @@ var table3 = JZ.Table({
 	el_data:'#vue-table3',
 	el_pager:'#vue-pager3',
 	limit:5,//每页条数
+	pageNum:7,
 	resizable:true,//可拖拽列 
 	singleLine:true,//禁止内容换行
 });
-</pre>
-		<script>
-		//表格(可拖拽列)
-		var table3 = JZ.Table({
-			data:'UserList3',
-			url:JZ.AjaxUrl.DemoPageData.urlRandom(),
-			el_data:'#vue-table3',
-			el_pager:'#vue-pager3',
-			limit:5,//每页条数
-			resizable:true,//可拖拽列 
-			singleLine:true,//禁止内容换行
-		});
-		</script>
+
+</script>
 				</div>
 				</div>		  
 	  	</div>

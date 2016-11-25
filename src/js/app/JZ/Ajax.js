@@ -32,6 +32,7 @@ exports.Ajax = function(opts){
 	}
 	if(settings.loading)
 		$('body').append('<div class="ajax-load"><div class="ajax-bg"></div><div class="ajax-img"></div></div>');
+	console.log(settings.url);
 	var ajaxOpts = {
 		  url : (settings.relative?Ctx:"") + settings.url,
 		  timeout : 32000,
@@ -39,6 +40,7 @@ exports.Ajax = function(opts){
 		  jsonp: settings.jsonp,
 		  data : settings.data,
 		  success : function(data){
+		  	//console.log(data);
 		  	if(settings.loading)
 			  $('.ajax-load').remove();
 			delete requestQueue[opts.url]; 

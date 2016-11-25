@@ -8,6 +8,7 @@ exports.Form = function(opts){
 		url:'',
 		relative:true,
 		responseData:true,
+		beginSubmit:function(){return true;},
 		success:function(){},
 		error:function(){}
 	};
@@ -15,20 +16,22 @@ exports.Form = function(opts){
 	var obj = new Object();
 	obj = settings;
 	obj.submit = function (){
-		 Ajax.Ajax({
-		 	async:settings.async,
-		 	relative:settings.relative,
-		 	responseData:settings.responseData,
- 	  	 	url:settings.url,
-         	type: Config.Dev?'get':'post',
- 	  	 	data:$(settings.form).serialize(),
- 	   		success:function(data){
- 	   			settings.success(data);
- 			}, 
- 			error:function(data){
- 				settings.success(data);
- 			}
- 		});
+		if(settings.beginSubmit()){
+			 Ajax.Ajax({
+			 	async:settings.async,
+			 	relative:settings.relative,
+			 	responseData:settings.responseData,
+	 	  	 	url:settings.url,
+	         	type: Config.Dev?'get':'post',
+	 	  	 	data:$(settings.form).serialize(),
+	 	   		success:function(data){
+	 	   			settings.success(data);
+	 			}, 
+	 			error:function(data){
+	 				settings.success(data);
+	 			}
+	 		});
+	 	}
 	};
 	$(settings.form).validate({
         onfocusout: false,

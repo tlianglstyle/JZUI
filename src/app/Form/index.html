@@ -39,6 +39,11 @@
 	JZ.Form({ 
 		form:'#form_UserInfo',
 		url:'/mock/data.json',//TODO:更改为提交地址. 如：/user/addAction',
+		beginSubmit:function(){
+			if(confirm('确认要提交吗?')){
+				return true;
+			}
+		},
 		success:function(data){
 			alert('已提交。');
 		},

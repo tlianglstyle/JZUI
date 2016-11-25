@@ -85,7 +85,6 @@
         load_page();
         if (pageid > pagecount) pageid = pagecount;
         else if (pageid < 0) pageid = 1;
-        if (!animate)
             page_url(pageid);
     }else{  
         var content = '';

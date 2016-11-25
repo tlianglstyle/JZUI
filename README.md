@@ -20,34 +20,34 @@ The modules are individual files in the "src/js/common/" directory.
 
 <table>
 <thead><tr>
-  <th>module</th> <th>default</th><th>description</th><th>code</th><th>intro</th>
+  <th>module</th><th>description</th><th>default</th><th>code</th><th>intro</th>
 </tr></thead>
 <tbody>
   <tr>
     <th>Table</th>
-    <td>✔</td>
     <td>Single table settings</td>
+    <td>✔</td>
 	<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/Table.js">...</a></th>
 	<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Table/Table.html">...</a></th>
   </tr>
   <tr>
     <th>Vue</th>
-    <td>✔</td>
     <td>Global Vue Config By document.body</td>
+    <td>✔</td>
 	<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/VueInit.js">...</a></th>
 	<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html">...</a></th>
   </tr>
   <tr>
     <th>Form</th>
-    <td>✔</td>
     <td>Contains FormData and validate from a form</td>
+    <td>✔</td>
 	<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/Form.js">...</a></th>
 	<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Form/index.html">...</a></th>
   </tr>
   <tr>
     <th>others</th>
-    <td></td>
     <td>Other components of example</td>
+    <td>✔</td>
     <th></th>
     <th></th>
   </tr>

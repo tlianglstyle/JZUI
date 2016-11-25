@@ -361,10 +361,16 @@ vm = new JZ.Vue({
 	    data:'UserList',				//(必需)数据集合标识
 			url:JZ.AjaxUrl.DemoPageData, //(必需)数据接口地址
 	    dataCheckes:'UserListSelects',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
-	    dataCheckFilter:function(item){	//(多选)(可选)判断是否允许选中
+	    dataCheckFilter2:function(item){	//(多选)(可选)判断是否允许选中
 	    	if(item.id%2!=0)	//设置条件选中
 	    		return true;
-	    	return false; 
+	    	return false;  
+	    },
+	    dataCheckesCallBack:function(checks){
+	    	console.log(checks);
+	    	if(checks.length>0){
+	    		selectRow();
+	    	}
 	    },
 	    key:'id',					//(多选功能必需的参数)数据表中的主键列名(或唯一标识列)
 			el_pager:'#vue-pager1',	//(分页功能必需的参数)分页容器 
@@ -430,10 +436,16 @@ vm = new JZ.Vue({
 	    data:'UserList',				//(必需)数据集合标识
 			url:JZ.AjaxUrl.DemoPageData, //(必需)数据接口地址
 	    dataCheckes:'UserListSelects',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
-	    dataCheckFilter:function(item){	//(多选)(可选)判断是否允许选中
+	    dataCheckFilter2:function(item){	//(多选)(可选)判断是否允许选中
 	    	if(item.id%2!=0)	//设置条件选中
 	    		return true;
-	    	return false; 
+	    	return false;  
+	    },
+	    dataCheckesCallBack:function(checks){
+	    	console.log(checks);
+	    	if(checks.length>0){
+	    		selectRow();
+	    	}
 	    },
 	    key:'id',					//(多选功能必需的参数)数据表中的主键列名(或唯一标识列)
 			el_pager:'#vue-pager1',	//(分页功能必需的参数)分页容器 

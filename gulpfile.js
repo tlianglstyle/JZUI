@@ -35,14 +35,15 @@ var browser = os.platform() === 'linux' ? 'Google chrome' : (
   os.platform() === 'win32' ? 'chrome' : 'firefox'));
 var pkg = require('./package.json');
 
-
+//var baseUrl ='http://localhost:3000';
+var baseUrl ='../../..';
 //编译ejs
 gulp.task('ejs', function (done) {
 	var Config = require('./src/js/app/JZ/Config');
 	var data = {
-		   ctx_src:'../../../src',
-		   ctx_dist:'../../../dist',
-		   ctx_modules: Config.node_modules?'../../../node_modules':'../../../src/local_modules'
+		   ctx_src: baseUrl + '/src',
+		   ctx_dist: baseUrl + '/dist',
+		   ctx_modules: Config.node_modules? baseUrl + '/node_modules': baseUrl + '/src/local_modules'
 		};
 	 gulp.src(['./src/app/incSource/head.inc'])  
         .pipe(gulp_ejs(data))  
@@ -87,10 +88,10 @@ gulp.task('md5:css', ['sprite'], function (done) {
         .pipe(gulp.dest('dist/css'))
         .on('end', done);
 });
-
 //用于在html文件中直接include文件
 gulp.task('fileinclude', function (done) { 
     gulp.src(['src/app/*/*.html'])
+    //gulp.src(['src/app/Table/Table.html'])
         .pipe(fileinclude({
           prefix: '@@',
           basepath: '@file'
@@ -98,6 +99,14 @@ gulp.task('fileinclude', function (done) {
         .pipe(gulp.dest('dist/app'))
         .on('end', done);
         // .pipe(connect.reload())
+});
+var scriptclone = require('./gulp_plugin/through-script-clone');
+gulp.task('scriptclone', ['fileinclude'], function(done) {
+    gulp.src(['dist/app/*/*.html'])
+    //gulp.src(['dist/app/Table/Table.html']) 
+        .pipe(scriptclone())
+        .pipe(gulp.dest('dist/app'))
+        .on('end', done);
 });
 
 //雪碧图操作，应该先拷贝图片并压缩合并css
@@ -124,7 +133,7 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('watch', function (done) {
-    gulp.watch('src/**/*', ['copy:images','ejs', 'fileinclude', 'lessmin', 'build-js'])
+    gulp.watch('src/**/*', ['copy:images','ejs', 'fileinclude','scriptclone', 'lessmin', 'build-js'])
         .on('end', done);
 });
 
@@ -175,8 +184,8 @@ gulp.task("webpack", function(callback) {
     });
 });
 //发布devtools
-gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open']);
+gulp.task('default', ['connect', 'fileinclude','scriptclone', 'md5:css', 'md5:js', 'open']);
 
 //开发
-gulp.task('dev', ['connect', 'ejs','copy:images', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
+gulp.task('dev', ['connect', 'ejs','copy:images', 'fileinclude','scriptclone', 'lessmin', 'build-js', 'watch', 'open']);
 gulp.task('start', ['connect', 'ejs','watch', 'open']);

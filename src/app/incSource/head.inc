@@ -65,14 +65,14 @@
 	.pagination li{display:block;    box-sizing: initial;}
 	[v-for],[v-if]{opacity:0}
 	.rc-handle-container{position:relative;} 
-	.rc-handle{position:absolute;width:7px;cursor:ew-resize;*cursor:pointer;margin-left:-3px;}
+	.rc-handle{position:absolute;width:7px;cursor:ew-resize;*cursor:pointer;margin-left:-3px;z-index:99;}
 	
-	table.table-bordered tbody th, table.table-bordered tbody td{position:relative;
+	table.table-bordered thead th, table.table-bordered tbody td{position:relative;
 	}
-	table.table-bordered tbody th, table.table-bordered tbody td div.rc-div{
+	table.table-bordered thead th, table.table-bordered div.rc-div{
 		
 	}
-	table.table-bordered tbody th, table.table-bordered tbody td div.rc-cells{
+	table.table-bordered div.rc-cells{
 		opacity: 1;
 		white-space: nowrap;
 	    width: calc( 100% - 10px) ;
@@ -90,6 +90,8 @@
 	}
 	.table th[sort]{cursor:pointer;}
 	.table th[sort]:hover{background-color: #f9f9f9;}
+	.table th[sort] .glyphicon{    position: absolute;right: 2px;top: 10px;}
+	
 	.table th[sort] .glyphicon-sort{opacity:0;}
 </style>
 <script>var Ctx = ctx = '';</script> 
