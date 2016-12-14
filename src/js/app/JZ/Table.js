@@ -8,22 +8,22 @@ Array.Load();
 exports.Table = function(opts){
 	
 	var settings={
+			el_data:'',
 			data:'items',
-			resizable:false,//可拖拽列
-			singleLine:false,//单行显示单元格
 			url:'',
 			jsonp:false,
 			relative:true,
 			dataSource:'',
-			el_data:'',
 			el_pager:'',
 			pageNum:1,
 			limit:10,
 			page:true, 
 			filter:function(){},
 			methods:{},
+			resizable:false,//可拖拽列
+			singleLine:false,//单行显示单元格
 			callback:function(){},
-			onRequestData:function(){},
+			onRequestData:function(data){this.callback(data)},
 			onRenderData:function(){}
 	};
 	$.extend(settings,opts);

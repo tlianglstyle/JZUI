@@ -8,24 +8,27 @@ var tableQueue = new Object();
 var TableGolbal = function(opts){
 	var settings={
 			vm:null,		//(必需)全局Vue对象
-			data:'items',	//(必需)数据集合标识
-			resizable:false,//可拖拽列
-			singleLine:false,//单行显示单元格
-			url:'',			//(必需)数据源接口地址
-			jsonp:false,	//(可选)使用异步数据接口
-		    dataCheckes:'',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
+			dataCheckes:'',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
 		    dataCheckFilter://(多选)(可选)判断是否允许选中
 		    null,
 		    dataCheckesCallBack:function(){},
+		    key:'',			//(多选)(必需)主键
+		    keyType:'int',	//(多选)(可选)主键数据类型
+		    selectRows:true,//点击行选中
+			el_data:null,	//本参数无需传递
+			data:'items',	//(必需)数据集合标识
+			url:'',			//(必需)数据源接口地址
 			relative:true,	//(可选)是否设置请求相对父路径
-			dataSource:'',	//(可选)表格的数据源集合标识,默认值为(pageInfo.resultList)
-			el_data:null,
+			jsonp:false,	//(可选)使用异步数据接口
+		    dataSource:'',	//(可选)表格的数据源集合标识,默认值为(pageInfo.resultList)
 			el_pager:'',	//(分页)(必需)分页容器
 			pageNum:1,		//(分页)(可选)初始页码
 			limit:10,		//(分页)(可选)每页条数
 			page:true,		//(分页)(不需)是否分页
-			callback:function(){},
+			resizable:false,//可拖拽列
+			singleLine:false,//单行显示单元格
 			onRequestData:function(){},
+			callback:function(){},
 			onRenderData:function(){}
 	}; 
 	$.extend(settings,opts);
@@ -112,15 +115,15 @@ var TableGolbal = function(opts){
 	   			
 	   			if(data.length==0){
     	   	    	if(_object.page && !_object.loadPage) _object.clearPage();
+    				settings.onRequestData([]);
     	   	    	_object.renderData([]);
-    				settings.callback(data);
 	   			}else{
     	   	    	for(var i=0;i<data.length;i++){
     	   	    		data[i].vueIndex=(i+1)+_object.limit*(_object.pageNum-1);	
     	   	    	}
 		   	    	if(_object.page && !_object.loadPage) _object.initPage();
+    				settings.onRequestData(data);
     	   	    	_object.renderData(data);
-    				settings.callback(data);
 	   			}
 			},
 			error:function(){ 
@@ -128,10 +131,42 @@ var TableGolbal = function(opts){
 		});
 	};
 	obj.renderData = function(data){
-		settings.onRenderData();
 		var _object = obj;
 		_object.vm[settings.data] = data;
 		setTimeout(function(){ 
+			settings.onRenderData();
+			settings.callback();
+			
+			if(settings['dataCheckes']!=undefined && settings['dataCheckes']!='' && settings.selectRows){
+				_object.vm[settings.dataCheckes].map(function(item){
+					settings.el_data.find('input[value='+item+']').closest('tr').addClass('info');
+				});
+				settings.el_data.find('tbody td').click(function(event){
+					console.log(event.target.tagName);
+					if("TD,DIV".indexOf(event.target.tagName)>=0){
+						var cbx = $(this).closest('tr').find('td:eq(0) input[type=checkbox]');
+						if(cbx!=undefined && cbx!=null){
+							var value = cbx.val();
+							if(cbx.is(':checked')){
+								_object.vm[settings.dataCheckes] = _object.vm[settings.dataCheckes].removeByValue(value);
+							}else{
+								switch(settings.keyType){
+									case 'int':
+										_object.vm[settings.dataCheckes] = _object.vm[settings.dataCheckes].mergeArray([parseInt(value)]);
+										break;
+									case 'float':
+										_object.vm[settings.dataCheckes] = _object.vm[settings.dataCheckes].mergeArray([parseFloat(value)]);
+										break;
+									case 'string':
+										_object.vm[settings.dataCheckes] = _object.vm[settings.dataCheckes].mergeArray([value]);
+										break;
+								}
+								
+							}
+						}
+					} 
+				});
+			}
 			if(settings.singleLine){
 				settings.el_data.removeClass('table-resizable');
 				if(!_object.loadPage){ 
@@ -161,17 +196,18 @@ var TableGolbal = function(opts){
 
 var TableConfig = function(opts){
 	var settings={
-			data:'',		//(必需)数据集合标识
-			url:'',			//(必需)数据源接口地址
-		    dataCheckes:'',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
-		    dataCheckFilter://(多选)(可选)判断是否允许选中
-		    null,
+			//data:'',		//(必需)数据集合标识
+			//url:'',			//(必需)数据源接口地址
+		    //dataCheckes:'',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
+		    //dataCheckFilter://(多选)(可选)判断是否允许选中
+		    //null,
+		    selectRows:true,//点击行选中
 		    dataCheckesCallBack:function(){},
-			relative:true,	//(可选)是否设置请求相对父路径
-			dataSource:'',	//(可选)表格的数据源集合标识,默认值为(pageInfo.resultList)
-			el_pager:'',	//(分页)(必需)分页容器
+			//relative:true,	//(可选)是否设置请求相对父路径
+			//dataSource:'',	//(可选)表格的数据源集合标识,默认值为(pageInfo.resultList)
+			//el_pager:'',	//(分页)(必需)分页容器
 			limit:undefined,//(分页)(可选)每页条数
-			page:true		//(分页)(不需)是否分页
+			//page:true		//(分页)(不需)是否分页
 	};
 	$.extend(settings,opts);
 	tableQueue[settings.data] = settings;
@@ -246,7 +282,7 @@ var VueInit = function(opts){
 							if(obj.dataCheckFilter(o)){
 								arr.push(item); 
 							}
-						}else{//如果是当前页的行，则直接添加
+						}else{//如果不是当前页的行，则直接添加
 							arr.push(item);
 						}
 					});
@@ -263,10 +299,15 @@ var VueInit = function(opts){
 				        return this[obj.dataCheckes+'_Pool']; 
 					},
 					set:function(value){
-						console.log(1111);
-						console.log(obj.dataCheckFilter);
+						//设置选中行颜色
 						if(obj.dataCheckFilter!=null){
 							value = funDataCheck(value,this);
+						}
+						if(obj.selectRows){
+							obj.el_data.find('input[type="checkbox"]').closest('tr').removeClass('info');
+							value.map(function(item){
+								obj.el_data.find('input[value='+item+']').closest('tr').addClass('info');
+							});
 						}
 						this[obj.dataCheckes+'_Pool'] = value;
 						obj.dataCheckesCallBack(value);

@@ -25,7 +25,7 @@ exports.Load =function(){
 			this.splice(index, 1);
 		}
 		return this;
-	};
+	}; 
 	//删除普通数组中的多个值
 	//传入一个包含多个值的数组
 	Array.prototype.removeByValues = function(delArr) {

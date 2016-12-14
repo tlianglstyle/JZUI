@@ -16,7 +16,7 @@ function sample() {
 			var regReplace1 = /^\<script pre\>/;
 			var regReplace2 = /\<\/script\>$/;
 			
-			contents=contents.replace(/[\r\n]/g,"through-script");
+			contents=contents.replace(/[\r\n]/g,"throughScript");
 			//console.log(contents);
 			var results = contents.match(regex);
 			//console.log(results);
@@ -36,8 +36,8 @@ function sample() {
 						return Replace(_value);
 			}
 			var result = results==null?contents:Replace(contents);
-			//console.log(result);
-			result=result.replace(/through-script/g,"\r\n");
+			console.log(result);
+			result=result.replace(/throughScript/g,"\r\n");
 			file.contents = new Buffer(result);
       }
       //if (file.isStream()) {

@@ -72,7 +72,7 @@ pre.prettyprint .typ {color: #333;} /* type    - lightgreen */
 pre.prettyprint .lit { color: #cd5c5c } /* literal - darkred */
 pre.prettyprint .pun {color: #333;}    /* punctuation */
 pre.prettyprint .pln {color: #333;}    /* plaintext */
-pre.prettyprint .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+pre.prettyprint .tag {color: #2f6f9f;font-weight: bold;} /* html/xml tag    - lightyellow */
 pre.prettyprint .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
-pre.prettyprint .atv { color: #ffa0a0 } /* attribute value - pink */
+pre.prettyprint .atv {color: #d44950;} /* attribute value - pink */
 pre.prettyprint .dec { color: #cccccc } /* decimal         - gray */

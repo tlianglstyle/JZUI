@@ -20,7 +20,7 @@ The modules are individual files in the "src/js/common/" directory.
 
 <table>
 <thead><tr>
-  <th>module</th><th>description</th><th>default</th><th>code</th><th>intro</th>
+  <th>Name</th><th>description</th><th>default</th><th>code</th><th>intro</th>
 </tr></thead>
 <tbody>
   <tr>

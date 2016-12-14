@@ -36,8 +36,9 @@
 <script src="../../../src/js/lib/sb-admin-2.js"></script> 
 <script src="../../../src/js/lib/tools/WdatePicker/WdatePicker.js"></script>
 <link href="../../../src/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
-<script src="../../../src/js/utils/prettify/prettify.min.js"></script>
-<style>  
+ 
+<script src="../../../src/js/utils/prettify/prettify.js"></script>
+<style>   
 
 	body{margin:0px;font-size:12px;}
 	.nav>li>a{padding:5px 10px;}
@@ -45,7 +46,7 @@
 	.panel-heading{padding:5px 8px;}
 	.label{font-weight:normal;font-family:microsoft yahei;}
 	
-	#page-wrapper{border:0;margin:0;padding:10px;}
+	#page-wrapper{border:0;margin:0;padding:10px 15px;}
 
 	.form-inline .form-group{margin-bottom:10px;margin-right:5px;}
 	.form-inline .form-group .form-control{	padding: 0px 4px;height: 30px;}

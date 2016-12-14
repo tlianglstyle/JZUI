@@ -28,7 +28,7 @@ exports.Form = function(opts){
 	 	   			settings.success(data);
 	 			}, 
 	 			error:function(data){
-	 				settings.success(data);
+	 				settings.error(data);
 	 			}
 	 		});
 	 	}

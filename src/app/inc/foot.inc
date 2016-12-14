@@ -1,7 +1,7 @@
 </div>
 <script>
   window.onload = function () {
-        $('pre').addClass('prettyprint lang-java');
-        prettyPrint();
+        $('pre').addClass('prettyprint');
+        prettyPrint(); 
     }
 </script>
