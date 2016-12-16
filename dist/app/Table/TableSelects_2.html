@@ -198,15 +198,15 @@
 
 <script src="../../../dist/js/app/JZ/JZ.js"></script>
   </head>
-  <body>
-	<div id="page-wrapper">
+  <body>  
+ 	<div id="page-wrapper">
 
 <a href="../examples/index.html" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-arrow-left"></span></a>
 
 
 
 
- 	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Table/TableSelects_Auto.html" class="btn btn-default btn-sm pull-right">查看源码</a>
+ 	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Table/TableSelects.html" class="btn btn-default btn-sm pull-right">查看源码</a>
  	<br><br>
 		<div class="row">
 		  <div class="col-sm-12">
@@ -230,165 +230,114 @@
 		    </div>
 		  </div>
 		</div>
-		<div class="row">
-		  <div class="col-sm-12">
-		    <div class="panel panel-default">
-		      <div class="panel-heading"><b>操作明细</b>
-		      </div>
-		      <div class="panel-body">
-				<div class="form-group">
-					<button type="button" class="btn btn-primary btn-sm" onclick='selectRow()'>确认选择</button>
-				</div>
-		        <div class="table-responsive">
-		          <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1">
-		            <thead>
-		            <tr> 
-		              <th><input type="checkbox"  v-model="UserList_CheckAll" />({{UserList_CheckCount}})</th>
-		              <th>序号</th>
-                  <th>操作</th>
-                  <th>标题</th>
-                  <th>描述</th>
-                  <th>浏览</th>
-                  <th>评论</th>
-                  <th>分享</th>
-                  <th>状态</th>
-                  <th>提交时间</th>
-		            </tr>
-		            </thead>
-		            <tbody>
-		            <!-- 节点遍历 -->
-		            <tr v-for="item in UserList">
-		              <td>
-		              <template v-if="item.id%2!=0">
-		              	<input type="checkbox" :value="item.id" v-model="UserListSelects" />
-		              </template>  
-		              <template v-if="item.id%2==0">
-		              	<input type="checkbox" :value="item.id" v-model="UserListSelects" disabled="disabled" title="不准选我" />
-		              </template>  
-		              </td>
-		              <td>{{item.vueIndex}}</td>
-		              <td>
-		              </td>  
-		              <td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
-									<td>{{ item.title }}</td>
-									<td>{{ item.clicks }}</td>
-									<td>{{ item.replys }}</td>
-									<td>{{ item.shares }}</td>
-									<td>{{ false | switch_1}}</td>
-									<td>{{ item.recorddate }}</td>
-		            </tr>
-		            </tbody>
-		          </table>
-		        </div>
-		        <ul id="vue-pager1" class="pagination pull-right"></ul>
-		        <br> 
-				<div class="form-group">
-					<button type="button" class="btn btn-primary btn-sm" onclick='removeRow()'>移除</button>
-				</div>
-		        <div class="table-responsive">
-		          <table width="100%" class="table table-striped table-bordered table-hover">
-		            <thead>
-		            <tr>
-		              <th><input type="checkbox"  v-model="UserList2_CheckAll" />({{UserList2_CheckCount}})</th>
-                  <th>序号</th>
-                  <th>操作</th>
-                  <th>标题</th>
-                  <th>描述</th>
-                  <th>浏览</th>
-                  <th>评论</th>
-                  <th>分享</th>
-                  <th>状态</th>
-                  <th>提交时间</th>
-		            </tr>
-		            </thead>
-		            <tbody>
-		            <!-- 节点遍历 -->
-		            <tr v-for="item in UserList2">
-		              <td><input type="checkbox" :value="item.id" v-model="UserListSelects2" /></td>
-		              <td>{{item.vueIndex}}</td>
-		              <td>
-		              </td>
-									<td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
-									<td>{{ item.title }}</td>
-									<td>{{ item.clicks }}</td>
-									<td>{{ item.replys }}</td>
-									<td>{{ item.shares }}</td>
-									<td>{{ false | switch_1}}</td>
-									<td>{{ item.recorddate }}</td>
-		            </tr>
-		            </tbody>
-		          </table>
-		        </div>
-		      </div>
-		    </div>
-		    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><b>操作明细</b>
+      </div>
+      <div class="panel-body">
+				<div class="row">
+				  <div class="col-xs-6">
+						<div class="form-group">
+							<button type="button" class="btn btn-primary btn-sm" onclick='selectRow()'>确认选择</button>
+						</div>
+			        <div class="table-responsive">
+			          <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1">
+			            <thead>
+			            <tr> 
+			              <th><input type="checkbox"  v-model="UserList_CheckAll" />({{UserList_CheckCount}})</th>
+			              <th>序号</th>
+	                  <th>标题</th>
+	                  <th>浏览</th>
+	                  <th>提交时间</th>
+			            </tr>
+			            </thead>
+			            <tbody>
+			            <!-- 节点遍历 -->
+			            <tr v-for="item in UserList">
+			              <td>
+			              <template v-if="item.id%2!=0">
+			              	<input type="checkbox" :value="item.id" v-model="UserListSelects" />
+			              </template>  
+			              <template v-if="item.id%2==0">
+			              	<input type="checkbox" :value="item.id" v-model="UserListSelects" disabled="disabled" title="不准选我" />
+			              </template>  
+			              </td>
+			              <td>{{item.vueIndex}}</td>
+			              <td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
+										<td>{{ item.clicks }}</td>
+										<td>{{ item.recorddate }}</td>
+			            </tr>
+			            </tbody>
+			          </table>
+			        </div>
+			        <ul id="vue-pager1" class="pagination pull-right"></ul>
+			    </div>
+			  	<div class="col-xs-6">
+						<div class="form-group">
+							<button type="button" class="btn btn-primary btn-sm" onclick='removeRow()'>移除</button>
+						</div>
+			        <div class="table-responsive">
+			          <table width="100%" class="table table-striped table-bordered table-hover">
+			            <thead>
+			            <tr>
+			              <th><input type="checkbox"  v-model="UserList2_CheckAll" />({{UserList2_CheckCount}})</th>
+	                  <th>序号</th>
+	                  <th>标题</th>
+	                  <th>浏览</th>
+	                  <th>提交时间</th>
+			            </tr>
+			            </thead>
+			            <tbody>
+			            <!-- 节点遍历 -->
+			            <tr v-for="item in UserList2">
+			              <td><input type="checkbox" :value="item.id" v-model="UserListSelects2" /></td>
+			              <td>{{item.vueIndex}}</td>
+										<td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
+										<td>{{ item.clicks }}</td>
+										<td>{{ item.recorddate }}</td>
+			            </tr>
+			            </tbody>
+			          </table>
+			        </div>
+			      </div>
+			  </div>
 		  </div>
+		</div>
 	
-	</div>
-
-<script>
-
-  JZ.onWindowLoad(function () {
-
-        $('pre').addClass('prettyprint');
-
-        prettyPrint(); 
-
-  })
-
-</script>
 <pre>
 vm = new JZ.Vue({
 	tables:{
 		table1:{ 
 	    data:'UserList',				//(必需)数据集合标识
+			resizable:true,//可拖拽列 
+			singleLine:true,//单行显示单元格
 			url:JZ.AjaxUrl.DemoPageData, //(必需)数据接口地址
 	    dataCheckes:'UserListSelects',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
-	    dataCheckFilter2:function(item){	//(多选)(可选)判断是否允许选中
+	    dataCheckFilter:function(item){	//(多选)(可选)判断是否允许选中
 	    	if(item.id%2!=0)	//设置条件选中
 	    		return true;
-	    	return false;  
-	    },
-	    dataCheckesCallBack:function(checks){
-	    	console.log(checks);
-	    	if(checks.length>0){
-	    		selectRow();
-	    	}
+	    	return false; 
 	    },
 	    key:'id',					//(多选功能必需的参数)数据表中的主键列名(或唯一标识列)
 			el_pager:'#vue-pager1',	//(分页功能必需的参数)分页容器 
 	    limit:8								//(分页功能可选的参数)每页条数,默认10
+	 	},
+		table2:{ 
+	    data:'UserList2',
+			resizable:true,//可拖拽列 
+			singleLine:true,//单行显示单元格
+	    dataCheckes:'UserListSelects2',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
+	    key:'id'
+			
 	  }
 	},
-	data: {
-		UserList2:[],//选择的结果集  Array Object
-		UserListSelects2:[]//结果集中再次选择的结果集 Array String
-  },
+	data: {},
 	filter:function(){
 		Vue.filter('switch_1', function () {
 			if(this.item.isvalid==0)
 				return '禁用';
 			return '启用';
 		});
-	},
-	computed:{//表格2全选
-		UserList2_CheckAll:{
-			  get: function() {
-			        return this['UserList2_CheckCount'] == this['UserList2'].length;
-		      },
-		      set: function(value) {
-		    	  this['UserListSelects2'] = value
-		    	  	?this['UserListSelects2'].mergeArray(this['UserList2'].getKeys('id'))
-		    		:this['UserListSelects2'].removeByValues(this['UserList2'].getKeys('id'));
-		      }
-		},
-		UserList2_CheckCount:{
-			 get: function() {
-			        return this['UserListSelects2'].length;
-			 } 
-		}
-	},
-	methods:{}
+	}
 });
 
 function selectRow(){
@@ -402,6 +351,9 @@ function selectRow(){
 			vm.UserList2.push(o);
 		}
 	}
+	setTimeout(function(){
+		vm.tables.table2.renderDom();
+		},10);
 }
 function removeRow(){
 	vm.UserListSelects = vm.UserListSelects.removeByValues(vm.UserListSelects2);
@@ -417,53 +369,36 @@ vm = new JZ.Vue({
 	tables:{
 		table1:{ 
 	    data:'UserList',				//(必需)数据集合标识
+			resizable:true,//可拖拽列 
+			singleLine:true,//单行显示单元格
 			url:JZ.AjaxUrl.DemoPageData, //(必需)数据接口地址
 	    dataCheckes:'UserListSelects',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
-	    dataCheckFilter2:function(item){	//(多选)(可选)判断是否允许选中
+	    dataCheckFilter:function(item){	//(多选)(可选)判断是否允许选中
 	    	if(item.id%2!=0)	//设置条件选中
 	    		return true;
-	    	return false;  
-	    },
-	    dataCheckesCallBack:function(checks){
-	    	console.log(checks);
-	    	if(checks.length>0){
-	    		selectRow();
-	    	}
+	    	return false; 
 	    },
 	    key:'id',					//(多选功能必需的参数)数据表中的主键列名(或唯一标识列)
 			el_pager:'#vue-pager1',	//(分页功能必需的参数)分页容器 
 	    limit:8								//(分页功能可选的参数)每页条数,默认10
+	 	},
+		table2:{ 
+	    data:'UserList2',
+			resizable:true,//可拖拽列 
+			singleLine:true,//单行显示单元格
+	    dataCheckes:'UserListSelects2',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
+	    key:'id'
+			
 	  }
 	},
-	data: {
-		UserList2:[],//选择的结果集  Array Object
-		UserListSelects2:[]//结果集中再次选择的结果集 Array String
-  },
+	data: {},
 	filter:function(){
 		Vue.filter('switch_1', function () {
 			if(this.item.isvalid==0)
 				return '禁用';
 			return '启用';
 		});
-	},
-	computed:{//表格2全选
-		UserList2_CheckAll:{
-			  get: function() {
-			        return this['UserList2_CheckCount'] == this['UserList2'].length;
-		      },
-		      set: function(value) {
-		    	  this['UserListSelects2'] = value
-		    	  	?this['UserListSelects2'].mergeArray(this['UserList2'].getKeys('id'))
-		    		:this['UserListSelects2'].removeByValues(this['UserList2'].getKeys('id'));
-		      }
-		},
-		UserList2_CheckCount:{
-			 get: function() {
-			        return this['UserListSelects2'].length;
-			 } 
-		}
-	},
-	methods:{}
+	}
 });
 
 function selectRow(){
@@ -477,6 +412,9 @@ function selectRow(){
 			vm.UserList2.push(o);
 		}
 	}
+	setTimeout(function(){
+		vm.tables.table2.renderDom();
+		},10);
 }
 function removeRow(){
 	vm.UserListSelects = vm.UserListSelects.removeByValues(vm.UserListSelects2);
@@ -488,5 +426,20 @@ function search(){
 	table1.reload();
 }
 </script>
+
+	</div>
+
+<script>
+
+  JZ.onWindowLoad(function () {
+
+        $('pre').addClass('prettyprint');
+
+        prettyPrint(); 
+
+  })
+
+</script>
+
   </body>
 </html>

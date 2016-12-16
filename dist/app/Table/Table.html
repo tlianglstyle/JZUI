@@ -164,6 +164,8 @@
 
 	    left: 5px;
 
+	    z-index:1;
+
 	}
 
 	.table-resizable tbody{
@@ -238,7 +240,7 @@
 				         <tbody>
 											<tr v-for="item in UserList1">
 												<td>{{item.vueIndex}}</td>
-												<td>{{ item.name }}</td>
+												<td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
 												<td>{{ item.clicks }}</td>
 												<td>{{ false | switch_1}}</td>
 												<td>{{ item.recorddate }}</td>

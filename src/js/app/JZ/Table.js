@@ -60,7 +60,7 @@ exports.Table = function(opts){
 		settings.filter();
 		var vueSetting = {
 		  el: settings.el_data,
-		  data: {sortKey:'clicks'}, 
+		  data: {}, 
           ready:function() {},
 		  methods:settings.methods
 		};

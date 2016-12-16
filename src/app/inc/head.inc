@@ -79,6 +79,7 @@
 	    overflow: hidden;
 	    top: 8px;
 	    left: 5px;
+	    z-index:1;
 	}
 	.table-resizable tbody{
 		opacity:0;

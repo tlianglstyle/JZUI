@@ -164,6 +164,8 @@
 
 	    left: 5px;
 
+	    z-index:1;
+
 	}
 
 	.table-resizable tbody{
@@ -300,7 +302,7 @@
 																		<button type="button" class="btn btn-warning btn-xs">无</button>
 																		<button type="button" class="btn btn-primary btn-xs" v-on:click="detail(item,$event)">打开</button>
 																	</td>
-																	<td>{{ item.name }}</td>
+																	<td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
 																	<td>{{ item.title }}</td>
 																	<td>{{ false | switch_1 }}</td>
 																	<td>{{ false | table_1_timefomart}}</td>
@@ -331,7 +333,7 @@
 																<td>{{item.vueIndex}}</td>
 																<td> 
 																</td>
-																<td>{{ item.name }}</td>
+																<td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
 																<td>{{ item.title }}</td>
 																<td>{{ false | switch_1 }}</td>
 																<td>{{ false | table_2_timefomart}}</td>

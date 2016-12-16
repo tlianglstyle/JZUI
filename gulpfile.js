@@ -25,7 +25,7 @@ var gulp = require('gulp'),
 var host = {
     path: '',//dist/
     port: 3000,
-    html: 'dist//app/Vue/index.html'
+    html: 'dist/app/Vue/index.html'
 };
  
 

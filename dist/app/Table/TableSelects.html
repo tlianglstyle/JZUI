@@ -164,6 +164,8 @@
 
 	    left: 5px;
 
+	    z-index:1;
+
 	}
 
 	.table-resizable tbody{
@@ -260,7 +262,7 @@
 			              </template>  
 			              </td>
 			              <td>{{item.vueIndex}}</td>
-			              <td>{{ item.name }}</td>
+			              <td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
 										<td>{{ item.clicks }}</td>
 										<td>{{ item.recorddate }}</td>
 			            </tr>
@@ -289,7 +291,7 @@
 			            <tr v-for="item in UserList2">
 			              <td><input type="checkbox" :value="item.id" v-model="UserListSelects2" /></td>
 			              <td>{{item.vueIndex}}</td>
-										<td>{{ item.name }}</td>
+										<td><a target="_blank" href="http://tliangl.com/article{{ item.id }}.aspx">{{ item.name }}</a></td>
 										<td>{{ item.clicks }}</td>
 										<td>{{ item.recorddate }}</td>
 			            </tr>

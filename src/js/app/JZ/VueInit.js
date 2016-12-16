@@ -93,6 +93,10 @@ var TableGolbal = function(opts){
 		if(!_object.page){
 			if(opts.limit == undefined) _object.limit = 9999;
 		}
+		if(settings.url==''){
+			_object.renderData([]);
+			return;
+		}
 		var splits = (_object.url.indexOf('?')>0?'&':'?'); 
 		var url= _object.url + splits + 'pageNum='+_object.pageNum+'&pageSize='+_object.limit; 
 		console.log(url);
@@ -130,13 +134,36 @@ var TableGolbal = function(opts){
 			}
 		});
 	};
+	//数组变动后更新dom实现可拖拽列及单行显示
+	obj.renderDom = function(){
+		var _object = obj;
+		if(settings.singleLine){
+			settings.el_data.removeClass('table-resizable');
+			if(!_object.loadPage){ 
+				var ths = settings.el_data.find('thead th');
+				for(var i=0;i<ths.length;i++){
+					var thWidth = ths.eq(i).width();
+					ths.eq(i).css({width:thWidth});
+					var _div = ths.eq(i).find('.rc-div');
+					if(!_div.hasClass('rc-cells')){ 
+						_div.addClass('rc-cells').after('<div class="rc-td" style="width1:'+_div.width()+'px;opacity:0;">'+_div.text()+'</div>');
+					}
+				} 
+				
+			} 
+			var divs = settings.el_data.find('tbody td .rc-div'); 
+			for(var i=0;i<divs.length;i++){divs.eq(i).addClass('rc-cells').after('&nbsp;');} 
+		}
+		if(settings.resizable){
+			settings.el_data.resizableColumns();
+		}
+	};
 	obj.renderData = function(data){
 		var _object = obj;
 		_object.vm[settings.data] = data;
 		setTimeout(function(){ 
 			settings.onRenderData();
 			settings.callback();
-			
 			if(settings['dataCheckes']!=undefined && settings['dataCheckes']!='' && settings.selectRows){
 				_object.vm[settings.dataCheckes].map(function(item){
 					settings.el_data.find('input[value='+item+']').closest('tr').addClass('info');
@@ -167,26 +194,7 @@ var TableGolbal = function(opts){
 					} 
 				});
 			}
-			if(settings.singleLine){
-				settings.el_data.removeClass('table-resizable');
-				if(!_object.loadPage){ 
-					var ths = settings.el_data.find('thead th');
-					for(var i=0;i<ths.length;i++){
-						var thWidth = ths.eq(i).width();
-						ths.eq(i).css({width:thWidth});
-						var _div = ths.eq(i).find('.rc-div');
-						if(!_div.hasClass('rc-cells')){ 
-							_div.addClass('rc-cells').after('<div class="rc-td" style="width1:'+_div.width()+'px;opacity:0;">'+_div.text()+'</div>');
-						}
-					}
-					
-				} 
-				var divs = settings.el_data.find('tbody td .rc-div'); 
-				for(var i=0;i<divs.length;i++){divs.eq(i).addClass('rc-cells').after('&nbsp;');} 
-			}
-			if(settings.resizable){
-				settings.el_data.resizableColumns();
-			}
+			obj.renderDom();
 			_object.loadPage=true;//TODO:1.渲染dom，2.添加resizable,
 		},10);
 	}; 
@@ -232,6 +240,10 @@ var TableConfig = function(opts){
 		refresh : function(url){
 			var obj = tableQueue[settings.data].tableGolbal;
 			obj.refresh(); 
+		},
+		renderDom : function(url){
+			var obj = tableQueue[settings.data].tableGolbal;
+			obj.renderDom(); 
 		}
 	};
 }

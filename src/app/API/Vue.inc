@@ -1,4 +1,4 @@
-		<h4>Methods</h4> 
+		<h4>Methods</h4>
 		<p>使用<code>JZ.Vue</code>初始化Vue全局对象。</p>
 		<p><code>HTML:</code></p>
 		<pre class="lang-html">&lt;div&gt;{{ name }}&lt;/div&gt;</pre>
@@ -13,7 +13,12 @@ vm = new JZ.Vue({
 		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		  1.<b>JZ.Vue</b>继承自<b>Vue.js</b>，你可以在这里使用绝大部分的<b>Vue</b>属性。<br><br>
 		  2.<b>JZ.Vue</b>默认使用<b>document.body</b>作为<b>Vue</b>渲染的容器，你应该将所有需要使用<b>Vue</b>的内容放在<b>JZ.Vue</b>中。
-		 </div>
+		</div>
+		<p>我们在JZ.Vue添加了tables参数允许你添加数据表格。</p>
+		<div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		虽然JZ.Table也可以加载一个数据表格，但使用JZ.Vue能够实现更多的功能，如添加其他的一些Vue数据绑定。		  
+		</div>
 		<p>使用<code>JZ.Vue</code>创建数据表格。</p>
 		<pre>
 vm = new JZ.Vue({ 
