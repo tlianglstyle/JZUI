@@ -15,7 +15,7 @@
 		  </tr>
 		  <tr>
 		    <th>JZ.Vue</th>
-		    <td>加载一个继承自vue.js的全局Vue工具集</td>
+		    <td>加载一个继承自vue.js的全局Vue工具集</td> 
 		    <td>✔</td>
 			<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/VueInit.js">...</a></th>
 			<th><a href="#section-Vue">...</a></th>
