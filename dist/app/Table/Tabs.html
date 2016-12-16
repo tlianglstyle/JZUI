@@ -58,12 +58,6 @@
 
 <script src="../../../src/js/lib/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
 
-<script src="../../../src/js/lib/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
-
-<script src="../../../src/js/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js" type="text/javascript"></script>
-
-<script src="../../../src/js/lib/datatables-responsive/js/dataTables.responsive.js" type="text/javascript"></script>
-
 <script src="../../../src/js/lib/tools/validate/jquery.validate.min.js"></script> 
 
 <script src="../../../src/js/lib/tools/validate/additional-methods.js"></script>
@@ -86,7 +80,7 @@
 
 
 
-	body{margin:0px;font-size:12px;}
+	body{margin:0px;font-size:12px;opacity:0;}
 
 	.nav>li>a{padding:5px 10px;}
 
@@ -194,6 +188,8 @@
 
 	.table th[sort] .glyphicon-sort{opacity:0;}
 
+	[v-cloak]{display:none;}
+
 </style>
 
 <script>var Ctx = ctx = '';</script> 
@@ -205,19 +201,11 @@
 
 <a href="../examples/index.html" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-arrow-left"></span></a>
 
-<br><br>
-
-<ul class="nav nav-tabs" style="display:none;">
-
-	<li><a href="../Table/TableSelects.html">JZ.Vue TableSelects</a></li>
-
-	<li><a href="../Table/Search.html">JZ.Vue TableSearch</a></li>
-
-	<li><a href="../Table/Tabs.html">JZ.Vue TableTabs</a></li>
-
-</ul> 
 
 
+
+ 	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Table/Tabs.html" class="btn btn-default btn-sm pull-right">查看源码</a>
+ 	<br><br>
 		<!-- form 筛选条件-->
 		<form class="row j_filter" id="j_filter_1">
 		  <div class="col-sm-12">  
@@ -414,13 +402,13 @@
 
 <script>
 
-  window.onload = function () {
+  JZ.onWindowLoad(function () {
 
         $('pre').addClass('prettyprint');
 
         prettyPrint(); 
 
-    }
+  })
 
 </script>
 <script type="text/javascript">

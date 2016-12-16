@@ -39,7 +39,7 @@
 		        top: 30px; /* Set the top position of pinned element */
 		    }
 		    .container{
-					font-size: 13px;
+					font-size: 13px;line-height:2;
 					font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;			    	
 		    }
 		</style>
@@ -51,10 +51,23 @@
 <div class="container">
 <div class="row">
 	<div class="col-xs-9">
+		<h1 id="section-Start">介绍</h1>
+		<hr>
+		@@include('Start.inc')
+		
+		<br>
+		<h1 id="section-list">代码组成结构</h1>
+		<hr>
+		@@include('List.inc')
+		
+		<br>
+		<br><p>下面，开始介绍JZ.js的各个组件。</p>
+		
 		<h1 id="section-Table">JZ.Table</h1>
 		<hr>
 		@@include('Table.inc')
 		
+		<br>
 		<h1 id="section-Vue">JZ.Vue</h1>
 		<hr>
 		@@include('Vue.inc')
@@ -64,7 +77,9 @@
 	</div>
 	<div class="col-xs-3" id="myScrollspy">
 	    <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
-	        <li class="active"><a href="#section-Table">JZ.Table</a></li>
+	    		<li><a href="#section-Start">介绍</a></li>
+	    		<li><a href="#section-list">代码组成结构</a></li>
+	        <li><a href="#section-Table">JZ.Table</a></li>
 	        <li><a href="#section-Vue">JZ.Vue</a></li>
 	        <li><a href="#section-Form">JZ.Form</a></li>
 	    </ul>

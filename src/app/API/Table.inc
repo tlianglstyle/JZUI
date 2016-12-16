@@ -41,6 +41,7 @@ var table = JZ.Table({
 			      <tr>
 					   <th>名称</th>
 					   <th>默认值</th>
+					   <th>类型</th>
 					   <th>描述</th>
 					   <th>必需</th>
 			      </tr>
@@ -49,108 +50,126 @@ var table = JZ.Table({
 					<tr>
 						<th>el_data</th>
 						<td></td>
+						<td>String</td>
 						<td>表格容器(在JZ.Vue中使用时无需填写)</td>
 						<td>✔</td>
 					</tr>
 					<tr>
 						<th>data</th>
 						<td>items</td>
+						<td>String</td>
 						<td>数据集合标识</td>
 						<td>✔</td>
 					</tr>
 					<tr>
 						<th>url</th>
 						<td></td>
+						<td>String</td>
 						<td>数据源接口地址</td>
 						<td>✔</td>
 					</tr>
 					<tr>
 						<th>relative</th>
 						<td>true</td>
+						<td>Boolean</td>
 						<td>是否设置请求的项目相对父路径(默认相对根目录为全局变量ctx)</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>jsonp</th>
 						<td>false</td>
+						<td>Boolean</td>
 						<td>是否为异步数据接口</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>dataSource</th>
 						<td></td>
+						<td>String</td>
 						<td>接口数据源集合标识,默认值为(pageInfo.resultList)</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>el_pager</th>
 						<td></td>
+						<td>String</td>
 						<td>分页容器</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>pageNum</th>
 						<td>1</td>
+						<td>Int</td>
 						<td>初始页码</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>limit</th>
-						<td>每页条数</td>
 						<td>10</td>
+						<td>Int</td>
+						<td>每页条数</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>page</th>
-						<td>使用分页</td>
 						<td>true</td>
+						<td>Boolean</td>
+						<td>使用分页</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>resizable</th>
-						<td>可拖拽列</td>
 						<td>false</td>
+						<td>Boolean</td>
+						<td>可拖拽列</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>singleLine</th>
-						<td>单元格不换行</td>
 						<td>false</td>
+						<td>Boolean</td>
+						<td>单元格不换行</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>dataCheckes</th>
 						<td></td>
+						<td>String</td>
 						<td>【多选】多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>dataCheckFilter</th>
 						<td></td>
-						<td>【多选】判断是否允许选中</td>
+						<td>Function</td>
+						<td>【多选】自定义条件判断是否允许选中</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>dataCheckesCallBack</th>
 						<td></td>
+						<td>String</td>
 						<td>【多选】选择后回调函数</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>key</th>
 						<td></td>
+						<td>String</td>
 						<td>【多选】标识列(或主键)</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>keyType</th>
 						<td>int</td>
+						<td>String</td>
 						<td>【多选】标识列数据类型</td>
 						<td></td>
 					</tr>
 					<tr>
 						<th>selectRows</th>
 						<td>true</td>
+						<td>Boolean</td>
 						<td>【多选】点击行选中</td>
 						<td></td>
 					</tr>
@@ -178,4 +197,3 @@ var table = JZ.Table({
 				</tbody>
 			</table>
 		</div> 
-		<br>

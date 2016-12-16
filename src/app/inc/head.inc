@@ -26,9 +26,6 @@
 <script src="../../../src/local_modules/vue/dist/vue.js" type="text/javascript"></script>
 <script src="../../../src/local_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="../../../src/js/lib/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
-<script src="../../../src/js/lib/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="../../../src/js/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script src="../../../src/js/lib/datatables-responsive/js/dataTables.responsive.js" type="text/javascript"></script>
 <script src="../../../src/js/lib/tools/validate/jquery.validate.min.js"></script> 
 <script src="../../../src/js/lib/tools/validate/additional-methods.js"></script>
 <script src="../../../src/js/lib/tools/validate/messages_zh.js"></script>
@@ -40,7 +37,7 @@
 <script src="../../../src/js/utils/prettify/prettify.js"></script>
 <style>   
 
-	body{margin:0px;font-size:12px;}
+	body{margin:0px;font-size:12px;opacity:0;}
 	.nav>li>a{padding:5px 10px;}
 	.table{margin-bottom:5px;}
 	.panel-heading{padding:5px 8px;}
@@ -94,6 +91,7 @@
 	.table th[sort] .glyphicon{    position: absolute;right: 2px;top: 10px;}
 	
 	.table th[sort] .glyphicon-sort{opacity:0;}
+	[v-cloak]{display:none;}
 </style>
 <script>var Ctx = ctx = '';</script> 
 <script src="../../../dist/js/app/JZ/JZ.js"></script>

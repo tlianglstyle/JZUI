@@ -237,6 +237,7 @@ var TableConfig = function(opts){
 }
 
 var VueInit = function(opts){
+	Config.Base();
 	var settings = {
 		el:'body',
 		tables:{},

@@ -1,7 +1,7 @@
 </div>
 <script>
-  window.onload = function () {
+  JZ.onWindowLoad(function () {
         $('pre').addClass('prettyprint');
         prettyPrint(); 
-    }
+  })
 </script>

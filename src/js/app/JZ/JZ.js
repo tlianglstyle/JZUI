@@ -4,6 +4,7 @@ var Ajax = require('./Ajax');
 var Form = require('./Form');
 var Table = require('./Table');
 var VueInit = require('./VueInit');
+var GetInstance = function(modules){return modules;};
 var _JZ = window.JZ;
 var _J = window.J;
 var JZ = new Object();
@@ -11,14 +12,15 @@ window.JZ = JZ;
 window.J = JZ;
 window.vm = null;
 JZ.vm = null;
-JZ.Ajax = Ajax.Ajax;  
-JZ.Form = Form.Form;
-JZ.Table = Table.Table;
+JZ.Ajax = GetInstance(Ajax.Ajax);  
+JZ.Form = GetInstance(Form.Form);
+JZ.Table = GetInstance(Table.Table);
 JZ.TableGolbal = VueInit.TableGolbal;
 JZ.TableConfig = VueInit.TableConfig; 
-JZ.Vue = VueInit.VueInit;  
+JZ.Vue = GetInstance(VueInit.VueInit);  
 JZ.Config = Config;
 JZ.AjaxUrl = Config.AjaxUrl;
+JZ.onWindowLoad = Config.onWindowLoad;
 JZ.noConflict = function(){ 
 	if(window.J == JZ){
 		window.J = _J;
@@ -26,8 +28,9 @@ JZ.noConflict = function(){
 	if(window.JZ == JZ){
 		window.JZ = _JZ;
 	}
-	return JZ;
+	return JZ; 
 };
+Config.LoadClock();
 Array.Load();
 
 

@@ -29,8 +29,8 @@ vm = new JZ.Vue({
 		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 		  <b>JZ.Vue</b>中的Table配置与<b>JZ.Table</b>配置项完全相同。
 		  <br><br>
-		  <b>Links：</b><a href="../Vue/index.html" target="_blank" class="alert-link pull-right2">如何在JZ.Vue中使用表格？</a>
-		  <a href="#section-Table" class="alert-link pull-right2">去查看JZ.Table配置项</a>
+		  <b>Links：</b><a href="../Vue/index.html" target="_blank" class="alert-link">如何在JZ.Vue中使用表格？</a>
+		  <a href="#section-Table" class="alert-link">去查看JZ.Table配置项</a>
 		</div>
 		<br><h4>Options</h4> 
 		<div class="table-responsive">
@@ -88,4 +88,3 @@ vm = new JZ.Vue({
 					</tr>
 			  </table>
 		</div> 
-		<br>
