@@ -325,3 +325,27 @@ function getLocalTime(tm) {
 </script>
   </body>
 </html>
+	el_data:'#vue-table1-table1',
+							el_pager:'#vue-table1-pager1',
+							limit:5, 
+							filter:function(){},
+							methods:{}
+						});
+					}else{
+						page.table1_table1.setUrl(url);
+						page.table1_table1.reload();	
+					}
+			  }
+			}
+		});
+		//初始化弹窗详细信息
+		vm_table1_detail = new Vue({
+			el: '#vue-table1-info',
+			data: {
+				item:{}
+			}
+		});
+	}
+</script>
+  </body>
+</html>

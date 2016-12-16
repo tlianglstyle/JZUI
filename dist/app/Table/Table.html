@@ -446,3 +446,64 @@ var table3 = JZ.Table({
 		
 </body>
 </html>
+		                      <th>序号</th>
+			                      <th sort="name">标题</th>
+			                      <th sort="clicks[number]">浏览</th>
+			                      <th sort="isvalid[number]">状态</th>
+			                      <th sort="recorddate">提交时间</th>
+	                         </tr>
+	                     </thead>
+	                     <tbody>
+											<tr v-for="item in UserList4">
+												<td>{{item.vueIndex}}</td>
+												<td>{{ item.name }}</td>
+												<td>{{ item.clicks }}</td>
+												<td>{{ false | switch_1}}</td>
+												<td>{{ item.recorddate }}</td>
+											</tr>
+										</tbody>
+		              </table>
+		            <ul id="vue-pager4" class="pagination pull-right"></ul>
+		          </div>
+						</div>
+						<div class="col-sm-6 col-xs-12">
+<pre>
+//数值排序字段添加[number]
+&lt;th&gt;序号&lt;/th&gt;
+&lt;th sort="name"&gt;标题&lt;/th&gt;
+&lt;th sort="clicks[number]"&gt;浏览&lt;/th&gt;
+&lt;th sort="isvalid[number]"&gt;状态&lt;/th&gt;
+&lt;th sort="recorddate"&gt;提交时间&lt;/th&gt;
+</pre>
+		<script>
+		//表格(可拖拽列)
+		var table4 = JZ.Table({
+			data:'UserList4',
+			url:JZ.AjaxUrl.DemoPageData.urlRandom(),
+			el_data:'#vue-table4',
+			el_pager:'#vue-pager4',
+			limit:5,//每页条数
+			resizable:true,//可拖拽列 
+			singleLine:true,//单行显示单元格
+		});
+		</script>
+				</div>
+				</div>		  
+	  	</div>
+		</div>
+	</div>
+
+<script>
+
+  JZ.onWindowLoad(function () {
+
+        $('pre').addClass('prettyprint');
+
+        prettyPrint(); 
+
+  })
+
+</script>
+		
+</body>
+</html>
