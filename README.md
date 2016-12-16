@@ -60,6 +60,7 @@ The modules are individual files in the "src/js/common/" directory.
 
 #site
 API: <http://tlianglstyle.github.io/JZUI/dist/app/API/index.html>
+
 Demo: <http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html>
 
 
