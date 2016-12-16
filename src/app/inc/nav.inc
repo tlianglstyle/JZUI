@@ -4,7 +4,7 @@
 	<li><a href="../Form/index.html">JZ.Form</a></li>
     <li class="pull-right"><a href="https://github.com/tlianglstyle/JZUI">Github</a></li>
     <li class="pull-right"><a href="../API/index.html">API</a></li> 
-	<li class="pull-right"><a href="../examples/index.html">examples</a></li>
+	<li class="pull-right"><a href="../examples/index.html">Examples</a></li>
 </ul>
-<div id="page-wrapper">
+<div id="page-wrapper"> 
 

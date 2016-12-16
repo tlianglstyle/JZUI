@@ -170,7 +170,7 @@ var table = JZ.Table({
 						<th>selectRows</th>
 						<td>true</td>
 						<td>Boolean</td>
-						<td>【多选】点击行选中</td>
+						<td>【多选】点击整行选中</td>
 						<td></td>
 					</tr>
 				</tbody>
