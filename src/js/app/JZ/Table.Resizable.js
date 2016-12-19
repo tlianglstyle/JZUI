@@ -77,7 +77,6 @@ exports.Load = function(global){
 
     ResizableColumns.prototype.restoreColumnWidths = function() {
       var _this = this;
-		console.log(1);
       return this.$table.find('tr th').each(function(_, el) {
         var id, width;
 
@@ -110,7 +109,6 @@ exports.Load = function(global){
         }  
         
       	var width = newLeftColumnWidth;
-		console.log(width);
         $leftColumn.find('.rc-td').css({width:width});
         $leftColumn.width(newLeftColumnWidth);
         $rightColumn.width(newRightColumnWidth);

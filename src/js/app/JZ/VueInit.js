@@ -169,7 +169,6 @@ var TableGolbal = function(opts){
 					settings.el_data.find('input[value='+item+']').closest('tr').addClass('info');
 				});
 				settings.el_data.find('tbody td').click(function(event){
-					console.log(event.target.tagName);
 					if("TD,DIV".indexOf(event.target.tagName)>=0){
 						var cbx = $(this).closest('tr').find('td:eq(0) input[type=checkbox]');
 						if(cbx!=undefined && cbx!=null){

@@ -38,7 +38,7 @@
 <style>   
 
 	body{margin:0px;font-size:12px;opacity:0;}
-	.nav>li>a{padding:5px 10px;}
+	.nav>li>a{padding:5px 5px;}
 	.table{margin-bottom:5px;}
 	.panel-heading{padding:5px 8px;}
 	.label{font-weight:normal;font-family:microsoft yahei;}
