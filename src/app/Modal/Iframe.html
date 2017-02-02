@@ -8,16 +8,17 @@
 	@@include('../examples/nav.inc')  
  	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Modal/Iframe.html" class="btn btn-default btn-sm pull-right">查看源码</a>
  	<br><br> 
+ 	<p>示例：使用模态框调用公用页面功能，操作结束后手动关闭模态框：</p>
 	<button type="button" class="btn btn-warning btn-xs" id="mybutton">打开包含iframe网页的modal</button>
 	<br><br>  
-<script pre>  
+<script pre>
 $('#mybutton').click(function(){
  bootbox.dialog({
    url: "child.html",//modal包含的网页地址
    id:'MyTestModal',//在子页面中关闭modal时使用modal的id
    styles:{minHeight:300},//设置modal样式 
    closeButton: false
- });  
+ });
 });
 </script>
 	@@include('../inc/foot.inc')
