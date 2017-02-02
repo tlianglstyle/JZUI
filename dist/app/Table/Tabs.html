@@ -435,3 +435,30 @@ function init_table_2(url){
 </script>
   </body>
 </html>
+ue({
+		el: '#vue-table1-info',
+		data: {
+			item:{}
+		}
+	});
+}
+function init_table_2(url){
+	page.table2 = JZ.Table({
+		url:url,
+		el_data:'#vue-table2',
+		el_pager:'#vue-pager2',
+		resizable:true,//可拖拽列 
+		singleLine:true,//单行显示单元格
+		//limit:10,//每页条数
+		//page:true//是否分页
+		filter:function(){//TODO:添加自定义逻辑
+			Vue.filter('table_2_timefomart', function () {
+				return getLocalTime(this.item.recorddate);
+			});
+		},
+		methods:{}
+		});
+}
+</script>
+  </body>
+</html>
