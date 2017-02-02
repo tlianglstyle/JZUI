@@ -3,201 +3,103 @@
   <head>
     <title>API</title>
     <meta charset="utf-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
 <!-- Core -->
-
 <link href="../../../src/local_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
-
 <!-- Menu -->
-
 <link href="../../../src/js/lib/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
  
-
 <!-- DataTables -->
-
 <link href="../../../src/js/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
-
 <link href="../../../src/js/lib/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 
-
-
 <!-- Custom -->
-
 <link href="../../../src/css/common/sb-admin-2.css" rel="stylesheet">
 
-
-
 <!-- Fonts -->
-
 <link href="../../../src/local_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
 
-
-
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-
 <!--[if lt IE 9]>
-
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
 <![endif]--> 
-
 <script src="../../../src/local_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
-
 <script src="../../../src/local_modules/vue/dist/vue.js" type="text/javascript"></script>
-
 <script src="../../../src/local_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-
 <script src="../../../src/js/lib/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
-
 <script src="../../../src/js/lib/tools/validate/jquery.validate.min.js"></script> 
-
 <script src="../../../src/js/lib/tools/validate/additional-methods.js"></script>
-
 <script src="../../../src/js/lib/tools/validate/messages_zh.js"></script>
-
 <script src="../../../src/js/lib/tools/validate/validate-methods.js"></script>
-
 <script src="../../../src/js/lib/sb-admin-2.js"></script> 
-
 <script src="../../../src/js/lib/tools/WdatePicker/WdatePicker.js"></script>
-
 <script src="../../../src/js/lib/tools/bootbox.js"></script> 
-
 <link href="../../../src/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
-
  
-
 <script src="../../../src/js/utils/prettify/prettify.js"></script>
-
 <style>   
 
-
-
 	body{margin:0px;font-size:12px;opacity:0;}
-
 	.nav>li>a{padding:5px 5px;}
-
 	.table{margin-bottom:5px;}
-
 	.panel-heading{padding:5px 8px;}
-
 	.label{font-weight:normal;font-family:microsoft yahei;}
-
 	
-
 	#page-wrapper{border:0;margin:0;padding:10px 15px;}
 
-
-
 	.form-inline .form-group{margin-bottom:10px;margin-right:5px;}
-
 	.form-inline .form-group .form-control{	padding: 0px 4px;height: 30px;}
-
 	.form-inline .form-group label{min-width:80px;text-align:right;}
-
 	
-
 	.pagination {margin: 5px 0px;}
 
-
-
 	.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{font-weight:bold;}
-
 	.m5{margin:10px 5px;}
-
 	label.form-require-error{color: #F42D2D;line-height: 2;}
-
 	
-
 	table.table-bordered thead th, table.table-bordered thead td{white-space: nowrap;}
-
 	
-
 	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
-
 	{padding:8px 5px;}
-
 	.panel-body{padding:10px;}
-
 	.pagination li{display:block;    box-sizing: initial;}
-
 	[v-for],[v-if]{opacity:0}
-
 	.rc-handle-container{position:relative;} 
-
 	.rc-handle{position:absolute;width:7px;cursor:ew-resize;*cursor:pointer;margin-left:-3px;z-index:99;}
-
 	
-
 	table.table-bordered thead th, table.table-bordered tbody td{position:relative;
-
 	}
-
 	table.table-bordered thead th, table.table-bordered div.rc-div{
-
 		
-
 	}
-
 	table.table-bordered div.rc-cells{
-
 		opacity: 1;
-
 		white-space: nowrap;
-
 	    width: calc( 100% - 10px) ;
-
 	    display: block;
-
 	    position: absolute;
-
 	    overflow: hidden;
-
 	    top: 8px;
-
 	    left: 5px;
-
 	    z-index:1;
-
 	}
-
 	.table-resizable tbody{
-
 		opacity:0;
-
 	} 
-
 	.table-resizable tbody tr:not(:nth-child(1)){
-
 		opacity:0;
-
 	}
-
 	.table th[sort]{cursor:pointer;}
-
 	.table th[sort]:hover{background-color: #f9f9f9;}
-
 	.table th[sort] .glyphicon{    position: absolute;right: 2px;top: 10px;}
-
 	
-
 	.table th[sort] .glyphicon-sort{opacity:0;}
-
 	[v-cloak]{display:none;}
-
 </style>
-
 <script>var Ctx = ctx = '';</script> 
-
 <script src="../../../dist/js/app/JZ/JZ.js"></script>
     <style>
 		/* Custom Styles */
@@ -243,24 +145,14 @@
   <body data-spy="scroll" data-target="#myScrollspy">
   	
  	<ul class="nav nav-tabs">
-
 	<li><a href="../Table/Table.html">JZ.Table</a></li>
-
 	<li><a href="../Vue/index.html">JZ.Vue</a></li>
-
 	<li><a href="../Form/index.html">JZ.Form</a></li>
-
     <li class="pull-right"><a href="https://github.com/tlianglstyle/JZUI">Github</a></li>
-
     <li class="pull-right"><a href="../API/index.html">API</a></li> 
-
 	<li class="pull-right"><a href="../examples/index.html">Examples</a></li>
-
 </ul>
-
 <div id="page-wrapper"> 
-
-
 
 
  	
@@ -270,138 +162,74 @@
 		<h1 id="section-Start">介绍</h1>
 		<hr>
 		<h3>JZ.js是什么</h3>
-
 <p><code>JZ.js</code>是基于<code>bootstrap</code>，<code>vuejs</code>和<code>jquery，</code>配合<code>webpack</code>,<code>gulp</code>构建工具搭建的后端js组件库，主要用于web管理界面等网站。</p>
 
-
-
 <h3>为什么叫JZ.js</h3>
-
 <p>此项目需求源自于作者所在公司内部使用，各位同学如有房屋装修需求可来我司体验间体验一番：<br>
-
 网址：<a class="alert-link" target="_blank" href="http://www.jzjz.com">www.jzjz.com</a><br>
-
 体验间地址：北京市 海淀区 紫竹院街道	北洼路苏宁易购三层极装吉住。
-
 </p>
-
-
 
 <h3>JZ.js的由来</h3>
-
 <p>用过了Extjs，Jquery UI/EasyUI ，AngularJS等js库的同学可能会都有这样的苦恼：</p>
-
 <p>
-
 1.虽然提供了丰富的API，但并未开放源代码，且难以调试；<br>
-
 2.虽然各种各样的接口和参数设置，但有时仍然无法满足特定的开发需求；<br>
-
 3.html，css模块进行了深度整合，无法更好的自定义html标签和css样式；<br>
-
 ...
-
 </p>
-
 <p>所以我们在一些后端项目开发中遇到了以上的问题，开发了JZ.js。</p>
-
 <h3>JZ.js的特点</h3>
-
 <p>
-
 1.使用通用的bootstrap作为UI层，你可以自由的更换自己专属的boostrap作为UI层；<br><a class="alert-link" target="_blank" href="http://v3.bootcss.com/customize/">定制并下载 Bootstrap</a><br>
-
 2.使用语法较为简洁的vuejs实现数据驱动，除了使用JZ.js提供的组件之外，你还可以自由使用vuejs的其他功能(如单向、双向数据绑定等)。<br><a class="alert-link" target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Table/Search.html">查看示例</a><br>
-
 3.开放<a class="alert-link" target="_blank" href="https://github.com/tlianglstyle/JZUI">所有源码(以及这几个简单的介绍页)</a>，根据你的需求，可以下载并修改代码成为自己的工具集。<br>
 
-
-
 </p>
-
 <div class="alert alert-info alert-dismissible" role="alert">
-
   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-
   使用vuejs时我们需要很多数组操作，并同时整理了一些常用的<a class="alert-link" target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/Array.js">数组操作函数</a>；<br><a class="alert-link" target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Table/TableSelects.html">查看示例</a>
-
 </div>
-
  
 		
 		<br>
 		<h1 id="section-list">代码组成结构</h1>
 		<hr>
 		<h4>Options</h4> 
-
 <div class="table-responsive">
-
 	<table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
-
 		<thead><tr>
-
 		  <th>名称</th><th>备注</th><th>默认</th><th>源码</th><th>介绍</th><th>示例</th>
-
 		</tr></thead>
-
 		<tbody>
-
 		  <tr>
-
 		    <th>JZ.Table</th>
-
 		    <td>加载一个单独的数据表格</td>
-
 		    <td>✔</td>
-
 			<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/Table.js">...</a></th>
-
 			<th><a href="#section-Table">...</a></th>
-
 			<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Table/Table.html">...</a></th>
-
 		  </tr>
-
 		  <tr>
-
 		    <th>JZ.Vue</th>  
-
 		    <td>加载一个继承自vue.js的全局Vue工具集</td>
-
 		    <td>✔</td>
-
 			<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/VueInit.js">...</a></th>
-
 			<th><a href="#section-Vue">...</a></th>
-
 			<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html">...</a></th>
-
 		  </tr>
-
 		  <tr>
-
 		    <th>JZ.Form</th>
-
 		    <td>初始化一个包含验证和提交功能的表单</td>
-
 		    <td>✔</td>
-
 			<th><a target="_blank" href="https://github.com/tlianglstyle/JZUI/blob/master/src/js/app/JZ/Form.js">...</a></th>
-
 			<th><a href="#section-Form">...</a></th>
-
 			<th><a target="_blank" href="http://tlianglstyle.github.io/JZUI/dist/app/Form/index.html">...</a></th>
-
 		  </tr> 
-
 		</tbody>
-
 	</table>
-
 	<a class="alert-link" target="_blank" href="https://github.com/tlianglstyle/JZUI/tree/master/src/js/app/JZ">在Github上查看源码</a>
-
 </div> 
-
 		 
 		
 		<br>
@@ -410,594 +238,302 @@
 		<h1 id="section-Table">JZ.Table</h1>
 		<hr>
 		
-
 		<h4>Methods</h4>
-
 		<p>使用<code>JZ.Table</code>创建一个简单的表格。</p>
-
 		<p><code>HTML:</code></p>   
-
 		<pre class="lang-html">
-
 &lt;div class="table-responsive"&gt;
-
 	&lt;table id="vue-table" width="100%" class="table table-striped table-bordered table-hover"&gt;
-
 		&lt;thead&gt;
-
 			&lt;tr&gt;
-
 				&lt;th&gt;序号&lt;/th&gt;  
-
 				&lt;th&gt;标题&lt;/th&gt;
-
 				&lt;th&gt;提交时间&lt;/th&gt;
-
 			&lt;/tr&gt;
-
 		&lt;/thead&gt;
-
 		&lt;tbody&gt;
-
 			&lt;tr v-for="item in DataList"&gt;
-
 				&lt;td&gt;{{item.vueIndex}}&lt;/td&gt;
-
 				&lt;td&gt;{{ item.name }}&lt;/td&gt;
-
 				&lt;td&gt;{{ item.recorddate }}&lt;/td&gt;
-
 			&lt;/tr&gt;
-
 		&lt;/tbody&gt;
-
 	&lt;/table&gt; 
-
 &lt;/div&gt;
-
 		</pre> 
-
 		<p><code>Javascript:</code></p>
-
 		<pre >
-
 var table = JZ.Table({
-
 	data:'DataList',
-
 	url:'http://getdata',
-
 	el_data:'#vue-table'
-
 });
-
 		</pre>
-
 		<div class="alert alert-info alert-dismissible" role="alert">
-
 		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-
 		  <b>JZ.Table</b>使用<b>el_data</b>作为Vue渲染的容器，通常设定为一个Table元素。
-
 		</div>
-
 		<br><h4>Options</h4> 
-
 		<div class="table-responsive">
-
 			 <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
-
 			  <thead>
-
 			      <tr>
-
 					   <th>名称</th>
-
 					   <th>默认值</th>
-
 					   <th>类型</th>
-
 					   <th>描述</th>
-
 					   <th>必需</th>
-
 			      </tr>
-
 			  </thead>
-
 			  <tbody>
-
 					<tr>
-
 						<th>el_data</th>
-
 						<td></td>
-
 						<td>String</td>
-
 						<td>表格容器(在JZ.Vue中使用时无需填写)</td>
-
 						<td>✔</td>
-
 					</tr>
-
 					<tr>
-
 						<th>data</th>
-
 						<td>items</td>
-
 						<td>String</td>
-
 						<td>数据集合标识</td>
-
 						<td>✔</td>
-
 					</tr>
-
 					<tr>
-
 						<th>url</th>
-
 						<td></td>
-
 						<td>String</td>
-
 						<td>数据源接口地址</td>
-
 						<td>✔</td>
-
 					</tr>
-
 					<tr>
-
 						<th>relative</th>
-
 						<td>true</td>
-
 						<td>Boolean</td>
-
 						<td>是否设置请求的项目相对父路径(默认相对根目录为全局变量ctx)</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>jsonp</th>
-
 						<td>false</td>
-
 						<td>Boolean</td>
-
 						<td>是否为异步数据接口</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>dataSource</th>
-
 						<td></td>
-
 						<td>String</td>
-
 						<td>接口数据源集合标识,默认值为(pageInfo.resultList)</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>el_pager</th>
-
 						<td></td>
-
 						<td>String</td>
-
 						<td>分页容器</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>pageNum</th>
-
 						<td>1</td>
-
 						<td>Int</td>
-
 						<td>初始页码</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>limit</th>
-
 						<td>10</td>
-
 						<td>Int</td>
-
 						<td>每页条数</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>page</th>
-
 						<td>true</td>
-
 						<td>Boolean</td>
-
 						<td>使用分页</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>resizable</th>
-
 						<td>false</td>
-
 						<td>Boolean</td>
-
 						<td>可拖拽列</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>singleLine</th>
-
 						<td>false</td>
-
 						<td>Boolean</td>
-
 						<td>单元格不换行</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>dataCheckes</th>
-
 						<td></td>
-
 						<td>String</td>
-
 						<td>【多选】多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>dataCheckFilter</th>
-
 						<td></td>
-
 						<td>Function</td>
-
 						<td>【多选】自定义条件判断是否允许选中</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>dataCheckesCallBack</th>
-
 						<td></td>
-
 						<td>String</td>
-
 						<td>【多选】选择后回调函数</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>key</th>
-
 						<td></td>
-
 						<td>String</td>
-
 						<td>【多选】标识列(或主键)</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>keyType</th>
-
 						<td>int</td>
-
 						<td>String</td>
-
 						<td>【多选】标识列数据类型</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>selectRows</th>
-
 						<td>true</td>
-
 						<td>Boolean</td>
-
 						<td>【多选】点击整行选中</td>
-
 						<td></td>
-
 					</tr>
-
 				</tbody>
-
 			</table>
-
 		</div> 
-
 		<br><h4>Events</h4>
-
 		<div class="table-responsive">
-
 			 <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
-
 			  <thead>
-
 			      <tr>
-
 					   <th>事件类型</th>
-
 					   <th>描述</th>
-
 			      </tr>
-
 			  </thead>
-
 			  <tbody>
-
 					<tr>
-
 						<th>onRequestData</th>
-
 						<td>数据请求后执行函数</td>
-
 					</tr>
-
 					<tr>
-
 						<th>onRenderData</th>
-
 						<td>渲染表格后执行函数</td>
-
 					</tr>
-
 				</tbody>
-
 			</table>
-
 		</div> 
 		
 		<br>
 		<h1 id="section-Vue">JZ.Vue</h1>
 		<hr>
 				<h4>Methods</h4>
-
 		<p>使用<code>JZ.Vue</code>初始化Vue全局对象。</p>
-
 		<p><code>HTML:</code></p>
-
 		<pre class="lang-html">&lt;div&gt;{{ name }}&lt;/div&gt;</pre>
-
 		<p><code>Javascript:</code></p> 
-
 		<pre>
-
 vm = new JZ.Vue({ 
-
 	data: {name:'tanliang'} 
-
 });</pre> 
-
 		<p><code>Result:</code></p>
-
 		<pre class="lang-html">&lt;div&gt;tanliang&lt;/div&gt;</pre>
-
 		<div class="alert alert-info alert-dismissible" role="alert">
-
 		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-
 		  1.<b>JZ.Vue</b>继承自<b>Vue.js</b>，你可以在这里使用绝大部分的<b>Vue</b>属性。<br><br>
-
 		  2.<b>JZ.Vue</b>默认使用<b>document.body</b>作为<b>Vue</b>渲染的容器，你应该将所有需要使用<b>Vue</b>的内容放在<b>JZ.Vue</b>中。
-
 		</div>
-
 		<p>我们在JZ.Vue添加了tables参数允许你添加数据表格。</p>
-
 		<div class="alert alert-info alert-dismissible" role="alert">
-
 		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-
 		虽然JZ.Table也可以加载一个数据表格，但使用JZ.Vue能够实现更多的功能，如添加其他的一些Vue数据绑定。		  
-
 		</div>
-
 		<p>使用<code>JZ.Vue</code>创建数据表格。</p>
-
 		<pre>
-
 vm = new JZ.Vue({ 
-
 	tables:{
-
 		myTable:{
-
 			data:'DataList',
-
 			url:'http://getdata'
-
 		}
-
 	},
-
 	data: {name:'tanliang'} 
-
 });</pre>  
-
 		<div class="alert alert-info alert-dismissible clearfix" role="alert">
-
 		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-
 		  <b>JZ.Vue</b>中的Table配置与<b>JZ.Table</b>配置项完全相同。
-
 		  <br><br>
-
 		  <b>Links：</b><a href="../Vue/index.html" target="_blank" class="alert-link">如何在JZ.Vue中使用表格？</a>
-
 		  <a href="#section-Table" class="alert-link">去查看JZ.Table配置项</a>
-
 		</div>
-
 		<br><h4>Options</h4> 
-
 		<div class="table-responsive">
-
 			 <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
-
 			  <thead>
-
 			      <tr>
-
 					   <th>名称</th>
-
 					   <th>默认值</th>
-
 					   <th>描述</th>
-
 					   <th>必需</th>
-
 			      </tr>
-
 			  </thead>
-
 			  <tbody>
-
 					<tr>
-
 						<th>el</th>
-
 						<td>body</td>
-
 						<td>Vue容器选择器</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>tables</th>
-
 						<td></td>
-
 						<td>表格集合</td>
-
 						<td></td>
-
 					</tr>
-
 					<tr>
-
 						<th>data</th>
-
 						<td></td>
-
 						<td>数据容器,请参照Vue.js官方文档</td>
-
 						<td></td>
-
 					</tr>
-
 			  </table>
-
 		</div> 
-
 		<br><h4>Events</h4>
-
 		<div class="table-responsive">
-
 			 <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
-
 			  <thead>
-
 			      <tr>
-
 					   <th>事件类型</th>
-
 					   <th>描述</th>
-
 			      </tr>
-
 			  </thead>
-
 			  <tbody>
-
 					<tr>
-
 						<th>filter</th>
-
 						<td>添加Vue.filter</td>
-
 					</tr>
-
 					<tr>
-
 						<th>methods</th>
-
 						<td>事件(请参照Vue.js官方文档)</td>
-
 					</tr>
-
 					<tr>
-
 						<th>computed</th>
-
 						<td>计算属性(请参照Vue.js官方文档)</td>
-
 					</tr>
-
 			  </table>
-
 		</div> 
 		<h1 id="section-Form">JZ.Form<h1> 
 		<hr>
@@ -1016,17 +552,11 @@ vm = new JZ.Vue({
 </div>
 </div>	
 	</div>
-
 <script>
-
   JZ.onWindowLoad(function () {
-
         $('pre').addClass('prettyprint');
-
         prettyPrint(); 
-
   })
-
 </script>
 <script type="text/javascript">
 

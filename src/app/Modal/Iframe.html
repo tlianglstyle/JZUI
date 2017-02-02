@@ -8,17 +8,17 @@
 	@@include('../examples/nav.inc')  
  	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Modal/Iframe.html" class="btn btn-default btn-sm pull-right">查看源码</a>
  	<br><br>
-		<button type="button" class="btn btn-warning btn-xs" id="mybutton">打开包含一个网页的modal</button>
+		<button type="button" class="btn btn-warning btn-xs" id="mybutton">打开包含iframe网页的modal</button>
 	@@include('../inc/foot.inc')
-<script type="text/javascript">
+<script pre>
 $('#mybutton').click(function(){
 	bootbox.dialog({
-   url: "child.html", 
+   url: "child.html",  
    id:'MyTestModal',
    styles:{minHeight:300},
    closeButton: false
-   });
-});
+ });  
+}); 
 </script> 
   </body>
 </html>
