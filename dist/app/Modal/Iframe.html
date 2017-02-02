@@ -214,24 +214,29 @@
 	<button type="button" class="btn btn-warning btn-xs" id="mybutton">打开包含iframe网页的modal</button>
 	<br><br>  
 <pre>
+//当前页面打开模态框
 $('#mybutton').click(function(){
  bootbox.dialog({
    url: "child.html",//modal包含的网页地址
-   id:'MyTestModal',//在子页面中关闭modal时使用modal的id
+   id:'MyTestModal',//模态框id
    styles:{minHeight:300},//设置modal样式 
-   closeButton: false
- });
-});
+   closeButton: false 
+ }); 
+}); 
 </pre><script pre>
+//当前页面打开模态框
 $('#mybutton').click(function(){
  bootbox.dialog({
    url: "child.html",//modal包含的网页地址
-   id:'MyTestModal',//在子页面中关闭modal时使用modal的id
+   id:'MyTestModal',//模态框id
    styles:{minHeight:300},//设置modal样式 
-   closeButton: false
- });
-});
+   closeButton: false 
+ }); 
+}); 
 </script>
+子页面中关闭模态框：
+<code><pre>JZ.Modal.CloseParent('MyTestModal');</pre></code>
+
 	</div>
 
 <script>
