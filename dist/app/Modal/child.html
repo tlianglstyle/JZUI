@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Examples</title>
+    <title>index</title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <!-- Core -->
@@ -101,89 +101,13 @@
 </style>
 <script>var Ctx = ctx = '';</script>
 <script src="../../../dist/js/app/JZ/JZ.js"></script>
-    <style>
-    		.container{
-					font-size: 13px;
-					font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;			    	
-		    }
-    </style>
-  </head>
-  <body>
-  	
- 	<ul class="nav nav-tabs">
-
-	<li><a href="../Table/Table.html">JZ.Table</a></li>
-
-	<li><a href="../Vue/index.html">JZ.Vue</a></li>
-
-	<li><a href="../Form/index.html">JZ.Form</a></li>
-
-    <li class="pull-right"><a href="https://github.com/tlianglstyle/JZUI">Github</a></li>
-
-    <li class="pull-right"><a href="../API/index.html">API</a></li> 
-
-	<li class="pull-right"><a href="../examples/index.html">Examples</a></li>
-
-</ul>
-
-<div id="page-wrapper"> 
-
-
-
-
- 	
-
-<div class="container">
-<div class="row">
-	<div class="col-xs-12">
-		<h1>Examples</h1>
-		<hr />
-			<div class="table-responsive">
-			 <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
-			  <thead>
-			      <tr>
-					   <th>描述</th>
-					   <th>备注</th>
-			      </tr>
-			  </thead>
-			  <tbody>
-					<tr>
-						<td><a href="../Table/Search.html">数据对象传递演示 </a></td>
-						<td>信息编辑,列表选中的对象传递至详情页</td>
-					</tr>
-					<tr>
-						<td><a href="../Table/Tabs.html">选项卡表格 </a></td>
-						<td>动态切换筛选条件</td>
-					</tr>
-					<tr>
-						<td><a href="../Table/TableSelects.html">表格多选结果展示 </a></td>
-						<td>数组操作</td>
-					</tr>
-					<tr>
-						<td><a href="../Modal/Iframe.html">打开包含iframe网页的modal </a></td>
-						<td>子页面中关闭modal</td>
-					</tr>
-				</tbody>
-			</table>
-		</div> 
-	</div>
-</div>
-</div>	
-	</div>
-
-<script>
-
-  JZ.onWindowLoad(function () {
-
-        $('pre').addClass('prettyprint');
-
-        prettyPrint(); 
-
-  })
-
-</script>
-<script type="text/javascript">
-
-</script>
+  </head> 
+  <body style="background: #fff;">
+	<button type="button" class="btn btn-warning btn-xs" id="mybuttonChild">关闭弹出框</button>
+	<script type="text/javascript">
+	$('#mybuttonChild').click(function(){
+		JZ.Modal.CloseParent('MyTestModal');
+	});
+	</script>
   </body>
 </html>

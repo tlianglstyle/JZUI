@@ -36,7 +36,7 @@ function sample() {
 						return Replace(_value);
 			}
 			var result = results==null?contents:Replace(contents);
-			//console.log(result);
+			console.log(result);
 			result=result.replace(/throughScript/g,"\r\n");
 			file.contents = new Buffer(result);
       }

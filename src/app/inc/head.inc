@@ -32,6 +32,7 @@
 <script src="../../../src/js/lib/tools/validate/validate-methods.js"></script>
 <script src="../../../src/js/lib/sb-admin-2.js"></script> 
 <script src="../../../src/js/lib/tools/WdatePicker/WdatePicker.js"></script>
+<script src="../../../src/js/lib/tools/bootbox.js"></script> 
 <link href="../../../src/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
  
 <script src="../../../src/js/utils/prettify/prettify.js"></script>
@@ -94,5 +95,5 @@
 	.table th[sort] .glyphicon-sort{opacity:0;}
 	[v-cloak]{display:none;}
 </style>
-<script>var Ctx = ctx = '';</script> 
+<script>var Ctx = ctx = '';</script>
 <script src="../../../dist/js/app/JZ/JZ.js"></script>

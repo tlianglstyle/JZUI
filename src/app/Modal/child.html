@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>index</title>
+    @@include('../inc/head.inc')
+  </head> 
+  <body style="background: #fff;">
+	<button type="button" class="btn btn-warning btn-xs" id="mybuttonChild">关闭弹出框</button>
+	<script type="text/javascript">
+	$('#mybuttonChild').click(function(){
+		JZ.Modal.CloseParent('MyTestModal');
+	});
+	</script>
+  </body>
+</html>
