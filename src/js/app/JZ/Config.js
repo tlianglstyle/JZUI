@@ -23,9 +23,12 @@ var onWindowLoad = function(func){
 };
 exports.onWindowLoad = onWindowLoad;
 
+console.log('showBody');
 var showBody = function(){
+		console.log('showBody');
 	if(document.body!=null){
 		document.body.style.opacity = 1;
+		document.body.style.display = 'block';
 	}
 };
 exports.LoadClock = function (){

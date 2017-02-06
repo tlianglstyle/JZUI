@@ -38,7 +38,7 @@ exports.Ajax = function(opts){
 		  timeout : 32000,
 		  type : settings.type,
 		  jsonp: settings.jsonp,
-		  data : settings.data,
+		  data : settings.data, 
 		  success : function(data){
 		  	//console.log(data);
 		  	if(settings.loading)

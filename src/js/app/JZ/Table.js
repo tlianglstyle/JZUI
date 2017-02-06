@@ -6,7 +6,7 @@ var TableResizable = require('./Table.Resizable');
 Array.Load();
 //数据表格 -------------全局模式调用-无Vue声明-------
 exports.Table = function(opts){
-	
+	Config.Base();
 	var settings={
 			el_data:'',
 			data:'items',
@@ -172,7 +172,7 @@ exports.Table = function(opts){
 			if(opts.limit == undefined) _object.limit = 9999;
 		}
 		var splits = (settings.url.indexOf('?')>0?'&':'?');
-		var url= settings.url + splits + 'pageNum='+_object.pageNum+'&pageSize='+_object.limit;
+		var url= settings.url + splits + 'pageNum='+_object.pageNum+'&pageSize='+_object.limit+'&randomParameter='+Math.random();
 		Ajax.Ajax({
 	  	 	url:url,
 	  	 	jsonp:settings.jsonp,

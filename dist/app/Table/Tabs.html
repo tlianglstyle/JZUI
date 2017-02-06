@@ -437,7 +437,10 @@ $('#j_tab li').click(function(){
 	var _index = $('#j_tab li').index($(this))+1;
 	$('#j_filter_'+_index).show().siblings('.j_filter').hide();
 	if(page['table'+_index]==null){
-		fun_search(_index);
+		//保证切换之后加载表格，解决可拖拽列初始化问ti
+		setTimeout(function(){
+			fun_search(_index);
+		},100);   
 	}
 }).eq(0).click();
 //搜索
@@ -471,6 +474,8 @@ function init_table_1(url){
 		url:url,
 		el_data:'#vue-table1',
 		el_pager:'#vue-pager1',
+		resizable:true,//可拖拽列 
+		singleLine:true,//单行显示单元格
 		//limit:10,//每页条数
 		//page:true//是否分页
 		filter:function(){//TODO:添加自定义逻辑
@@ -520,6 +525,8 @@ function init_table_2(url){
 		url:url,
 		el_data:'#vue-table2',
 		el_pager:'#vue-pager2',
+		resizable:true,//可拖拽列 
+		singleLine:true,//单行显示单元格
 		//limit:10,//每页条数
 		//page:true//是否分页
 		filter:function(){//TODO:添加自定义逻辑
