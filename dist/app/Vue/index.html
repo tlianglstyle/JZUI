@@ -104,24 +104,14 @@
   </head>
   <body>
  	<ul class="nav nav-tabs">
-
 	<li><a href="../Table/Table.html">JZ.Table</a></li>
-
 	<li><a href="../Vue/index.html">JZ.Vue</a></li>
-
 	<li><a href="../Form/index.html">JZ.Form</a></li>
-
     <li class="pull-right"><a href="https://github.com/tlianglstyle/JZUI">Github</a></li>
-
     <li class="pull-right"><a href="../API/index.html">API</a></li> 
-
 	<li class="pull-right"><a href="../examples/index.html">Examples</a></li>
-
 </ul>
-
 <div id="page-wrapper"> 
-
-
 
 
 		<h6>JZ.Vue</h6>
@@ -419,65 +409,7 @@
 		  </div>
 		
 		  <div class="col-sm-6">  
-<pre>
-vm = new JZ.Vue({ 
-	tables:{//初始化表格
-		table1:{
-			data:'UserList1',
-			url:JZ.AjaxUrl.DemoPageData.urlRandom(), 
-			limit:3	
-		},
-		table2:{
-			data:'UserList2',
-			url:JZ.AjaxUrl.DemoPageData.urlRandom(),
-			el_pager:'#vue-pager2',
-			limit:3	
-		},
-		table3:{
-			data:'UserList3',
-			url:JZ.AjaxUrl.DemoPageData.urlRandom(), 
-			dataCheckes:'UserList3Selects',
-			key:'id',
-			limit:3	
-		},
-		table4:{
-			data:'UserList4',				//(必需)数据集合标识
-			url:JZ.AjaxUrl.DemoPageData.urlRandom(),//(必需)数据接口地址
-			dataCheckes:'UserList4Selects',	//(多选功能必需的参数)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
-			key:'id',					//(多选功能必需的参数)数据表中的主键列名(或唯一标识列)
-			el_pager:'#vue-pager4',			//(分页功能必需的参数)分页容器
-			limit:3						//(分页功能可选的参数)每页条数,默认10
-		},
-		table5:{
-			data:'UserList5',
-			url:JZ.AjaxUrl.DemoPageData.urlRandom(),
-			el_pager:'#vue-pager5',
-			limit:3,
-			resizable:true,//可拖拽列 
-			singleLine:true,//禁止内容换行	
-		}
-	},
-	data: {},
-	filter:function(){//添加 Vue Filter
-		Vue.filter('switch_1', function () { 
-			if(this.item.id%2==0)
-				return '偶数';
-			return '奇数';
-		});
-	},
-	methods:{
-	  //TODO:添加可调用的事件
-	  edit:function(item,event){//item:数据对象
-		    var _this = $(event.target);//点击的dom对象 
-		    alert('我要编辑；当前行主键:'+item.id);
-	  },
-	  del:function(item,event){ 
-		    alert('我要删除');
-		    vm.tables.table2.reload();
-	  }
-	}
-});
-</pre><script pre>
+<script pre>
 vm = new JZ.Vue({ 
 	tables:{//初始化表格
 		table1:{
@@ -539,17 +471,11 @@ vm = new JZ.Vue({
 			</div>
 </div>
 </div>
-
 <script>
-
   JZ.onWindowLoad(function () {
-
         $('pre').addClass('prettyprint');
-
         prettyPrint(); 
-
   })
-
 </script>
   </body>
 </html>
