@@ -4,5 +4,5 @@ exports.Close = function(id){
 	$('#'+id).modal('hide');
 }
 exports.CloseParent = function(id){
-	top.window.JZ.Modal.Close(id);
+	parent.window.JZ.Modal.Close(id);
 }

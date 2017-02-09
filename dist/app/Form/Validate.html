@@ -1,4 +1,8 @@
-<meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>index</title>
+    <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <!-- Core -->
 <link href="../../../src/local_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -97,3 +101,80 @@
 </style>
 <script>var Ctx = ctx = '';</script>
 <script src="../../../dist/js/app/JZ/JZ.js"></script>
+  </head>
+  <body>
+ 	<ul class="nav nav-tabs">
+	<li><a href="../Table/Table.html">JZ.Table</a></li>
+	<li><a href="../Vue/index.html">JZ.Vue</a></li>
+	<li><a href="../Form/index.html">JZ.Form</a></li>
+    <li class="pull-right"><a href="https://github.com/tlianglstyle/JZUI">Github</a></li>
+    <li class="pull-right"><a href="../API/index.html">API</a></li> 
+	<li class="pull-right"><a href="../examples/index.html">Examples</a></li>
+</ul>
+<div id="page-wrapper"> 
+
+
+		<h6>JZ.Form</h6>
+		<div class="row">
+		  <div class="col-sm-12">   
+		    <div class="panel panel-default">
+		        <div class="panel-heading"><b>Form</b>
+		        </div>
+		        <div class="panel-body">
+	    				<form id="form_UserInfo"  method="post"> 
+			        	<div class="form-group"><label>姓名：</label>
+		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+					  		<div class="form-group"><label>输入密码：</label>
+		      		  <input name="password" id="userinfo_password" placeholder="请输入密码" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+		      		  <div class="form-group"><label>重复密码：</label>
+		      		  <input name="confirm_password" equalto="#userinfo_password" data-msg-equalto="两次密码不一致"  placeholder="请输入内容" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+		      		  <div class="form-group"><label>性别：</label>	      		  
+		      		  <input name="gender" placeholder="请输入性别" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+		      		  <div class="form-group"><label>性别：</label>	      		  
+		      		  	<select name="myselect" data-rule-required="true">
+		      		  		<option>请选择</option>
+		      		  		<option value="0">0</option>
+		      		  		<option value="1">1</option>
+		      		  	</select>
+		      		  </div>
+					<script> 
+					function aa(){
+						var name ="aa"+Math.random();
+						var aaaa ="<input name=fff"+name+  "\" data-rule-required=\"true\" data-msg-required=\"姓名为必填项\" class=\"form-control\" />";
+						$('.form-group:last').after(aaaa);
+						}
+						</script>
+		      		  <div class="form-group"><button type="submit" class="btn btn-primary">提交</button>
+		      		  &nbsp;<a  class="btn btn-primary" onclick="aa()">打开表单1<a/>
+		      		  </div>
+		      		  
+		      		   
+		      		  </div>
+	      		  </form>
+				</div>		  
+			  </div>
+		  </div> 
+		
+	</div>
+<script>
+  JZ.onWindowLoad(function () {
+        $('pre').addClass('prettyprint');
+        prettyPrint(); 
+  })
+</script>
+<script>
+	$('#form_UserInfo').validate({
+        onfocusout: false,
+        errorClass: "form-require-error",
+		 submitHandler: function (form) {
+			alert('submit');
+			$('#form_UserInfo')[0].submit();
+	     }
+	});
+	</script>
+  </body>
+</html>

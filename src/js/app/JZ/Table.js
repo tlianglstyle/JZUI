@@ -29,7 +29,8 @@ exports.Table = function(opts){
 	$.extend(settings,opts);
 	var resizable = null;
 	if(settings.resizable){
-		resizable = TableResizable.Load();
+		if(!TableResizable.isLoad())
+			resizable = TableResizable.Load();//此处resizable暂时没有用到
 	}
 	if(settings.singleLine){
 		var setModuleContent = function (cells){

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>index</title>
+    @@include('../inc/head.inc')
+  </head>
+  <body>
+ 	@@include('../inc/nav.inc')
+		<h6>JZ.Form</h6>
+		<div class="row">
+		  <div class="col-sm-12">   
+		    <div class="panel panel-default">
+		        <div class="panel-heading"><b>Form</b>
+		        </div>
+		        <div class="panel-body">
+	    				<form id="form_UserInfo"  method="post"> 
+			        	<div class="form-group"><label>姓名：</label>
+		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+					  		<div class="form-group"><label>输入密码：</label>
+		      		  <input name="password" id="userinfo_password" placeholder="请输入密码" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+		      		  <div class="form-group"><label>重复密码：</label>
+		      		  <input name="confirm_password" equalto="#userinfo_password" data-msg-equalto="两次密码不一致"  placeholder="请输入内容" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+		      		  <div class="form-group"><label>性别：</label>	      		  
+		      		  <input name="gender" placeholder="请输入性别" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+		      		  <div class="form-group"><label>性别：</label>	      		  
+		      		  	<select name="myselect" data-rule-required="true">
+		      		  		<option>请选择</option>
+		      		  		<option value="0">0</option>
+		      		  		<option value="1">1</option>
+		      		  	</select>
+		      		  </div>
+					<script> 
+					function aa(){
+						var name ="aa"+Math.random();
+						var aaaa ="<input name=fff"+name+  "\" data-rule-required=\"true\" data-msg-required=\"姓名为必填项\" class=\"form-control\" />";
+						$('.form-group:last').after(aaaa);
+						}
+						</script>
+		      		  <div class="form-group"><button type="submit" class="btn btn-primary">提交</button>
+		      		  &nbsp;<a  class="btn btn-primary" onclick="aa()">打开表单1<a/>
+		      		  </div>
+		      		  
+		      		   
+		      		  </div>
+	      		  </form>
+				</div>		  
+			  </div>
+		  </div> 
+		
+	@@include('../inc/foot.inc')
+<script>
+	$('#form_UserInfo').validate({
+        onfocusout: false,
+        errorClass: "form-require-error",
+		 submitHandler: function (form) {
+			alert('submit');
+			$('#form_UserInfo')[0].submit();
+	     }
+	});
+	</script>
+  </body>
+</html>

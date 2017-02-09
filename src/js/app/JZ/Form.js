@@ -8,7 +8,8 @@ exports.Form = function(opts){
 		url:'',
 		relative:true,
 		responseData:true,
-		beginSubmit:function(){return true;},
+		beforeSubmit:function(_submit){_submit();},//提交前执行自定义功能，完毕后继续提交
+		beginSubmit:function(){return true;},//是否可以开始提交
 		success:function(){},
 		error:function(){}
 	};
@@ -16,22 +17,25 @@ exports.Form = function(opts){
 	var obj = new Object();
 	obj = settings;
 	obj.submit = function (){
-		if(settings.beginSubmit()){
-			 Ajax.Ajax({
-			 	async:settings.async,
-			 	relative:settings.relative,
-			 	responseData:settings.responseData,
-	 	  	 	url:settings.url,
-	         	type: Config.Dev?'get':'post',
-	 	  	 	data:$(settings.form).serialize(),
-	 	   		success:function(data){
-	 	   			settings.success(data);
-	 			}, 
-	 			error:function(data){
-	 				settings.error(data);
-	 			}
-	 		});
-	 	}
+		 settings.beforeSubmit(function(){
+			if(settings.beginSubmit()){
+				 Ajax.Ajax({
+				 	async:settings.async,
+				 	relative:settings.relative,
+				 	responseData:settings.responseData,
+		 	  	 	url:settings.url,
+		         	type: Config.Dev?'get':'post',
+		 	  	 	data:$(settings.form).serialize(),
+		 	   		success:function(data){
+		 	   			settings.success(data);
+		 			}, 
+		 			error:function(data){
+		 				settings.error(data);
+		 			}
+		 		});
+		 	}
+		 });
+		
 	};
 	$(settings.form).validate({
         onfocusout: false,

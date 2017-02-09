@@ -3,6 +3,7 @@ var Array = require('./Array');
 var Ajax = require('./Ajax');
 var Form = require('./Form');
 var Table = require('./Table');
+var TableResizable = require('./Table.Resizable');
 var VueInit = require('./VueInit');
 var Modal = require('./Modal');
 var GetInstance = function(modules){return modules;};
@@ -34,6 +35,7 @@ JZ.noConflict = function(){
 };
 Config.LoadClock();
 Array.Load();
+TableResizable.Load();
 
 
 //-------------极装专用分割线-------------------------

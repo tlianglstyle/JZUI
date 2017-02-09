@@ -26,6 +26,13 @@
 		      		  <div class="form-group"><label>性别：</label>	      		  
 		      		  <input name="gender" placeholder="请输入性别" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
+		      		  <div class="form-group"><label>性别：</label>	      		  
+		      		  	<select name="myselect" data-rule-required="true">
+		      		  		<option>请选择</option>
+		      		  		<option value="0">0</option>
+		      		  		<option value="1">1</option>
+		      		  	</select>
+		      		  </div>
 		      		  <div class="form-group"><button type="submit" class="btn btn-primary">提交</button>
 		      		  &nbsp;<button type="submit" class="btn btn-primary" onclick="javascript:$('#modal1').modal('show');">打开表单1</button>
 		      		  &nbsp;<button type="submit" class="btn btn-primary" onclick="javascript:$('#modal2').modal('show');">打开表单2</button>
@@ -332,7 +339,7 @@
 	JZ.Form({ 
 		form:'#form_UserInfo',
 		url:'/mock/data.json',//TODO:更改为提交地址. 如：/user/addAction',
-		beginSubmit:function(){
+		beginSubmit:function(_submit){
 			if(confirm('确认要提交吗?')){
 				return true;
 			}

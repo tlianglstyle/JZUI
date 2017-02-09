@@ -38,7 +38,7 @@
 <script src="<%=ctx_src%>/js/utils/prettify/prettify.js"></script>
 <style>   
 
-	body{margin:0px;font-size:12px;opacity:0;}
+	body{margin:0px;font-size:12px;opacity:0;background:#fff;}
 	.nav>li>a{padding:5px 5px;}
 	.table{margin-bottom:5px;}
 	.panel-heading{padding:5px 8px;}

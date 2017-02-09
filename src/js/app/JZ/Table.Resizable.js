@@ -1,10 +1,13 @@
+var isLoad = false;
+exports.isLoad = function(){return isLoad;};
 exports.Load = function(global){
 	var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __slice = [].slice;
 
 (function($, window) {
+	if(isLoad) return;
+	isLoad = true;
   var ResizableColumns;
-
   ResizableColumns = (function() {
     ResizableColumns.prototype.defaults = {
       store: window.store,
@@ -18,6 +21,34 @@ exports.Load = function(global){
       this.options = $.extend({}, this.defaults, options);
       this.$table = $table;
       this.tableId = this.$table.data('resizable-columns-id');
+      //为静态html执行功能
+      if(this.options.singleLine){//单行显示，多余隐藏
+      		//conole.log('single');
+      		//代码片段1
+        		var setModuleContent = function (cells){
+				for(var i = 0; i<cells.length;i++){
+					cells.eq(i).html('<div class="rc-div">'+cells.eq(i).html()+'</div>');
+				}
+			}
+			setModuleContent($table.find('td'));
+			setModuleContent($table.find('thead th'));
+			
+			//代码片段2
+			$table.removeClass('table-resizable');
+			var ths = $table.find('thead th');
+			for(var i=0;i<ths.length;i++){
+				var thWidth = ths.eq(i).width();
+				ths.eq(i).css({width:thWidth});
+				var _div = ths.eq(i).find('.rc-div');
+				if(!_div.hasClass('rc-cells')){ 
+					_div.addClass('rc-cells').after('<div class="rc-td" style="width1:'+_div.width()+'px;opacity:0;">'+_div.text()+'</div>');
+				}
+			} 
+			var divs = $table.find('tbody td .rc-div'); 
+			for(var i=0;i<divs.length;i++){divs.eq(i).addClass('rc-cells').after('&nbsp;');} 
+			
+			
+        }
       this.createHandles();
       this.restoreColumnWidths();
       this.syncHandleWidths();
@@ -130,8 +161,9 @@ exports.Load = function(global){
       option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
       return this.each(function() {
         var $table, data;
-
+		
         $table = $(this);
+        
         data = $table.data('resizableColumns');
         if (!data) {
           $table.data('resizableColumns', (data = new ResizableColumns($table, option)));

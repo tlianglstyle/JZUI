@@ -36,7 +36,8 @@ var TableGolbal = function(opts){
 	console.log(settings);
 	var resizable = null;
 	if(settings.resizable){
-		resizable = TableResizable.Load();
+		if(!TableResizable.isLoad())
+			resizable = TableResizable.Load();//此处resizable暂时没有用到
 	}
 	if(settings.page){
 		if(settings.el_pager!=''){

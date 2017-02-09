@@ -42,7 +42,7 @@
 <script src="../../../src/js/utils/prettify/prettify.js"></script>
 <style>   
 
-	body{margin:0px;font-size:12px;opacity:0;}
+	body{margin:0px;font-size:12px;opacity:0;background:#fff;}
 	.nav>li>a{padding:5px 5px;}
 	.table{margin-bottom:5px;}
 	.panel-heading{padding:5px 8px;}
@@ -116,7 +116,7 @@
 //当前页面打开模态框
 $('#mybutton').click(function(){
  bootbox.dialog({
-   size:"large",
+   size:"large",//宽度
    url: "child.html",//modal包含的网页地址
    id:'MyTestModal',//模态框id
    styles:{minHeight:300},//设置modal样式 
