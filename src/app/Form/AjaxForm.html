@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ajaxForm</title>
+    @@include('../inc/head.inc')
+  </head>
+  <body>
+	@@include('../examples/nav.inc')
+ 	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Form/AjaxForm.html" class="btn btn-default btn-sm pull-right">查看源码</a>
+ 	<br><br>
+		<div class="row">
+		  <div class="col-sm-12">   
+		    <div class="panel panel-default">
+		        <div class="panel-heading"><b>Form</b>
+		        </div>
+		        <div class="panel-body">
+	    				<form id="form_UserInfo"  method="post" data-submit=".btn-primary"> 
+			        	<div class="form-group"><label>姓名：</label>
+		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+					  		<div class="form-group"><label>输入密码：</label>
+		      		  <input name="password" id="userinfo_password" placeholder="请输入密码" data-rule-required="true" data-msg-required="姓名为必填项" type="password" class="form-control">
+		      		  </div>
+		      		  <div class="form-group"><label>重复密码：</label>
+		      		  <input name="confirm_password" equalto="#userinfo_password" data-msg-equalto="两次密码不一致"  placeholder="请输入内容" data-rule-required="true" data-msg-required="姓名为必填项" type="password" class="form-control">
+		      		  </div>
+		      		  <div class="form-group"><label>性别：</label>	      		  
+		      		  <input name="gender" placeholder="请输入性别" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
+		      		  </div>
+		      	
+		      		  <div class="form-group"><button type="button" class="btn btn-primary">提交</button>
+		      		  </div>
+		      		  
+		      		  </div>
+	      		  </form> 
+				</div>		  
+			  </div>
+		  </div>  
+	@@include('../inc/foot.inc')
+<script>
+	var form = JZ.Form({
+		type:'form',
+		form:'#form_UserInfo',
+		url:'/mock/data.json',//TODO:更改为提交地址. 如：/user/addAction',
+		beginSubmit:function(_submit){
+			if(confirm('确认要提交吗?')){
+				return true; 
+			}
+		},
+		success:function(data){
+			alert('已提交。');
+		},
+		error:function(data){
+			console.log(data);
+		}
+	});
+	//form.setUrl("");
+	</script>
+  </body>
+</html>

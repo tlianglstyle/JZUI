@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>index</title>
+    <title>Validate</title>
     @@include('../inc/head.inc')
   </head>
   <body>
- 	@@include('../inc/nav.inc')
-		<h6>JZ.Form</h6>
+	@@include('../examples/nav.inc')
+ 	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Form/Validate.html" class="btn btn-default btn-sm pull-right">查看源码</a>
+ 	<br><br>
 		<div class="row">
 		  <div class="col-sm-12">   
 		    <div class="panel panel-default">
@@ -33,18 +34,10 @@
 		      		  		<option value="1">1</option>
 		      		  	</select>
 		      		  </div>
-					<script> 
-					function aa(){
-						var name ="aa"+Math.random();
-						var aaaa ="<input name=fff"+name+  "\" data-rule-required=\"true\" data-msg-required=\"姓名为必填项\" class=\"form-control\" />";
-						$('.form-group:last').after(aaaa);
-						}
-						</script>
 		      		  <div class="form-group"><button type="submit" class="btn btn-primary">提交</button>
-		      		  &nbsp;<a  class="btn btn-primary" onclick="aa()">打开表单1<a/>
+		      		 
 		      		  </div>
 		      		  
-		      		   
 		      		  </div>
 	      		  </form>
 				</div>		  

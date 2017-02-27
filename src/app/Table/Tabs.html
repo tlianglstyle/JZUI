@@ -149,7 +149,63 @@
 		    </div>
 		</div>
 	</div>
+			                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		                     
 		<div class="modal fade" id="modal_table1_detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+			    <form id="form_user_info"  method="post">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">1.传递对象各个字段信息；2.通过ajax展示一个子列表</h4>
+			      </div>
+				      <div class="modal-body">
+				      		  <div id="vue-table1-info">
+				      		  <div class="form-group">标题：{{item.name}}</div>
+				      		  <div class="form-group">描述：{{item.title}}</div>
+				      		  </div> 
+				      		  <div class="table-responsive">
+					                     <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
+					                      <thead>
+					                          <tr>
+				                           <th>序号</th>
+				                           <th>操作</th>
+				                           <th>标题</th>
+				                           <th>描述</th>
+				                           <th>状态</th>
+				                           <th>时间</th>
+					                          </tr>
+					                      </thead>
+					                      <tbody>
+				                      		<!-- 节点遍历 -->
+																<tr v-for="item in items">
+																	<td>{{item.vueIndex}}</td>
+																	<td>
+																		<button type="button" class="btn btn-warning btn-xs">无</button>
+																	</td>
+																	<td>{{ item.name }}</td>
+																	<td>{{ item.title }}</td>
+																	<td>{{ false | switch_1 }}</td>
+																	<td>{{ false | table_1_timefomart}}</td>
+																</tr>
+															</tbody>
+					                  </table>
+				                    </div>
+				                    <ul id="vue-table1-pager3" class="pagination pull-right"></ul>
+							<p class="text-center">提交后将不能进行修改</p>
+				      </div>
+			      <div class="modal-footer"> 
+			        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			        <button type="submit" class="btn btn-primary">提交</button>
+			      </div>
+			    </form>
+		    </div>
+		  </div>
+		</div>
+		                     
+		<div class="modal fade" id="modal_table1_detail2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog modal-lg" role="document">
 		    <div class="modal-content">
 			    <form id="form_user_info"  method="post">
@@ -276,11 +332,21 @@ function init_table_1(url){
 				return getLocalTime(this.item.recorddate);
 			});},
 		methods:{
-		  detail:function(item,event){
+		  detail:function(item,event){ 
+		  	//setTimeout(function(){bootbox.alert("This is the default alert!");},10000); 
 			$('#modal_table1_detail').modal('show');
+			setTimeout(function(){
+				$('#modal_table1_detail2').modal('show');	
+			},1000);
+			setTimeout(function(){
+				//$('#modal_table1_detail').modal('hide');	
+			},8000);
+			setTimeout(function(){
+				//$('#modal_table1_detail2').modal('hide');	
+			},12000);
 			//1.加载主表信息
 			vm_table1_detail.item = item;
-			
+			bootbox
 			//2.加载子表信息
 			var params = '&id='+item.id;
 			var url = page.table1_url1 + params;

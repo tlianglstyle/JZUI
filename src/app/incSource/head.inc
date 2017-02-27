@@ -6,13 +6,6 @@
 <!-- Menu -->
 <link href="<%=ctx_src %>/js/lib/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
  
-<!-- DataTables -->
-<link href="<%=ctx_src%>/js/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
-<link href="<%=ctx_src%>/js/lib/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
-
-<!-- Custom -->
-<link href="<%=ctx_src%>/css/common/sb-admin-2.css" rel="stylesheet">
-
 <!-- Fonts -->
 <link href="<%=ctx_modules%>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
 
@@ -24,7 +17,7 @@
 <![endif]--> 
 <script src="<%=ctx_modules%>/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <script src="<%=ctx_modules%>/vue/dist/vue.js" type="text/javascript"></script>
-<script src="<%=ctx_modules%>/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<%=ctx_modules%>/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
 <script src="<%=ctx_src%>/js/lib/metisMenu/dist/metisMenu.min.js" type="text/javascript"></script>
 <script src="<%=ctx_src%>/js/lib/tools/validate/jquery.validate.min.js"></script> 
 <script src="<%=ctx_src%>/js/lib/tools/validate/additional-methods.js"></script>
@@ -37,7 +30,7 @@
  
 <script src="<%=ctx_src%>/js/utils/prettify/prettify.js"></script>
 <style>   
-
+	*,form{outline:none;}
 	body{margin:0px;font-size:12px;opacity:0;background:#fff;}
 	.nav>li>a{padding:5px 5px;}
 	.table{margin-bottom:5px;}
@@ -66,11 +59,9 @@
 	.rc-handle-container{position:relative;} 
 	.rc-handle{position:absolute;width:7px;cursor:ew-resize;*cursor:pointer;margin-left:-3px;z-index:99;}
 	
-	table.table-bordered thead th, table.table-bordered tbody td{position:relative;
-	}
-	table.table-bordered thead th, table.table-bordered div.rc-div{
-		
-	}
+	table.table-bordered thead th{border-bottom-width:0;}
+	table.table-bordered thead th, table.table-bordered tbody td{position:relative;}
+	table.table-bordered thead th, table.table-bordered div.rc-div{}
 	table.table-bordered div.rc-cells{
 		opacity: 1;
 		white-space: nowrap;

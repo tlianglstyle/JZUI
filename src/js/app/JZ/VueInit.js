@@ -34,10 +34,9 @@ var TableGolbal = function(opts){
 	$.extend(settings,opts);
 	
 	console.log(settings);
-	var resizable = null;
 	if(settings.resizable){
 		if(!TableResizable.isLoad())
-			resizable = TableResizable.Load();//此处resizable暂时没有用到
+			TableResizable.Load();//此处resizable暂时没有用到
 	}
 	if(settings.page){
 		if(settings.el_pager!=''){
@@ -118,24 +117,26 @@ var TableGolbal = function(opts){
 	   				data = data.pageInfo.resultList;
 	   			}
 	   			
-	   			if(data.length==0){
-    	   	    	if(_object.page && !_object.loadPage) _object.clearPage();
-    				settings.onRequestData([]);
-    	   	    	_object.renderData([]);
-	   			}else{
-    	   	    	for(var i=0;i<data.length;i++){
-    	   	    		data[i].vueIndex=(i+1)+_object.limit*(_object.pageNum-1);	
-    	   	    	}
-		   	    	if(_object.page && !_object.loadPage) _object.initPage();
-    				settings.onRequestData(data);
-    	   	    	_object.renderData(data);
+		   		if(data.length==0){
+	    	   	    		if(_object.page && !_object.loadPage) _object.clearPage();
+	    				settings.onRequestData([]);
+	    	   	    		_object.renderData([]);
+		   		}else{
+		    	   	    	for(var i=0;i<data.length;i++){
+		    	   	    		data[i].vueIndex=(i+1)+_object.limit*(_object.pageNum-1);	
+		    	   	    	}
+			   	    	if(_object.page && !_object.loadPage) _object.initPage();
+	    				settings.onRequestData(data);
+	    	   	    		_object.renderData(data);
 	   			}
 			},
 			error:function(){ 
 			}
 		});
 	};
-	//数组变动后更新dom实现可拖拽列及单行显示
+	
+	var resizable = null;
+	//数组变动后更新dom实现可拖拽列及单行显示(支持外部调用)
 	obj.renderDom = function(){
 		var _object = obj;
 		if(settings.singleLine){
@@ -156,15 +157,20 @@ var TableGolbal = function(opts){
 			for(var i=0;i<divs.length;i++){divs.eq(i).addClass('rc-cells').after('&nbsp;');} 
 		}
 		if(settings.resizable){
-			settings.el_data.resizableColumns();
+			if(resizable!=null){
+				settings.el_data.siblings('.rc-handle-container').remove();
+			}
+			setTimeout(function(){  
+				resizable = settings.el_data.resizableColumns();
+			},10);
 		}
 	};
 	obj.renderData = function(data){
 		var _object = obj;
 		_object.vm[settings.data] = data;
-		setTimeout(function(){ 
+	    	obj.vm.$nextTick(function(){ 
 			settings.onRenderData();
-			settings.callback();
+			settings.callback(data);
 			if(settings['dataCheckes']!=undefined && settings['dataCheckes']!='' && settings.selectRows){
 				_object.vm[settings.dataCheckes].map(function(item){
 					settings.el_data.find('input[value='+item+']').closest('tr').addClass('info');
@@ -194,9 +200,9 @@ var TableGolbal = function(opts){
 					} 
 				});
 			}
-			obj.renderDom();
-			_object.loadPage=true;//TODO:1.渲染dom，2.添加resizable,
-		},10);
+			obj.renderDom();//1.渲染dom，2.添加resizable,
+			_object.loadPage=true;
+	    	});
 	}; 
 	obj.init();
 	return obj; 
@@ -227,6 +233,10 @@ var TableConfig = function(opts){
 		setUrl : function(url){
 			var obj = tableQueue[settings.data].tableGolbal;
 			obj.url = url;
+		},
+		getPageNum : function(){
+			var obj = tableQueue[settings.data].tableGolbal;
+			return obj.pageNum;
 		},
 		getData : function(){
 			var obj = tableQueue[settings.data].tableGolbal;

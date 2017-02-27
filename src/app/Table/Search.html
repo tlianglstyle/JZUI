@@ -27,7 +27,8 @@
 				  
 			
 				  <div class="form-group"><label>提交时间：</label>
-				  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_1_date1" name="startSubmitTime" onclick="WdatePicker({ minDate:'#F{$dp.$D(\'filter_1_date2\',{d:-31});}',maxDate:'#F{$dp.$D(\'filter_1_date2\',{d:0});}'})" />
+				  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_1_date1" name="startSubmitTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',
+minDate:'2008-03-08 11:30:00'})" >
 				  -
 				  <input class="Wdate-no-border form-control" readonly="readonly" id="filter_1_date2" name="endSubmitTime" onclick="WdatePicker({minDate:'#F{$dp.$D(\'filter_1_date1\',{d:0});}',maxDate:'#F{$dp.$D(\'filter_1_date1\',{d:31});}'})" />
 				  </div>

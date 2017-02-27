@@ -7,6 +7,12 @@
   <body>
  	@@include('../inc/nav.inc')
 		<h6>JZ.Vue</h6>
+		<div class="panel panel-default">
+	     	<div class="panel-heading"><b>功能示例页面(Examples)</b></div> 
+	        <div class="panel-body">
+	        		<a class="btn btn-primary btn-xs" href="../Table/TableSelects.html">表格多选(数组操作)</a>
+	        </div>
+	    </div>
 		<div class="row">
 		  <div class="col-sm-6">  
 		  	<div class="panel panel-default">
@@ -334,7 +340,7 @@ vm = new JZ.Vue({
 			data:'UserList5',
 			url:JZ.AjaxUrl.DemoPageData.urlRandom(),
 			el_pager:'#vue-pager5',
-			limit:3,
+			limit:5,
 			resizable:true,//可拖拽列 
 			singleLine:true,//禁止内容换行	
 		}

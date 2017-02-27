@@ -47,12 +47,13 @@ exports.Load =function(){
 	}
 	//------------------------------对象数组-----------------------------------
 	Array.prototype.removeByKey = function(key,value) {
+		var newArr = [];
 		for(var i=0;i<this.length;i++){
-			if(this[i][key]==value){
-				this.splice(i, 1);	
+			if(this[i][key]!=value){
+				newArr.push(this[i]);
 			}
-		}
-		return this;
+		} 
+		return newArr;
 	};
 	//获得对象数组的某个键的集合
 	Array.prototype.getKeys = function(key) {
@@ -93,10 +94,11 @@ exports.Load =function(){
 	//删除对象数组中的多个值
 	//传入一个包含多个键的数组
 	Array.prototype.removeByKeys = function(key,delArr) {
+		var newArr = this;
 		for (var a in delArr){
-			this.removeByKey(key,delArr[a]);
+			newArr = newArr.removeByKey(key,delArr[a]);
 		}
-		return this;
+		return newArr;
 	};
 	
 	String.prototype.urlRandom = function() {

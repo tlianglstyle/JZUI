@@ -165,7 +165,7 @@ exports.Load = function(global){
         $table = $(this);
         
         data = $table.data('resizableColumns');
-        if (!data) {
+        if (true){//(!data) {
           $table.data('resizableColumns', (data = new ResizableColumns($table, option)));
         }
         if (typeof option === 'string') {
