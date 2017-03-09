@@ -1,0 +1,97 @@
+		<h4>Methods</h4>
+		<p>使用<code>JZ.Form</code>初始化一个表单。</p>
+		<p><code>Javascript:</code></p> 
+		<pre>
+JZ.Form({ 
+	form:'#form',
+	url:'/user/addAction',
+	success:function(data){
+		console.log(data);
+	},
+	error:function(data){
+		console.log(data);
+	}
+});</pre> 
+		<p>实现以下功能:</p>
+		<div class="alert alert-info alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			1.表单验证(jquery.validate.js);<br>
+			2.回车提交;<br>
+			3.使用<b>Ajax</b>将数据<b>Post</b>到服务器.
+		</div>
+	<br><h4>Options</h4> 
+	<div class="table-responsive">
+		 <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
+		  <thead>
+		      <tr>
+				   <th>名称</th>
+				   <th>默认值</th>
+				   <th>描述</th>
+				   <th>必需</th>
+		      </tr>
+		  </thead>
+		  <tbody>
+				<tr>
+					<th>form</th>
+					<td></td>
+					<td>表单选择器(如:'#table')</td>
+					<td>✔</td>
+				</tr>
+				<tr>
+					<th>url</th>
+					<td></td>
+					<td>提交地址</td>
+					<td>✔</td>
+				</tr>
+				<tr>
+					<th>relative</th>
+					<td>true</td>
+					<td>是否使用请求根目录(ctx)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>responseData</th>
+					<td>true</td>
+					<td>是否转换结果集(rs&data)</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>type</th>
+					<td>ajax</td>
+					<td>提交类型：ajax、form</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>async</th>
+					<td>false</td>
+					<td>是否为异步请求</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>submitBtn</th>
+					<td>button[type=submit]</td>
+					<td>提交按钮选择器，防止重复提交(如#btn_submit)</td>
+					<td></td>
+				</tr>
+		  </table>
+	</div> 
+	<br><h4>Events</h4>
+	<div class="table-responsive">
+		 <table width="100%" class="table table-striped table-bordered table-hover" id="vue-table1-table1">
+		  <thead>
+		      <tr>
+				   <th>事件类型</th>
+				   <th>描述</th>
+		      </tr>
+		  </thead>
+		  <tbody>
+				<tr>
+					<th>beforeSubmit</th>
+					<td>提交前执行自定义功能，callback完毕后调用_submit()继续提交</td>
+				</tr>
+				<tr>
+					<th>beginSubmit</th>
+					<td>返回true则开始提交</td>
+				</tr>
+		  </table>
+	</div> 

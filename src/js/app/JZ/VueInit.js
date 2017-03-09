@@ -107,15 +107,15 @@ var TableGolbal = function(opts){
 	   		success:function(data){
 	   			obj.data = data;
 	   			if(!_object.page){
-	   				_object.total=9999;
 	   				if(data[settings.dataSource]!=undefined)
 	   					data = data[settings.dataSource];
 	   				else
 	   					data = data.pageInfo.resultList;
+	   				_object.total = data.length;
 	   			}else{
 	   				_object.total=data.pageInfo.totalNum;
 	   				data = data.pageInfo.resultList;
-	   			}
+	   			} 
 	   			
 		   		if(data.length==0){
 	    	   	    		if(_object.page && !_object.loadPage) _object.clearPage();
@@ -225,6 +225,7 @@ var TableConfig = function(opts){
 	};
 	$.extend(settings,opts);
 	tableQueue[settings.data] = settings;
+	var obj = tableQueue[settings.data].tableGolbal;
 	return {
 		url:function(url){
 			var obj = tableQueue[settings.data].tableGolbal;
@@ -233,6 +234,10 @@ var TableConfig = function(opts){
 		setUrl : function(url){
 			var obj = tableQueue[settings.data].tableGolbal;
 			obj.url = url;
+		},
+		getTotal : function(){
+			var obj = tableQueue[settings.data].tableGolbal;
+			return obj.total;
 		},
 		getPageNum : function(){
 			var obj = tableQueue[settings.data].tableGolbal;

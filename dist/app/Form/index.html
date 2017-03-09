@@ -32,6 +32,9 @@
 <script src="../../../src/js/lib/tools/bootbox.js"></script> 
 <link href="../../../src/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
  
+<link href="../../../src/js/lib/tools/lightbox/css/lightbox.min.css" rel="stylesheet" type="text/css" />
+<script src="../../../src/js/lib/tools/lightbox/js/lightbox.min.js"></script> 
+
 <script src="../../../src/js/utils/prettify/prettify.js"></script>
 <style>   
 	*,form{outline:none;}
@@ -109,8 +112,9 @@
 		<div class="panel panel-default">
 	     	<div class="panel-heading"><b>功能示例页面(Examples)</b></div> 
 	        <div class="panel-body">
-	        		<a class="btn btn-primary btn-xs" href="Validate.html">验证</a>
+	        		<a class="btn btn-primary btn-xs" href="Validate.html">验证插件示例</a>
 	        		<a class="btn btn-primary btn-xs" href="AjaxForm.html">模拟form提交</a>
+	        		<a class="btn btn-primary btn-xs" href="Example1.html">UI示例-培训需求调研表</a>
 	        </div>
 	  </div> 
 		<div class="row">
@@ -119,7 +123,7 @@
 		        <div class="panel-heading"><b>Form</b>
 		        </div>
 		        <div class="panel-body"> 
-	    				<form id="form_UserInfo"  method="post"> 
+	    				<form id="form"  method="post"> 
 			        	<div class="form-group"><label>姓名：</label>
 		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
@@ -158,7 +162,7 @@
 		        <div class="panel-heading"><b>Form</b>
 		        </div>
 		        <div class="panel-body form-inline">
-	    				<form id="form_UserInfo"  method="post"> 
+	    				<form id="form"  method="post"> 
 			        	<div class="form-group"><label>姓名：</label>
 		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
@@ -183,7 +187,7 @@
 		        <div class="panel-heading"><b>Form</b>
 		        </div>
 		        <div class="panel-body">
-	    				<form id="form_UserInfo"  method="post"> 
+	    				<form id="form"  method="post"> 
 			        	<div class="form-group col-sm-6"><label>姓名：</label>
 		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
@@ -207,7 +211,7 @@
 		        <div class="panel-heading"><b>Form</b>
 		        </div>
 		        <div class="panel-body">
-	    				<form id="form_UserInfo"  method="post"> 
+	    				<form id="form"  method="post"> 
 			        	<div class="form-group col-sm-6"><label>姓名：</label>
 		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
@@ -232,7 +236,7 @@
 		        <div class="panel-heading"><b>Form</b>
 		        </div>
 		        <div class="panel-body">
-	    				<form id="form_UserInfo"  method="post"> 
+	    				<form id="form"  method="post"> 
 			        	<div class="form-group col-sm-4"><label>姓名：</label>
 		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
@@ -256,7 +260,7 @@
 		        <div class="panel-heading"><b>Form</b>
 		        </div>
 		        <div class="panel-body">
-	    				<form id="form_UserInfo"  method="post"> 
+	    				<form id="form"  method="post"> 
 			        	<div class="form-group col-sm-4"><label>姓名：</label>
 		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
@@ -285,7 +289,7 @@
 				      <div class="modal-body">
 				      		 	<div class="row">
 										  <div class="col-sm-12">   
-									    				<form id="form_UserInfo"  method="post"> 
+									    				<form id="form"  method="post"> 
 											        	<div class="form-group col-sm-6"><label>姓名：</label>
 										      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 										      		  </div>
@@ -325,7 +329,7 @@
 									        </div>
 											    <form id="form_user_info"  method="post">
 										        <div class="panel-body">
-									    				<form id="form_UserInfo"  method="post"> 
+									    				<form id="form"  method="post"> 
 											        	<div class="form-group"><label>姓名：</label>
 										      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 										      		  </div>
@@ -348,7 +352,7 @@
 									        </div>
 											    <form id="form_user_info"  method="post">
 										        <div class="panel-body">
-									    				<form id="form_UserInfo"  method="post"> 
+									    				<form id="form"  method="post"> 
 											        	<div class="form-group"><label>姓名：</label>
 										      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 										      		  </div>
@@ -390,7 +394,7 @@
 									        </div>
 											    <form id="form_user_info"  method="post">
 										        <div class="panel-body">
-									    				<form id="form_UserInfo"  method="post"> 
+									    				<form id="form"  method="post"> 
 											        	<div class="form-group col-sm-6"><label>姓名：</label>
 										      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 										      		  </div>
@@ -413,7 +417,7 @@
 									        </div>
 											    <form id="form_user_info"  method="post">
 										        <div class="panel-body">
-									    				<form id="form_UserInfo"  method="post"> 
+									    				<form id="form"  method="post"> 
 											        	<div class="form-group col-sm-6"><label>姓名：</label>
 										      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 										      		  </div>
@@ -449,7 +453,7 @@
 </script>
 <script>
 	JZ.Form({ 
-		form:'#form_UserInfo',
+		form:'#form',
 		url:'/mock/data.json',//TODO:更改为提交地址. 如：/user/addAction',
 		beginSubmit:function(_submit){
 			if(confirm('确认要提交吗?')){

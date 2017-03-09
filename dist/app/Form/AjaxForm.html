@@ -32,6 +32,9 @@
 <script src="../../../src/js/lib/tools/bootbox.js"></script> 
 <link href="../../../src/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
  
+<link href="../../../src/js/lib/tools/lightbox/css/lightbox.min.css" rel="stylesheet" type="text/css" />
+<script src="../../../src/js/lib/tools/lightbox/js/lightbox.min.js"></script> 
+
 <script src="../../../src/js/utils/prettify/prettify.js"></script>
 <style>   
 	*,form{outline:none;}
@@ -106,7 +109,7 @@
 		        <div class="panel-heading"><b>Form</b>
 		        </div>
 		        <div class="panel-body">
-	    				<form id="form_UserInfo"  method="post" data-submit=".btn-primary"> 
+	    				<form id="form"  method="post" data-submit=".btn-primary"> 
 			        	<div class="form-group"><label>姓名：</label>
 		      		  <input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
@@ -120,7 +123,7 @@
 		      		  <input name="gender" placeholder="请输入性别" data-rule-required="true" data-msg-required="姓名为必填项" type="text" class="form-control">
 		      		  </div>
 		      	
-		      		  <div class="form-group"><button type="button" class="btn btn-primary">提交</button>
+		      		  <div class="form-group"><button type="submit" class="btn btn-primary">提交</button>
 		      		  </div>
 		      		  
 		      		  </div>
@@ -137,8 +140,8 @@
 </script>
 <script>
 	var form = JZ.Form({
-		type:'form',
-		form:'#form_UserInfo',
+		//type:'form',
+		form:'#form',
 		url:'/mock/data.json',//TODO:更改为提交地址. 如：/user/addAction',
 		beginSubmit:function(_submit){
 			if(confirm('确认要提交吗?')){

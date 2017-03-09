@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ajaxForm</title>
+    @@include('../inc/head.inc')
+  </head>
+  <body>
+	@@include('../examples/nav.inc')
+ 	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Form/Example1.html" class="btn btn-default btn-sm pull-right">查看源码</a>
+ 	<br><br>
+		<div class="row container center-block">
+		  <div class="col-sm-12 ">
+			<form id="form"  method="post" style="font-size:14px;">
+				<h1 class="text-center">培训需求调研表</h1><br>
+				<div class="alert alert-info alert-dismissible clearfix" role="alert">
+				亲爱的极装小伙伴儿，为了帮助业务部门夯实业务知识，提升店面谈判技巧和谈单成功率，并且切实有效的找出和解决谈单中的痛点，现组织一次培训需求调研，后续会根据调研结果针对性的进行培训，所以我们需要您的真实想法。
+				</div>
+					
+				<div class="form-group col-sm-12">
+	  		  		<label>被调研人：</label>门店店长、客户经理、设计师、渠道部渠道人员
+	  		  	</div>
+	        		<div class="form-group col-sm-4"><label>被调研人姓名：</label>
+	  		  		<input name="username" placeholder="请输入姓名" data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control">
+	  		  	</div>
+	        		<div class="form-group col-sm-4"><label>部门：</label>
+	  		  		<input name="username" placeholder="请输入部门" data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control">
+	  		  	</div>
+	        		<div class="form-group col-sm-4"><label>被调研人职位：</label>
+	  		  		<input name="username" placeholder="请输入职位" data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control">
+	  		  	</div>
+	  		  	<br>
+	        		<div class="form-group col-sm-12"><label>1.在商品方面您认为需要哪些提升？</label>
+	  		  		<textarea name="username" placeholder="请输入.." data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control"></textarea>
+	  		  	</div>
+	        		<div class="form-group col-sm-12"><label>2.在设计方面您认为需要哪些提升？</label>
+	  		  		<textarea name="username" placeholder="请输入.." data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control"></textarea>
+	  		  	</div>
+	        		<div class="form-group col-sm-12"><label>3.关于谈单技巧您认为还需要哪些方面的提升？</label>
+	  		  		<textarea name="username" placeholder="请输入.." data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control"></textarea>
+	  		  	</div>
+	  		  	<div class="form-group col-sm-12"><label>4.客户提出的哪类问题您不能很好的解答。</label>
+	  		  		<textarea name="username" placeholder="请输入.." data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control"></textarea>
+	  		  	</div>
+	  		  	<div class="form-group col-sm-12"><label>5.您对客户的哪些需求不能给出很好的解决方案。</label>
+	  		  		<textarea name="username" placeholder="请输入.." data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control"></textarea>
+	  		  	</div>
+	  		  	<div class="form-group col-sm-12"><label>6.在与客户谈单过程中，您认为哪些方面还需要公司给到支持。？</label>
+	  		  		<textarea name="username" placeholder="请输入.." data-rule-required="true" data-msg-required="此项为必填项" type="text" class="form-control"></textarea>
+	  		  	</div>
+	      		  <div class="form-group text-center">
+	      		  	<button type="submit" class="btn btn-primary">提交</button>
+	      		  	<button type="button" class="btn btn-default">清空</button>
+	      		</div>
+	  		</form>
+		  </div>  
+		</div> 
+	@@include('../inc/foot.inc')
+<script>
+	var form = JZ.Form({
+		type:'form',
+		form:'#form',
+		url:'/mock/data.json',//TODO:更改为提交地址. 如：/user/addAction',
+		beginSubmit:function(_submit){
+			if(confirm('确认要提交吗?')){
+				return true; 
+			}
+		},
+		success:function(data){
+			alert('已提交。');
+		},
+		error:function(data){
+			console.log(data);
+		}
+	});
+	//form.setUrl("");
+	</script>
+  </body>
+</html>

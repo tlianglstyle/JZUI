@@ -178,16 +178,15 @@ exports.Table = function(opts){
 	  	 	relative:settings.relative,
 	   		success:function(data){
 	   			if(!_object.page){
-	   				_object.total = 9999;
 	   				if(data[settings.dataSource]!=undefined)
 	   					data = data[settings.dataSource];
 	   				else
 	   					data = data.pageInfo.resultList;
+	   				_object.total = data.length; 
 	   			}else{
 	   				_object.total=data.pageInfo.totalNum;
 	   				data = data.pageInfo.resultList;
 	   			}
-	   			
 	   			if(data.length==0){
 	    	   	    		if(_object.page && !_object.loadPage) _object.clearPage();
 	    	   	    		_object.renderData([]);

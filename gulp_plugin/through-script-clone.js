@@ -6,6 +6,7 @@ var through = require('through-gulp');
 function sample() {
   // creating a stream through which each file will pass
   var stream = through(function(file, encoding,callback) {
+  	console.log('file-start');
       // do whatever necessary to process the file 
       if (file.isNull()) {
 
@@ -36,7 +37,7 @@ function sample() {
 						return Replace(_value);
 			}
 			var result = results==null?contents:Replace(contents);
-			console.log(result);
+			//console.log(result);
 			result=result.replace(/throughScript/g,"\r\n");
 			file.contents = new Buffer(result);
       }

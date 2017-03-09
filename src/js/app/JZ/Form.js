@@ -4,28 +4,36 @@ var Ajax = require('./Ajax');
 exports.Form = function(opts){
 	Config.Base();
 	var settings={
+		form:'',//表单选择器
+		url:'',//提交地址
+		relative:true,//是否使用请求根目录(ctx)
+		responseData:true,//是否转换结果集(rs&data)
 		type:'ajax',//1:ajax,2:form
-		async:false,
-		form:'', 
-		url:'',
-		relative:true,
-		responseData:true,
+		async:false,//异步
+		submitBtn:'',//提交按钮选择器(防止重复提交)
 		beforeSubmit:function(_submit){_submit();},//提交前执行自定义功能，完毕后调用_submit()继续提交
-		beginSubmit:function(){return true;},//是否可以开始提交
+		beginSubmit:function(){return true;},//返回true则开始提交
 		success:function(){},
 		error:function(){}
 	};
 	$.extend(settings,opts);
 	var obj = new Object();
 	obj = settings;
-	obj.setUrl= function(url){settings.url=url};
+	obj.submitBtn = obj.submitBtn!= ''? $(obj.submitBtn) : $(obj.form).find('[type=submit]');
+	obj.setDisabled = function (value){
+		if(obj.submitBtn.length==1)
+			obj.submitBtn.attr({disabled:value});
+	};
+	obj.setUrl= function(url){obj.url=url};
 	obj.submit = function (){
+		 obj.setDisabled(true);
 		 settings.beforeSubmit(function(){
 			if(settings.beginSubmit()){
 				if(settings.type == 'form'){
 				 	 $(settings.form).attr({'action':settings.url})
 				 	 .ajaxSubmit(function(data){
 				 	 	settings.success(data);
+				 	 	obj.setDisabled(false);
 				 	 });
 			    }else{
 					 Ajax.Ajax({
@@ -37,20 +45,22 @@ exports.Form = function(opts){
 			 	  	 	data:$(settings.form).serialize(),
 			 	   		success:function(data){
 			 	   			settings.success(data);
+				 	 		obj.setDisabled(false);
 			 			}, 
 			 			error:function(data){
 			 				settings.error(data);
+				 	 		obj.setDisabled(false);
 			 			}
 			 		});
 		 		} 
 		 	}
 		 });
 	};
-	$(settings.form).validate({
+	$(obj.form).validate({
         onfocusout: false,
         errorClass: "form-require-error",
 		 submitHandler: function (form) {
-			obj.submit(settings.form);
+			obj.submit(obj.form);
             return false;
 	     }
 	});

@@ -28,6 +28,9 @@
 <script src="<%=ctx_src%>/js/lib/tools/bootbox.js"></script> 
 <link href="<%=ctx_src%>/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
  
+<link href="<%=ctx_src%>/js/lib/tools/lightbox/css/lightbox.min.css" rel="stylesheet" type="text/css" />
+<script src="<%=ctx_src%>/js/lib/tools/lightbox/js/lightbox.min.js"></script> 
+
 <script src="<%=ctx_src%>/js/utils/prettify/prettify.js"></script>
 <style>   
 	*,form{outline:none;}
