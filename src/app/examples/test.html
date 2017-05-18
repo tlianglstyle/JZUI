@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>index</title>
+    <title>index1</title>
     @@include('../inc/head.inc')
   </head>
   <body>
- 	@@include('../inc/nav.inc')
-	<a href="http://lokeshdhakar.com/projects/lightbox2/images/thumb-1.jpg" data-lightbox="example-1"><img class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-1.jpg" ></a>
+  @@include('../inc/nav.inc')
+		<input style="width: 160px;" class="Wdate-no-border form-control" readonly="readonly" name="confirmOrderTimeBegin" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'%y-%M-%d'})" /> - 
+		<input style="width: 160px" class="Wdate-no-border form-control"
+								readonly="readonly" name="confirmOrderTimeEnd"
+								onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'%y-%M-%d'})" />
+ 	
 	@@include('../inc/foot.inc')
 	<script> 
-	$(document.body).append($('<a href="http://lokeshdhakar.com/projects/lightbox2/images/thumb-1.jpg" data-lightbox="example-1"><img class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-1.jpg" ></a>'));
+	JZ.GetDic(15,function(dic){
+
+	});
 	</script>
   </body>
 </html>

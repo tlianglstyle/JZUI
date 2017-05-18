@@ -7,6 +7,7 @@ var Table = require('./Table');
 var TableResizable = require('./Table.Resizable');
 var VueInit = require('./VueInit');
 var Modal = require('./Modal');
+var JZHACK = require('./JZHACK');
 Config.LoadClock();
 Form.Load();
 Utils.Load();
@@ -15,7 +16,7 @@ TableResizable.Load();
 var GetInstance = function(modules){return modules;};
 var _JZ = window.JZ;
 var _J = window.J;
-var JZ = new Object(); 
+var JZ = function(cb){JZHACK.Init(cb);};
 window.JZ = JZ;
 window.J = JZ;
 window.vm = null;
@@ -45,4 +46,5 @@ JZ.noConflict = function(){
 
 
 //-------------极装专用分割线-------------------------
-require('./JZHACK').Load(JZ);
+JZ.GetDic = JZHACK.GetDictionary;
+JZHACK.Load(JZ);

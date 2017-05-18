@@ -633,7 +633,11 @@
       dialog.addClass(options.className);
     }
 
-    if (options.size === "large") {
+    if (options.size === "full") {
+      innerDialog.addClass("modal-full");
+    }if (options.size === "max") {
+      innerDialog.addClass("modal-max");
+    }if (options.size === "large") {
       innerDialog.addClass("modal-lg");
     } else if (options.size === "small") {
       innerDialog.addClass("modal-sm");

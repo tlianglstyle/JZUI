@@ -12,10 +12,9 @@
     "bootstrap-social": "~4.8.0",
     "cross-env": "^2.0.1",
     "css-loader": "^0.24.0",
-    "ejs": "^2.5.2",
+    "ejs": "2.15.8",
     "extract-text-webpack-plugin": "^1.0.1",
     "font-awesome": "~4.6.3",
-    "ejs": "2.15.8",
     "glob": "7.1.1",
     "gulp": "^3.8.10",
     "gulp-clean": "0.3.1",
@@ -54,7 +53,8 @@
   },
   "main": "gulpfile.js",
   "scripts": {
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "start": "gulp dev"
   },
   "license": "ISC",
   "repository": {

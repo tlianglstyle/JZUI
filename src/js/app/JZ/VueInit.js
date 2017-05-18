@@ -11,25 +11,25 @@ var TableGolbal = function(opts){
 			dataCheckes:'',	//(多选)(必需)多选容器标识,用于存放选择的结果。如:vm.UserListSelects=[1,4,5]
 		    dataCheckFilter://(多选)(可选)判断是否允许选中
 		    null,
-		    dataCheckesCallBack:function(){},
+		    dataCheckesCallBack:function(){},//选中checkbox执行
 		    key:'',			//(多选)(必需)主键
 		    keyType:'int',	//(多选)(可选)主键数据类型
-		    selectRows:true,//点击行选中
+		    selectRows:true,//选中行样式（关联checkbox）
 			el_data:null,	//本参数无需传递
 			data:'items',	//(必需)数据集合标识
 			url:'',			//(必需)数据源接口地址
 			relative:true,	//(可选)是否设置请求相对父路径
-			jsonp:false,	//(可选)使用异步数据接口
+			jsonp:false,		//(可选)使用异步数据接口
 		    dataSource:'',	//(可选)表格的数据源集合标识,默认值为(pageInfo.resultList)
-			el_pager:'',	//(分页)(必需)分页容器
+			el_pager:'',		//(分页)(必需)分页容器
 			pageNum:1,		//(分页)(可选)初始页码
 			limit:10,		//(分页)(可选)每页条数
 			page:true,		//(分页)(不需)是否分页
 			resizable:false,//可拖拽列
 			singleLine:false,//单行显示单元格
 			onRequestData:function(){},
-			callback:function(){},
-			onRenderData:function(){}
+			callback:function(){},//渲染后执行
+			onRenderData:function(){}//渲染前执行
 	}; 
 	$.extend(settings,opts);
 	

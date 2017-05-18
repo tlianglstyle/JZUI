@@ -91,6 +91,16 @@ exports.Load =function(){
 			return newArr;
 		}
 	};
+	//获得对象数组中指定键的
+	//传入一个值 
+	Array.prototype.getByKey = function(key,value) {
+		 var values = new Array();
+		 values[0] = value;
+		 var newArr = this.getByKeys(key,values);
+		 if(newArr.length != 0) return newArr[0];
+		 return null;
+	};
+	
 	//删除对象数组中的多个值
 	//传入一个包含多个键的数组
 	Array.prototype.removeByKeys = function(key,delArr) {
@@ -104,4 +114,4 @@ exports.Load =function(){
 	String.prototype.urlRandom = function() {
 		return this+(this.indexOf('?')>0?'&':'?')+'randomUrl='+Math.random();
 	};
-}
+} 

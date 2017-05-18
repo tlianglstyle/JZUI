@@ -4,6 +4,7 @@
 */
 
 var gulp = require('gulp'),
+	path = require('path'),
     os = require('os'),
     gutil = require('gulp-util'),
     less = require('gulp-less'),
@@ -108,7 +109,27 @@ gulp.task('scriptclone', ['fileinclude'], function(done) {
         .pipe(gulp.dest('dist/app'))
         .on('end', done);
 });
-
+//压缩独立插件
+gulp.task('script-lib-uglify', function () {
+    gulp.src(['src/js/app/JZ/libSource/*.js'])
+        .pipe(uglify({
+            mangle: true,// 是否修改变量名
+            compress: true,//是否完全压缩
+            preserveComments: '' //注释
+        }))
+        .pipe(gulp.dest('src/js/app/JZ/lib'));
+});
+//合并独立插件
+var scriptmerge = require('./gulp_plugin/scriptmerge');
+gulp.task('script-lib-merge', ['build-js'], function(done) {
+	done();
+	return;
+    var newFilePath = 'src/js/app/JZ/lib/Bootstrap.Select.js';
+    gulp.src('dist/js/app/JZ/JZ.js')
+        .pipe(scriptmerge(newFilePath))
+        .pipe(gulp.dest('dist/js/app/JZ'))
+        .on('end', done);
+});
 //雪碧图操作，应该先拷贝图片并压缩合并css
 gulp.task('sprite', ['copy:images', 'lessmin'], function (done) {
     var timestamp = +new Date();
@@ -184,8 +205,9 @@ gulp.task("webpack", function(callback) {
     });
 });
 //发布devtools
-gulp.task('default', ['connect', 'fileinclude','scriptclone', 'md5:css', 'md5:js', 'open']);
+gulp.task('default', ['connect', 'fileinclude','scriptclone', 'md5:css', 'md5:js']);
 
 //开发
-gulp.task('dev', ['connect', 'ejs','copy:images', 'fileinclude','scriptclone', 'lessmin', 'build-js', 'watch', 'open']);
-gulp.task('start', ['connect', 'ejs','watch', 'open']);
+//gulp.task('dev', ['connect', 'ejs','copy:images', 'fileinclude','scriptclone', 'lessmin', 'build-js', 'watch']);
+gulp.task('dev', ['connect', 'ejs','copy:images', 'fileinclude', 'lessmin', 'build-js','scriptclone','script-lib-uglify','script-lib-merge', 'watch']);
+gulp.task('start', ['connect', 'ejs','watch']);

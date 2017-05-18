@@ -28,7 +28,9 @@ exports.Form = function(opts){
 	obj.submit = function (){
 		 obj.setDisabled(true);
 		 settings.beforeSubmit(function(){
-			if(settings.beginSubmit()){
+		 	var allowBeginSubmit = settings.beginSubmit();
+		 	console.log(allowBeginSubmit);
+			if(allowBeginSubmit){
 				if(settings.type == 'form'){
 				 	 $(settings.form).attr({'action':settings.url})
 				 	 .ajaxSubmit(function(data){
@@ -45,7 +47,9 @@ exports.Form = function(opts){
 			 	  	 	data:$(settings.form).serialize(),
 			 	   		success:function(data){
 			 	   			settings.success(data);
-				 	 		obj.setDisabled(false);
+			 	   			setTimeout(function(){//用户提示动画完毕后打开限制
+				 	 			obj.setDisabled(false);
+				 	 		},500);
 			 			}, 
 			 			error:function(data){
 			 				settings.error(data);
@@ -53,6 +57,8 @@ exports.Form = function(opts){
 			 			}
 			 		});
 		 		} 
+		 	}else{
+				 obj.setDisabled(false);
 		 	}
 		 });
 	};

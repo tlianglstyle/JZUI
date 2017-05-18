@@ -41,6 +41,17 @@
 		      		  		<option value="1">1</option>
 		      		  	</select>
 		      		  </div>
+		      		  <div class="form-group"><label>多选下拉框：</label>
+                            <select name="roles" class="selectpicker show-tick form-control" multiple data-live-search="false" role_selectIsTrue1="true" role_selectIsTrue2="true">
+									<option value="2">cms运营人员</option>
+									<option value="3">erp运营人员</option>
+									<option value="8">客户经理</option>
+									<option value="9">店长</option>
+					 		</select>
+					 </div>
+		      		  <div class="form-group"><label>多选下拉树：</label>
+                         <input id="mytree" onclick="selectTree()" type="text" class="form-control" readonly="readonly">
+					 </div>
 		      		  <div class="form-group"><button type="submit" class="btn btn-primary">提交</button>
 		      		  &nbsp;<button type="submit" class="btn btn-primary" onclick="javascript:$('#modal1').modal('show');">打开表单1</button>
 		      		  &nbsp;<button type="submit" class="btn btn-primary" onclick="javascript:$('#modal2').modal('show');">打开表单2</button>
@@ -344,6 +355,12 @@
 		</div>
 	@@include('../inc/foot.inc')
 <script>
+
+	$(function(){
+		$('.selectpicker').selectpicker({
+			noneSelectedText : '请选择角色'
+		});
+	})
 	JZ.Form({ 
 		form:'#form',
 		url:'/mock/data.json',//TODO:更改为提交地址. 如：/user/addAction',

@@ -29,71 +29,21 @@
 <script src="../../../src/js/lib/tools/validate/validate-methods.js"></script>
 <script src="../../../src/js/lib/sb-admin-2.js"></script> 
 <script src="../../../src/js/lib/tools/WdatePicker/WdatePicker.js"></script>
-<script src="../../../src/js/lib/tools/bootbox.js"></script> 
+<script src="../../../src/js/lib/tools/bootbox.js"></script>
 <link href="../../../src/js/utils/prettify/prettify.min.css" rel="stylesheet" type="text/css" />
  
 <link href="../../../src/js/lib/tools/lightbox/css/lightbox.min.css" rel="stylesheet" type="text/css" />
 <script src="../../../src/js/lib/tools/lightbox/js/lightbox.min.js"></script> 
 
+
+
+<link href="../../../src/js/lib/tools/zTree/zTreeStyle.css" rel="stylesheet" type="text/css" />
+<script src="../../../src/js/lib/tools/zTree/jquery.ztree.all.min.js"></script> 
+
 <script src="../../../src/js/utils/prettify/prettify.js"></script>
-<style>   
-	*,form{outline:none;}
-	body{margin:0px;font-size:12px;opacity:0;background:#fff;}
-	.nav>li>a{padding:5px 5px;}
-	.table{margin-bottom:5px;}
-	.panel-heading{padding:5px 8px;}
-	.label{font-weight:normal;font-family:microsoft yahei;}
-	
-	#page-wrapper{border:0;margin:0;padding:10px 15px;}
 
-	.form-inline .form-group{margin-bottom:10px;margin-right:5px;}
-	.form-inline .form-group .form-control{	padding: 0px 4px;height: 30px;}
-	.form-inline .form-group label{min-width:80px;text-align:right;}
-	
-	.pagination {margin: 5px 0px;}
-
-	.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{font-weight:bold;}
-	.m5{margin:10px 5px;}
-	label.form-require-error{color: #F42D2D;line-height: 2;}
-	
-	table.table-bordered thead th, table.table-bordered thead td{white-space: nowrap;}
-	
-	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
-	{padding:8px 5px;}
-	.panel-body{padding:10px;}
-	.pagination li{display:block;    box-sizing: initial;}
-	[v-for],[v-if]{opacity:0}
-	.rc-handle-container{position:relative;} 
-	.rc-handle{position:absolute;width:7px;cursor:ew-resize;*cursor:pointer;margin-left:-3px;z-index:99;}
-	
-	table.table-bordered thead th{border-bottom-width:0;}
-	table.table-bordered thead th, table.table-bordered tbody td{position:relative;}
-	table.table-bordered thead th, table.table-bordered div.rc-div{}
-	table.table-bordered div.rc-cells{
-		opacity: 1;
-		white-space: nowrap;
-	    width: calc( 100% - 10px) ;
-	    display: block;
-	    position: absolute;
-	    overflow: hidden;
-	    top: 8px;
-	    left: 5px;
-	    z-index:1;
-	}
-	.table-resizable tbody{
-		opacity:0;
-	} 
-	.table-resizable tbody tr:not(:nth-child(1)){
-		opacity:0;
-	}
-	.table th[sort]{cursor:pointer;}
-	.table th[sort]:hover{background-color: #f9f9f9;}
-	.table th[sort] .glyphicon{    position: absolute;right: 2px;top: 10px;}
-	
-	.table th[sort] .glyphicon-sort{opacity:0;}
-	[v-cloak]{display:none;}
-</style>
-<script>var Ctx = ctx = '';</script>
+<script>var Ctx = ctx = '',ENV_JZ = 'dev';</script>
+<link href="../../../src/css/common/JZ.css" rel="stylesheet" type="text/css" />
 <script src="../../../dist/js/app/JZ/JZ.js"></script>
   </head>
   <body>
@@ -143,6 +93,17 @@
 		      		  		<option value="1">1</option>
 		      		  	</select>
 		      		  </div>
+		      		  <div class="form-group"><label>多选下拉框：</label>
+                            <select name="roles" class="selectpicker show-tick form-control" multiple data-live-search="false" role_selectIsTrue1="true" role_selectIsTrue2="true">
+									<option value="2">cms运营人员</option>
+									<option value="3">erp运营人员</option>
+									<option value="8">客户经理</option>
+									<option value="9">店长</option>
+					 		</select>
+					 </div>
+		      		  <div class="form-group"><label>多选下拉树：</label>
+                         <input id="mytree" onclick="selectTree()" type="text" class="form-control" readonly="readonly">
+					 </div>
 		      		  <div class="form-group"><button type="submit" class="btn btn-primary">提交</button>
 		      		  &nbsp;<button type="submit" class="btn btn-primary" onclick="javascript:$('#modal1').modal('show');">打开表单1</button>
 		      		  &nbsp;<button type="submit" class="btn btn-primary" onclick="javascript:$('#modal2').modal('show');">打开表单2</button>
@@ -452,6 +413,12 @@
   })
 </script>
 <script>
+
+	$(function(){
+		$('.selectpicker').selectpicker({
+			noneSelectedText : '请选择角色'
+		});
+	})
 	JZ.Form({ 
 		form:'#form',
 		url:'/mock/data.json',//TODO:更改为提交地址. 如：/user/addAction',

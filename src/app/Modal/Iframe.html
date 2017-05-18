@@ -15,7 +15,21 @@
 //当前页面打开模态框
 $('#mybutton').click(function(){
  bootbox.dialog({
-   size:"large",//宽度
+   size:"large",//宽度   small:小，large:大，max：最大，full：全屏
+   url: "child.html",//modal包含的网页地址
+   id:'MyTestModal',//模态框id
+   styles:{minHeight:300},//设置modal样式 
+   closeButton: false 
+ }); 
+ bootbox.dialog({
+   size:"max",//宽度
+   url: "child.html",//modal包含的网页地址
+   id:'MyTestModal',//模态框id
+   styles:{minHeight:300},//设置modal样式 
+   closeButton: false 
+ }); 
+ bootbox.dialog({
+   size:"full",//宽度
    url: "child.html",//modal包含的网页地址
    id:'MyTestModal',//模态框id
    styles:{minHeight:300},//设置modal样式 

@@ -37,6 +37,9 @@ exports.Load =function(){
 		var date,_this = this;
 		try{
 			if(_this.toString().indexOf('-')>0) _this = _this.replace(/-/g,'/');//兼容safari
+			if(/^14[\W\w]/.test(_this)){//判断是否为时间戳字符串
+				_this = parseInt(_this);
+			}
 			date = new Date(_this);
 		}catch(e){
 			date = new Date();

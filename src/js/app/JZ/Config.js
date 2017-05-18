@@ -1,14 +1,16 @@
-var ENV = 'pro';
+//var ENV = window.ENV_JZ == "undefined" ? 'production' : window.ENV_JZ;
+var ENV = "production";
 exports.node_modules = 0;   
 exports.ENV = ENV;  
 exports.Dev = ( ENV == 'dev' );
 exports.Production = ( ENV == 'production' );
 exports.AjaxUrl = {
-	DemoPageData : "DemoPageDataJsonP?"
+	DemoPageData : "Tliangl_DemoPageDataJsonP?",
+	JZ_Dictionary : "JZ_Dictionary?"
 };
 exports.AjaxUrlValueJsonP = {
-	"DemoPageDataJsonP?" : "http://tliangl.com/service/api.ashx?action=GetBlogs"
-	//"DemoPageDataJsonP?" : "http://localhost:20849/service/api.ashx?action=GetBlogs"
+	"Tliangl_DemoPageDataJsonP?" : "http://tliangl.com/service/api.ashx?action=GetBlogs",
+	"JZ_Dictionary" : "/cluemgr/query/dic"
 };
 
 var showBody = function(){

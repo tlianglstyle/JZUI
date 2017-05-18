@@ -6,6 +6,7 @@ var TableResizable = require('./Table.Resizable');
 exports.Table = function(opts){
 	Config.Base();
 	var settings={
+		    clickRows:true,//点击行样式
 			el_data:'',
 			data:'items',
 			url:'',
@@ -236,6 +237,12 @@ exports.Table = function(opts){
 					resizable = $(settings.el_data).resizableColumns();
 				},10);
 			}
+			if(settings.clickRows){
+				$(settings.el_data).find('tbody tr').click(function(){
+					$(this).addClass('info').siblings().removeClass('info');
+				});;
+			}
+			
 			_object.loadPage=true;//TODO:注意loadPage变量赋值与取值问题
 	    	});
 	};

@@ -1,6 +1,7 @@
-// PLUGIN_NAME: through-script-clone
+//PLUGIN_NAME: through-script-clone
 // PLUGIN_DESC: demo-script-clone(为script标签添加pre属性自动生成script的页面体现)
 //AUTHOR:tanliang
+//DATE:2016-11-01
 var through = require('through-gulp');
 
 function sample() {
