@@ -1,5 +1,5 @@
 #JZUI
-###使用bootstrap+vuejs库,配合webpack,gulp构建工具搭建的后端js组件库
+###使用bootstrap+vuejs(version 1.0)库,配合webpack,gulp构建工具搭建的后端js组件库
 
 ###install
 ``` bash
