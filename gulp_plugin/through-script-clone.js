@@ -28,6 +28,7 @@ function sample() {
 				var aa = value.replace(regReplace1,'\<pre\>').replace(regReplace2,'\<\/pre\>');
 				replaces.push(aa);
 			}
+			console.log('replaces.length:',replaces.length);
 			var i = 0;
 			function Replace(contents){
 					var _value = contents.replace(results[i],replaces[i]+results[i]);
@@ -47,8 +48,11 @@ function sample() {
       //}
       // just pipe data next, or just do nothing to process file later in flushFunction
       // never forget callback to indicate that the file has been processed.
-      this.push(file);
+			var _this =this;
+			setTimeout(function(){
+      _this.push(file);
       callback();
+			},2000);
     },function(callback) {
       // just pipe data next, just callback to indicate that the stream's over
       //this.push(something);

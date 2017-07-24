@@ -48,14 +48,24 @@
   </head>
   <body>
  	<ul class="nav nav-tabs">
+
 	<li><a href="../Table/Table.html">JZ.Table</a></li>
+
 	<li><a href="../Vue/index.html">JZ.Vue</a></li>
+
 	<li><a href="../Form/index.html">JZ.Form</a></li>
+
     <li class="pull-right"><a href="https://github.com/tlianglstyle/JZUI">Github</a></li>
+
     <li class="pull-right"><a href="../API/index.html">API</a></li> 
+
 	<li class="pull-right"><a href="../examples/index.html">Examples</a></li>
+
 </ul>
+
 <div id="page-wrapper"> 
+
+
 
 
 		<h6>JZ.Table</h6>
@@ -96,7 +106,15 @@
 				</div>
 				<div class="col-sm-6 col-xs-12">
 
-<script pre> 
+<pre> 
+//表格(无分页)
+var table1 = JZ.Table({
+	data:'UserList1',
+	url:JZ.AjaxUrl.DemoPageData.urlRandom(),
+	el_data:'#vue-table1',
+	limit:5,//数据行数，不传则为所有
+});
+</pre><script pre> 
 //表格(无分页)
 var table1 = JZ.Table({
 	data:'UserList1',
@@ -149,7 +167,30 @@ var table1 = JZ.Table({
 				  </div>
 					<div class="col-sm-6 col-xs-12">
 
-<script pre>
+<pre>
+var table2 = JZ.Table({
+	data:'UserList2',
+	url:JZ.AjaxUrl.DemoPageData.urlRandom(), 
+	el_data:'#vue-table2',
+	el_pager:'#vue-pager2',
+	limit:5,//每页条数
+	filter:function(){//添加 Vue Filter
+		Vue.filter('switch_1', function () {
+			if(this.item.isvalid==0) return '禁用';
+			return '启用';
+		});
+	},
+	methods:{
+	  del:function(item,event){//item:数据对象
+		    var _this = $(event.target);//点击的dom对象 
+		    alert('我要删除；当前行主键:'+item.id);
+	  },
+	  detail:function(item,event){ 
+		    alert('我要查看详情');
+	  }
+	}
+});
+</pre><script pre>
 var table2 = JZ.Table({
 	data:'UserList2',
 	url:JZ.AjaxUrl.DemoPageData.urlRandom(), 
@@ -317,7 +358,20 @@ var table2 = JZ.Table({
 		          <ul id="vue-pager3" class="pagination pull-right"></ul>
 						</div>
 						<div class="col-sm-6 col-xs-12">
-<script pre>
+<pre>
+//表格(可拖拽列)
+var table3 = JZ.Table({
+	data:'UserList3',
+	url:JZ.AjaxUrl.DemoPageData.urlRandom(),
+	el_data:'#vue-table3',
+	el_pager:'#vue-pager3',
+	limit:5,//每页条数
+	pageNum:1,
+	resizable:true,//可拖拽列 
+	singleLine:true,//禁止内容换行
+});
+
+</pre><script pre>
 //表格(可拖拽列)
 var table3 = JZ.Table({
 	data:'UserList3',
@@ -390,11 +444,17 @@ var table3 = JZ.Table({
 	</div>
 </div>
 	</div>
+
 <script>
+
   JZ.onWindowLoad(function () {
+
         $('pre').addClass('prettyprint');
+
         prettyPrint(); 
+
   })
+
 </script>
 		
 </body>

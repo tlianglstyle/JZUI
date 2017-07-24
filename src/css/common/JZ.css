@@ -22,7 +22,7 @@
 	.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
 	{padding:8px 5px;line-height: 22px;}
 	.panel-body{padding:10px;}
-	.pagination li{display:block;    box-sizing: initial;}
+	.pagination li{box-sizing: initial;}
 	[v-for],[v-if]{opacity:0}
 	.rc-handle-container{position:relative;} 
 	.rc-handle{position:absolute;width:7px;cursor:ew-resize;*cursor:pointer;margin-left:-3px;z-index:99;}
