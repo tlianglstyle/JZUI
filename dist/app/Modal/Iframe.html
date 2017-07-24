@@ -48,7 +48,10 @@
   </head>
   <body>
 	<div id="page-wrapper">
+
 <a onclick="javascript:history.go(-1);" href1="../examples/index.html" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-arrow-left"></span></a>
+
+
 
   
  	<a href="https://github.com/tlianglstyle/JZUI/blob/master/src/app/Modal/Iframe.html" class="btn btn-default btn-sm pull-right">查看源码</a>
@@ -56,7 +59,32 @@
  	<p>示例：使用模态框调用公用页面功能，操作结束后手动关闭模态框：</p>
 	<button type="button" class="btn btn-warning btn-xs" id="mybutton">打开包含iframe网页的modal</button>
 	<br><br>  
-<script pre>
+<pre>
+//当前页面打开模态框
+$('#mybutton').click(function(){
+ bootbox.dialog({
+   size:"large",//宽度   small:小，large:大，max：最大，full：全屏
+   url: "child.html",//modal包含的网页地址
+   id:'MyTestModal',//模态框id
+   styles:{minHeight:300},//设置modal样式 
+   closeButton: false 
+ }); 
+ bootbox.dialog({
+   size:"max",//宽度
+   url: "child.html",//modal包含的网页地址
+   id:'MyTestModal',//模态框id
+   styles:{minHeight:300},//设置modal样式 
+   closeButton: false 
+ }); 
+ bootbox.dialog({
+   size:"full",//宽度
+   url: "child.html",//modal包含的网页地址
+   id:'MyTestModal',//模态框id
+   styles:{minHeight:300},//设置modal样式 
+   closeButton: false 
+ }); 
+}); 
+</pre><script pre>
 //当前页面打开模态框
 $('#mybutton').click(function(){
  bootbox.dialog({
@@ -85,11 +113,17 @@ $('#mybutton').click(function(){
 子页面中关闭模态框：
 <code><pre>JZ.Modal.CloseParent('MyTestModal');</pre></code>
 	</div>
+
 <script>
+
   JZ.onWindowLoad(function () {
+
         $('pre').addClass('prettyprint');
+
         prettyPrint(); 
+
   })
+
 </script>
   </body>
 </html>
