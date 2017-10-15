@@ -64,5 +64,6 @@ API: <http://tlianglstyle.github.io/JZUI/dist/app/API/index.html>
 
 Demo: <http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html>
 
+V2.0 添加AdminLTE [https://github.com/tlianglstyle/JZUI_V2](https://github.com/tlianglstyle/JZUI_V2)
 
 JZUI at [jzjz.com](http://www.jzjz.com) 
