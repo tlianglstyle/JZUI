@@ -2,6 +2,16 @@
 
 使用bootstrap+vuejs(version 1.0)库,配合webpack,gulp构建工具搭建的后端js组件库
 
+#site
+
+V2.0 添加AdminLTE [https://github.com/tlianglstyle/JZUI_V2](https://github.com/tlianglstyle/JZUI_V2)
+
+API: <http://tlianglstyle.github.io/JZUI/dist/app/API/index.html>
+
+Demo: <http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html>
+
+
+
 ## install
 ``` bash
 ### git
@@ -59,11 +69,6 @@ The modules are individual files in the "src/js/common/" directory.
 </tbody>
 </table>
 
-#site
-API: <http://tlianglstyle.github.io/JZUI/dist/app/API/index.html>
 
-Demo: <http://tlianglstyle.github.io/JZUI/dist/app/Vue/index.html>
-
-V2.0 添加AdminLTE [https://github.com/tlianglstyle/JZUI_V2](https://github.com/tlianglstyle/JZUI_V2)
 
 JZUI at [jzjz.com](http://www.jzjz.com) 
